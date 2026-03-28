@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #f9fafb; scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f9fafb; scroll-behavior: smooth; overflow-x: hidden; }
         .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
         .nav-link:hover { color: #ef4444; }
-        .category-btn { transition: 0.3s; border: 2px solid #ef4444; color: #ef4444; }
-        .category-btn.active { background-color: #ef4444; color: white; }
+        .category-btn { transition: 0.3s; border: 2px solid #ef4444; color: #ef4444; margin: 5px; }
+        .category-btn.active { background-color: #ef4444; color: white; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3); }
         .product-card { transition: 0.3s; border-radius: 20px; overflow: hidden; background: white; }
         .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 30px rgba(0,0,0,0.1); }
-        h1, h2, h3, p, a, span { font-style: normal !important; }
+        h1, h2, h3, p, a, span, button { font-style: normal !important; }
         
         /* تظبيط المنيو للموبايل */
         #mobile-menu { display: none; }
@@ -34,78 +34,84 @@
             <div class="flex items-center gap-6">
                 <img src="logo.jpg" class="h-10 rounded-lg shadow-sm">
                 <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-r-2 pr-6 border-gray-200">
-                    <a href="index.html" class="nav-link menu-item">الرئيسية</a>
-                    <a href="about.html" class="nav-link menu-item">حول الشركة</a>
-                    <a href="#contact" class="nav-link menu-item">اتصل بنا</a>
+                    <a href="index.html" class="nav-link menu-item text-lg">الرئيسية</a>
+                    <a href="about.html" class="nav-link menu-item text-lg">حول الشركة</a>
+                    <a href="index.html#contact" class="nav-link menu-item text-lg">اتصل بنا</a>
                 </div>
             </div>
             <div class="burger-icon md:hidden" id="burger-btn">
                 <i class="fas fa-bars text-2xl text-gray-700 cursor-pointer"></i>
             </div>
             <div class="hidden md:block">
-                <a href="index.html" class="bg-gray-900 text-white px-8 py-2 rounded-full font-bold hover:bg-red-600 transition">العودة للرئيسية</a>
+                <a href="index.html" class="bg-gray-900 text-white px-8 py-2 rounded-full font-bold hover:bg-red-600 transition shadow-sm">العودة للرئيسية</a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-gray-900 py-16 text-center text-white px-4">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-4">كتالوج <span class="text-red-600">DeSina</span></h1>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto">نستعرض لكم أحدث مجموعات الأزياء لعام 2023 وأقوى الخدمات الرقمية الاحترافية.</p>
+    <header class="bg-gray-900 py-20 text-center text-white px-4 border-b-4 border-red-600">
+        <div class="container mx-auto max-w-4xl">
+            <img src="logo.jpg" class="h-16 mx-auto mb-6 rounded-xl shadow-lg">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6">كتالوج <span class="text-red-600">DeSina</span></h1>
+            <p class="text-gray-300 text-xl md:text-2xl font-bold leading-relaxed max-w-3xl mx-auto">نستعرض لكم أحدث مجموعات الأزياء العصرية وأقوى الخدمات الرقمية الاحترافية والصناعية.</p>
+        </div>
     </header>
 
     <section class="container mx-auto px-6 py-12">
-        <div class="flex flex-wrap justify-center gap-4 mb-16">
-            <button class="category-btn active px-10 py-3 rounded-full font-bold" onclick="filterItems('all', this)">الكل</button>
-            <button class="category-btn px-10 py-3 rounded-full font-bold" onclick="filterItems('fashion', this)">أزياء مايو 2023</button>
-            <button class="category-btn px-10 py-3 rounded-full font-bold" onclick="filterItems('digital', this)">الخدمات الرقمية</button>
+        <div class="flex flex-wrap justify-center gap-3 mb-16 bg-white p-4 rounded-full shadow-inner max-w-3xl mx-auto">
+            <button class="category-btn active px-8 py-3 rounded-full font-bold text-lg flex-grow md:flex-grow-0" onclick="filterItems('all', this)">الكل</button>
+            <button class="category-btn px-8 py-3 rounded-full font-bold text-lg flex-grow md:flex-grow-0" onclick="filterItems('fashion', this)">أزياء وملابس</button>
+            <button class="category-btn px-8 py-3 rounded-full font-bold text-lg flex-grow md:flex-grow-0" onclick="filterItems('digital', this)">الخدمات الرقمية</button>
+            <button class="category-btn px-8 py-3 rounded-full font-bold text-lg flex-grow md:flex-grow-0" onclick="filterItems('industrial', this)">الخدمات الصناعية</button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10" id="catalog-grid">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="catalog-grid">
             
-            <div class="product-card shadow-md fashion">
+            <div class="product-card shadow-lg fashion">
                 <img src="logo.jpg" class="w-full h-72 object-cover" alt="Fashion">
                 <div class="p-6">
-                    <span class="text-red-600 font-bold text-sm block mb-2 uppercase">May 2023 Collection</span>
+                    <span class="text-red-600 font-bold text-sm block mb-2 uppercase tracking-wider">DeSina Fashion</span>
                     <h3 class="text-2xl font-bold mb-3 text-gray-800">تصميم كاجوال عصري</h3>
-                    <p class="text-gray-600 mb-6">قطعة فريدة مصممة بأجود الخامات المصرية لتناسب إطلالتك اليومية.</p>
-                    <a href="https://wa.me/201001283311?text=استفسار عن تصميم كاجوال" target="_blank" class="block text-center bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition">اطلب عبر واتساب</a>
+                    <p class="text-gray-600 mb-6 leading-relaxed">قطعة فريدة مصممة بأجود الخامات المصرية لتناسب إطلالتك اليومية المتميزة.</p>
+                    <a href="https://wa.me/201001283311?text=استفسار عن تصميم كاجوال من الكتالوج" target="_blank" class="block text-center bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition shadow-md">اطلب عبر واتساب</a>
                 </div>
             </div>
 
-            <div class="product-card shadow-md digital">
+            <div class="product-card shadow-lg digital">
                 <img src="logo.jpg" class="w-full h-72 object-cover" alt="Digital">
                 <div class="p-6">
-                    <span class="text-blue-600 font-bold text-sm block mb-2 uppercase">Digital Package</span>
+                    <span class="text-blue-600 font-bold text-sm block mb-2 uppercase tracking-wider">Digital Services</span>
                     <h3 class="text-2xl font-bold mb-3 text-gray-800">باقة إدارة السوشيال ميديا</h3>
-                    <p class="text-gray-600 mb-6">باقة متكاملة تشمل إدارة الحسابات، الرد على العملاء، وزيادة التفاعل.</p>
-                    <a href="https://wa.me/201001283311?text=استفسار عن باقة إدارة الصفحات" target="_blank" class="block text-center bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition">استفسر عن الباقة</a>
+                    <p class="text-gray-600 mb-6 leading-relaxed">باقة متكاملة تشمل إدارة الحسابات، صناعة المحتوى، وزيادة التفاعل باحترافية.</p>
+                    <a href="https://wa.me/201001283311?text=استفسار عن باقة إدارة الصفحات من الكتالوج" target="_blank" class="block text-center bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition shadow-md">استفسر عن الباقة</a>
                 </div>
             </div>
 
-            <div class="product-card shadow-md fashion">
-                <img src="logo.jpg" class="w-full h-72 object-cover" alt="Fashion">
+            <div class="product-card shadow-lg industrial">
+                <img src="logo.jpg" class="w-full h-72 object-cover" alt="Industrial">
                 <div class="p-6">
-                    <span class="text-red-600 font-bold text-sm block mb-2 uppercase">Fashion Design</span>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800">خدمة تصميم باترون خاص</h3>
-                    <p class="text-gray-600 mb-6">نحول فكرتك إلى واقع بباترونات دقيقة جاهزة للتصنيع الفوري.</p>
-                    <a href="https://wa.me/201001283311?text=استفسار عن خدمة الباترون" target="_blank" class="block text-center bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition">اطلب خدمتك</a>
+                    <span class="text-orange-600 font-bold text-sm block mb-2 uppercase tracking-wider">Industrial Services</span>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-800">خدمة تصميم الباترون</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">نحول فكرتك إلى واقع بباترونات دقيقة جاهزة للتصنيع الكمي الفوري.</p>
+                    <a href="https://wa.me/201001283311?text=استفسار عن خدمة الباترون من الكتالوج" target="_blank" class="block text-center bg-green-500 text-white py-3 rounded-xl font-bold hover:bg-green-600 transition shadow-md">اطلب خدمتك</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <footer id="contact" class="bg-gray-950 text-white py-12 px-6 text-center">
-        <div class="container mx-auto border-b border-gray-800 pb-8 mb-8">
-            <h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4>
-            <p class="text-gray-400">تواصل معنا للاستفسار عن أي منتج أو خدمة</p>
-            <p class="text-lg mt-4" style="direction: ltr;">+20 100 128 3311</p>
+    <footer id="contact" class="bg-gray-950 text-white py-16 px-6 text-center mt-20">
+        <div class="container mx-auto border-b border-gray-800 pb-10 mb-10 max-w-4xl">
+            <img src="logo.jpg" class="h-12 mx-auto mb-6 rounded-lg opacity-80">
+            <h4 class="text-2xl font-bold text-red-600 mb-4 uppercase">DeSina</h4>
+            <p class="text-gray-400 mb-4 max-w-md mx-auto">تواصل معنا للاستفسار عن أي منتج أو خدمة، فريقنا جاهز لخدمتك.</p>
+            <p class="text-2xl font-bold mt-6 tracking-wide" style="direction: ltr;">+20 100 128 3311</p>
+            <p class="text-gray-500 text-sm mt-2">info@desina.net</p>
         </div>
-        <p class="text-gray-600 text-sm">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
+        <p class="text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
     </footer>
 
     <script>
-        // كود الفلترة
+        // كود الفلترة المطور للتعامل مع 4 أقسام
         function filterItems(category, btn) {
             const cards = document.querySelectorAll('.product-card');
             const btns = document.querySelectorAll('.category-btn');
