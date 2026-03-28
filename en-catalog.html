@@ -11,8 +11,8 @@
         body { font-family: 'Cairo', sans-serif; background-color: #f9fafb; }
         .filter-btn { transition: 0.3s; padding: 10px 20px; border-radius: 99px; font-weight: bold; }
         .active-filter { background-color: #ef4444; color: white; }
-        .filter-item { display: none; } /* بنخفي الكل في الأول */
-        .show { display: block !important; } /* بنظهر اللي نختاره بس */
+        .filter-item { display: none; }
+        .show { display: block !important; }
     </style>
 </head>
 <body>
@@ -104,7 +104,6 @@
                 <h3 class="text-xl font-bold">Digital Services</h3>
                 <p class="text-gray-500 mt-2">Coming Soon...</p>
             </div>
-            
             <div class="filter-item industrial bg-white p-8 rounded-2xl shadow-lg border-t-4 border-black text-center">
                 <h3 class="text-xl font-bold">Industrial Services</h3>
                 <p class="text-gray-500 mt-2">Coming Soon...</p>
@@ -112,6 +111,25 @@
 
         </div>
     </section>
+
+    <footer class="bg-gray-950 text-white py-16 px-6 text-center border-t border-gray-800">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+                <h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4>
+                <p class="text-gray-400">Contact our professional team for inquiries.</p>
+                <div class="mt-6">
+                    <p class="text-gray-300">info@desina.net</p>
+                    <p class="text-gray-300">desina.com@gmail.com</p>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-white">Quick Contact</h4>
+                <p class="text-lg mb-1">+20 100 128 3311</p>
+                <p class="text-lg mb-1">+20 111 568 0003</p>
+                <p class="text-gray-500 text-sm mt-4">All Rights Reserved to DeSina Company © 2026</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         filterSelection("all")
@@ -125,6 +143,5 @@
           }
         }
     </script>
-
 </body>
 </html>
