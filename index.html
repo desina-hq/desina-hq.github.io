@@ -9,7 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; }
+        /* نظام حماية المحتوى */
+        body { 
+            font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh;
+            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; /* منع التظليل */
+        }
+        
         .hero-section {
             background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
             background-size: cover; background-position: center; background-attachment: fixed;
@@ -22,40 +27,23 @@
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; }
         .service-card:hover { transform: translateY(-10px); }
 
-        /* --- تعديلات جيمي المعتمدة (المنيو الملمومة) --- */
-        @media (min-width: 769px) {
-            #mobile-menu { display: flex !important; position: static; background: none; box-shadow: none; width: auto; padding: 0; flex-direction: row; }
-            .burger-icon { display: none !important; }
-        }
+        /* ستايل المتجر الجديد */
+        .store-card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #eee; }
+        .store-card:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .product-img { width: 100%; height: 250px; object-fit: cover; background: #f9f9f9; }
+        .buy-btn { background: #ef4444; color: white; padding: 10px 20px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; width: 100%; }
+        .buy-btn:hover { background: #b91c1c; transform: translateY(-2px); }
 
+        /* المنيو الملمومة */
         @media (max-width: 768px) {
             #mobile-menu { 
-                display: none; 
-                flex-direction: column; 
-                width: 32%; 
-                position: fixed; 
-                top: 64px; 
-                left: 0; 
-                height: 65vh; 
-                background: rgba(45, 45, 48, 0.97); 
-                backdrop-filter: blur(12px);
-                padding: 10px 5px; 
-                box-shadow: 5px 5px 15px rgba(0,0,0,0.3); 
-                z-index: 9999; 
-                border-right: 2px solid #ef4444;
-                border-bottom-right-radius: 20px;
-                overflow-y: auto;
+                display: none; flex-direction: column; width: 32%; position: fixed; 
+                top: 64px; left: 0; height: 65vh; background: rgba(45, 45, 48, 0.97); 
+                backdrop-filter: blur(12px); padding: 10px 5px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3); 
+                z-index: 9999; border-right: 2px solid #ef4444; border-bottom-right-radius: 20px; overflow-y: auto;
             }
             #mobile-menu.active { display: flex !important; animation: slideInLeft 0.4s ease-out; }
-            .nav-link, .product-link { 
-                padding: 6px 8px; 
-                border-bottom: 1px solid rgba(255,255,255,0.05); 
-                width: 100%; 
-                text-align: right; 
-                color: white !important;
-                font-size: 14px;
-                white-space: nowrap; 
-            }
+            .nav-link, .product-link { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%; text-align: right; color: white !important; font-size: 14px; white-space: nowrap; }
         }
         @keyframes slideInLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
@@ -66,9 +54,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-
-    <a href="https://wa.me/201001283311" class="whatsapp-float" target="_blank">
+<body class="bg-gray-50 text-gray-900" oncontextmenu="return false;"> <a href="https://wa.me/201001283311" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -78,10 +64,11 @@
                 <img src="logo.jpg" class="main-logo">
                 <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-r-0 md:border-r-2 md:pr-6 border-gray-200">
                     <a href="catalog.html" class="product-link menu-item">الكتالوج</a>
+                    <a href="#store-section" class="nav-link menu-item text-red-600">المتجر</a>
                     <a href="#digital-services" class="nav-link menu-item">الرقمية</a>
                     <a href="#industrial-services" class="nav-link menu-item">الصناعية</a>
-                    <a href="team.html" class="nav-link menu-item">فريق العمل</a> <a href="privacy.html" class="nav-link menu-item" style="font-size: 12px;">سياسة الخصوصية</a>
-                    <a href="about.html" class="nav-link menu-item">حول</a>
+                    <a href="team.html" class="nav-link menu-item">فريق العمل</a>
+                    <a href="privacy.html" class="nav-link menu-item" style="font-size: 10px;">الخصوصية</a>
                     <a href="#contact" class="nav-link menu-item">اتصل بنا</a>
                     <a href="en.html" class="text-blue-400 font-bold md:hidden menu-item">English</a>
                 </div>
@@ -90,11 +77,6 @@
                 <a href="en.html" class="hidden md:block text-blue-600 font-bold border-l-2 pl-4 border-gray-200 hover:underline">English</a>
                 <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
                     <i class="fas fa-bars text-2xl text-gray-700"></i>
-                </div>
-                <div class="hidden md:block">
-                    <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-sm">
-                        <i class="fab fa-whatsapp"></i> تواصل معنا
-                    </a>
                 </div>
             </div>
         </div>
@@ -108,7 +90,40 @@
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="https://www.facebook.com/egy.desina" target="_blank" class="bg-blue-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-blue-700 transition"><i class="fab fa-facebook"></i> فيسبوك</a>
                 <a href="https://www.instagram.com/de__sina" target="_blank" class="bg-gradient-to-r from-purple-500 to-yellow-500 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:opacity-90 transition"><i class="fab fa-instagram"></i> انستجرام</a>
-                <a href="https://youtube.com/@de_sina" target="_blank" class="bg-red-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-red-700 transition"><i class="fab fa-youtube"></i> يوتيوب</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="store-section" class="py-20 bg-white px-6 text-center">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">متجر ديسينا المميز</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="store-card">
+                    <img src="logo.jpg" class="product-img" alt="Product">
+                    <div class="p-6 text-right">
+                        <h3 class="text-xl font-bold mb-2">اسم المنتج هنا</h3>
+                        <p class="text-gray-500 text-sm mb-4">وصف مختصر للأناقة والجودة.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-extrabold text-xl">000 EGP</span>
+                            <a href="https://wa.me/201001283311?text=أهلاً ديسينا، أرغب في طلب: اسم المنتج 1" target="_blank" class="buy-btn">
+                                <i class="fab fa-whatsapp"></i> اطلب الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="store-card">
+                    <img src="logo.jpg" class="product-img" alt="Product">
+                    <div class="p-6 text-right">
+                        <h3 class="text-xl font-bold mb-2">اسم المنتج هنا</h3>
+                        <p class="text-gray-500 text-sm mb-4">وصف مختصر للأناقة والجودة.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-extrabold text-xl">000 EGP</span>
+                            <a href="https://wa.me/201001283311?text=أهلاً ديسينا، أرغب في طلب: اسم المنتج 2" target="_blank" class="buy-btn">
+                                <i class="fab fa-whatsapp"></i> اطلب الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -117,62 +132,36 @@
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا الرقمية</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">إدارة الحسابات</h3><p class="text-gray-600">ندير منصاتكم باحترافية لزيادة التفاعل وبناء قاعدة جماهيرية.</p></div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">صناعة المحتوى</h3><p class="text-gray-600">نبتكر محتوى مرئي ومكتوب يجذب الأنظار ويعبر عن هويتكم.</p></div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">مونتاج الفيديو</h3><p class="text-gray-600">تحويل لقطاتكم إلى فيديوهات سينمائية جذابة لجميع المنصات.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="industrial-services" class="py-20 bg-white px-6 text-center">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا الصناعية</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-palette text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">تصميم الأزياء</h3><p class="text-gray-600">نبتكر تصاميم أزياء عصرية تلبي تطلعات عملائنا وتبرز هويتهم.</p></div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">إنتاج الملابس</h3><p class="text-gray-600">نقدم حلول إنتاج شاملة بدءاً من القص وحتى التجميع النهائي.</p></div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">ضبط الجودة</h3><p class="text-gray-600">نضمن جودة القطع النهائية من خلال تفتيش صارم ومعايير دقيقة.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">إدارة الحسابات</h3><p class="text-gray-600">ندير منصاتكم باحترافية لزيادة التفاعل.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">مونتاج الفيديو</h3><p class="text-gray-600">تحويل لقطاتكم إلى فيديوهات سينمائية جذابة.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">صناعة المحتوى</h3><p class="text-gray-600">نبتكر محتوى يجذب الأنظار ويعبر عن هويتكم.</p></div>
             </div>
         </div>
     </section>
 
     <footer id="contact" class="bg-gray-950 text-white py-16 px-6 text-center">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10 text-right" dir="rtl">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-right" dir="rtl">
             <div><h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4><p class="text-gray-400">سليمان أباظة، الدقي، الجيزة، مصر</p></div>
-            <div>
-                <h4 class="text-xl font-bold mb-4 text-white">تواصل معنا</h4>
-                <p class="text-lg mb-1" style="direction: ltr;">+20 100 128 3311</p>
-                <p class="text-lg mb-1" style="direction: ltr;">+20 111 568 0003</p>
-            </div>
-            <div>
-                <h4 class="text-xl font-bold mb-4 text-white">روابط هامة</h4>
-                <a href="privacy.html" class="block text-gray-400 hover:text-white mb-2 underline">سياسة الخصوصية</a>
-                <a href="about.html" class="block text-gray-400 hover:text-white underline">حول الشركة</a>
-            </div>
+            <div><h4 class="text-xl font-bold mb-4 text-white">تواصل معنا</h4><p dir="ltr">+20 100 128 3311</p></div>
+            <div><h4 class="text-xl font-bold mb-4 text-white">روابط</h4><a href="privacy.html" class="underline">الخصوصية</a></div>
         </div>
         <p class="mt-10 text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
     </footer>
 
     <script>
+        // نظام الحماية الشامل
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'p' || e.key === 'c')) { e.preventDefault(); }
+            if (e.key === 'F12') { e.preventDefault(); }
+        });
+
+        // المنيو الملمومة
         const burgerBtn = document.getElementById('burger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuItems = document.querySelectorAll('.menu-item');
-
-        burgerBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('active');
-        });
-
-        menuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
+        burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('active'); });
+        menuItems.forEach(item => { item.addEventListener('click', () => { mobileMenu.classList.remove('active'); }); });
+        document.addEventListener('click', (e) => { if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) { mobileMenu.classList.remove('active'); } });
     </script>
 </body>
 </html>
