@@ -16,46 +16,34 @@
         .product-link { color: #ef4444 !important; font-weight: 800; }
         .main-logo { height: 40px; border-radius: 8px; }
         .hero-logo { height: 110px; border-radius: 15px; margin: 0 auto 20px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .service-card { transition: 0.3s; border-top: 4px solid #ef4444; }
+        .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; }
         .service-card:hover { transform: translateY(-10px); }
-        .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; }
+        .cart-icon { color: #ef4444; font-size: 22px; position: relative; }
         .cart-badge { position: absolute; top: -8px; right: -10px; background: #000; color: #fff; font-size: 10px; padding: 1px 5px; border-radius: 50%; font-weight: bold; }
 
-        /* --- ستايل زرار الميكس (نسخة جيمي العالمية) --- */
-        .mode-toggle-wrapper { display: flex; align-items: center; min-width: 45px; justify-content: center; }
-        .mode-toggle { width: 44px; height: 22px; background: #e2e8f0; border-radius: 20px; position: relative; cursor: pointer; transition: 0.4s; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; border: 1px solid #ddd; }
+        /* --- ستايل الزرار الميكس (تثبيت جراحي) --- */
+        .mode-toggle { width: 44px; height: 22px; background: #e2e8f0; border-radius: 20px; position: relative; cursor: pointer; transition: 0.4s; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; border: 1px solid #ccc; }
         .mode-circle { width: 16px; height: 16px; background: white; border-radius: 50%; position: absolute; right: 2px; transition: 0.4s; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 3px rgba(0,0,0,0.2); z-index: 2; }
         .mode-toggle i { font-size: 9px; }
-        .sun-icon-bg { color: #f59e0b; }
-        .moon-icon-bg { color: #94a3b8; }
-        .inner-icon { font-size: 8px; color: #f59e0b; transition: 0.3s; }
-
-        /* --- تحويل الألوان للوضع الداكن المانيوال --- */
+        
+        /* --- وضع الدارك مانيوال --- */
         body.dark { background-color: #121212; color: #f3f4f6; }
-        body.dark .mode-toggle { background: #334155; border-color: #ef4444; }
-        body.dark .mode-circle { right: 24px; background: #1e293b; box-shadow: 0 0 8px #ef4444; }
-        body.dark .inner-icon { color: #ef4444; }
         body.dark nav { background-color: #1a1a1a !important; border-bottom: 1px solid #333; }
         body.dark .nav-link { color: #e5e7eb !important; }
-        body.dark #digital-services { background-color: #181818 !important; }
-        body.dark #industrial-services { background-color: #121212 !important; }
-        body.dark .service-card { background-color: #1f1f1f !important; color: #f3f4f6 !important; }
-        body.dark .service-card h3 { color: #fff !important; }
-        body.dark .bg-white { background-color: #1a1a1a !important; }
-        body.dark .bg-gray-100 { background-color: #181818 !important; }
+        body.dark .service-card { background-color: #1f1f1f !important; color: white !important; }
+        body.dark .bg-white, body.dark .bg-gray-100 { background-color: #181818 !important; }
         body.dark .text-gray-900, body.dark .text-gray-800 { color: #f3f4f6 !important; }
         body.dark footer { background-color: #080808 !important; }
+        body.dark .mode-toggle { background: #334155; border-color: #ef4444; }
+        body.dark .mode-circle { right: 24px; background: #1e293b; }
 
-        /* المنيو 32% (بدون تغيير شعرة) */
-        @media (min-width: 769px) { #mobile-menu { display: flex !important; position: static; background: none; flex-direction: row; } .burger-icon { display: none !important; } }
+        /* المنيو 32% المعتمدة */
         @media (max-width: 768px) {
-            #mobile-menu { display: none; flex-direction: column; width: 32%; position: fixed; top: 64px; left: 0; height: 65vh; background: rgba(45, 45, 48, 0.97); backdrop-filter: blur(12px); padding: 10px 5px; z-index: 9999; border-right: 2px solid #ef4444; border-bottom-right-radius: 20px; overflow-y: auto; }
+            #mobile-menu { display: none; flex-direction: column; width: 32%; position: fixed; top: 64px; left: 0; height: 65vh; background: rgba(45, 45, 48, 0.97); backdrop-filter: blur(12px); z-index: 9999; border-right: 2px solid #ef4444; border-bottom-right-radius: 20px; overflow-y: auto; }
             #mobile-menu.active { display: flex !important; animation: slideInLeft 0.4s ease-out; }
-            .nav-link, .product-link { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); color: white !important; font-size: 14px; text-align: right; width: 100%; display: block; }
-            /* تصغير الزرار في الموبايل عشان ميركبش على العربة */
-            .mode-toggle-wrapper { transform: scale(0.9); min-width: 40px; }
+            .nav-link, .product-link { padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); color: white !important; text-align: right; width: 100%; display: block; font-size: 14px; }
         }
-        @keyframes slideInLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes slideInLeft { from { transform: translateX(-100%); } to { transform: translateX(0); } }
         .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; left: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1001; }
     </style>
 </head>
@@ -71,17 +59,17 @@
                     <a href="store.html" class="product-link menu-item"><i class="fas fa-shopping-cart ml-1"></i> المتجر</a>
                     <a href="catalog.html" class="nav-link menu-item">الكتالوج</a>
                     <a href="#digital-services" class="nav-link menu-item">الرقمية</a>
-                    <a href="team.html" class="nav-link menu-item">فريق العمل</a>
+                    <a href="#industrial-services" class="nav-link menu-item">الصناعية</a>
+                    <a href="team.html" class="nav-link menu-item">فريق العمل</a> 
                     <a href="about.html" class="nav-link menu-item">حول</a>
                 </div>
             </div>
-            <div class="flex items-center gap-2 md:gap-4">
-                <div class="mode-toggle-wrapper">
-                    <div class="mode-toggle" id="themeToggle">
-                        <i class="fas fa-moon moon-icon-bg"></i>
-                        <div class="mode-circle"><i class="fas fa-sun inner-icon" id="innerIcon"></i></div>
-                        <i class="fas fa-sun sun-icon-bg"></i>
-                    </div>
+            
+            <div class="flex items-center gap-4">
+                <div class="mode-toggle" id="themeToggle">
+                    <i class="fas fa-moon moon-icon-bg" style="color: #94a3b8;"></i>
+                    <div class="mode-circle"><i class="fas fa-sun inner-icon" id="innerIcon" style="color: #f59e0b;"></i></div>
+                    <i class="fas fa-sun sun-icon-bg" style="color: #f59e0b;"></i>
                 </div>
 
                 <a href="en.html" class="hidden md:block text-blue-600 font-bold border-l-2 pl-4 border-gray-200 hover:underline">English</a>
@@ -99,27 +87,40 @@
     </nav>
 
     <section class="hero-section text-white py-20 text-center px-4">
-        <img src="logo.jpg" class="hero-logo">
-        <h1 class="text-4xl md:text-7xl font-extrabold mb-6">مرحبا بكم في <span class="text-red-600">DeSina</span></h1>
-        <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">نمزج بين الأناقة والابتكار.</p>
-    </section>
-
-    <section id="digital-services" class="py-20 bg-gray-100 px-6 text-center">
-        <h2 class="text-3xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">إدارة الحسابات</h3><p class="text-gray-600">ندير منصاتكم باحترافية.</p></div>
+        <div class="container mx-auto">
+            <img src="logo.jpg" class="hero-logo">
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6">مرحبا بكم في <span class="text-red-600">DeSina</span></h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">نمزج بين الأناقة والابتكار في عالم الأزياء.</p>
         </div>
     </section>
 
-    <footer class="bg-gray-950 text-white py-10 text-center">
-        <p class="text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
+    <section id="digital-services" class="py-20 bg-gray-100 px-6 text-center">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا الرقمية</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">إدارة الحسابات</h3><p>ندير منصاتكم باحترافية كاملة.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">صناعة المحتوى</h3><p>نبتكر محتوى مرئي يجذب الأنظار.</p></div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">مونتاج الفيديو</h3><p>تحويل لقطاتكم إلى فيديوهات سينمائية.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 text-white py-16 text-center">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10 text-right" dir="rtl">
+            <div><h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4><p class="text-gray-400">سليمان أباظة، الدقي، الجيزة، مصر</p></div>
+            <div><h4 class="text-xl font-bold mb-4">تواصل معنا</h4><p style="direction: ltr;">+20 100 128 3311</p></div>
+            <div><h4 class="text-xl font-bold mb-4">روابط هامة</h4><a href="privacy.html" class="block text-gray-400 underline">سياسة الخصوصية</a></div>
+        </div>
+        <p class="mt-10 text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
     </footer>
 
     <script>
+        // المنيو
         const burgerBtn = document.getElementById('burger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         burgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('active'));
 
+        // التبديل والذاكرة
         const themeToggle = document.getElementById('themeToggle');
         const innerIcon = document.getElementById('innerIcon');
         const body = document.body;
@@ -127,6 +128,7 @@
         if (localStorage.getItem('theme') === 'dark') {
             body.classList.add('dark');
             innerIcon.classList.replace('fa-sun', 'fa-moon');
+            innerIcon.style.color = '#ef4444';
         }
 
         themeToggle.addEventListener('click', () => {
@@ -134,9 +136,11 @@
             if (body.classList.contains('dark')) {
                 localStorage.setItem('theme', 'dark');
                 innerIcon.classList.replace('fa-sun', 'fa-moon');
+                innerIcon.style.color = '#ef4444';
             } else {
                 localStorage.setItem('theme', 'light');
                 innerIcon.classList.replace('fa-moon', 'fa-sun');
+                innerIcon.style.color = '#f59e0b';
             }
         });
     </script>
