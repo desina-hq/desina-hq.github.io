@@ -9,53 +9,79 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; transition: 0.3s; }
-        .hero-section { background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%); background-attachment: fixed; }
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; transition: background-color 0.3s, color 0.3s; }
+        .hero-section {
+            background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
         .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
         .nav-link:hover { color: #ef4444; }
         .product-link { color: #ef4444 !important; font-weight: 800; }
         .main-logo { height: 40px; border-radius: 8px; }
-        .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background: white; }
+        .hero-logo { height: 110px; border-radius: 15px; margin: 0 auto 20px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; }
         .service-card:hover { transform: translateY(-10px); }
+
         .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; }
         .cart-badge { position: absolute; top: -8px; right: -10px; background: #000; color: #fff; font-size: 10px; padding: 1px 5px; border-radius: 50%; font-weight: bold; }
-        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; left: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
 
-        /* --- ستايل الزرار الميكس (الكبسولة النيون) --- */
+        /* --- ستايل كبسولة ديسينا الميكس --- */
         .mode-toggle {
-            width: 58px; height: 28px; background: #e2e8f0; border-radius: 20px;
-            position: relative; cursor: pointer; transition: 0.4s; display: flex; align-items: center; justify-content: space-between; padding: 0 6px;
+            width: 50px; height: 24px; background: #e2e8f0; border-radius: 20px;
+            position: relative; cursor: pointer; transition: 0.4s; display: flex; align-items: center; justify-content: space-between; padding: 0 5px;
             border: 1px solid #ddd;
         }
         .mode-circle {
-            width: 22px; height: 22px; background: white; border-radius: 50%;
+            width: 18px; height: 18px; background: white; border-radius: 50%;
             position: absolute; right: 3px; transition: 0.4s; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 2;
         }
-        .mode-toggle i { font-size: 11px; }
+        .mode-toggle i { font-size: 10px; }
         .sun-icon-bg { color: #f59e0b; }
         .moon-icon-bg { color: #94a3b8; }
-        .inner-icon { font-size: 10px; color: #f59e0b; }
+        .inner-icon { font-size: 9px; color: #f59e0b; transition: 0.3s; }
 
-        /* --- تعديلات الوضع الداكن المانوال (بالكلاس) --- */
+        /* --- تحويل ستايلات الدارك أوتو لكلاس مانيوال --- */
         body.dark { background-color: #121212; color: #f3f4f6; }
-        body.dark .mode-toggle { background: #334155; border: 1px solid #ef4444; }
-        body.dark .mode-circle { right: 31px; background: #1e293b; color: #ef4444; box-shadow: 0 0 10px #ef4444; }
+        body.dark .mode-toggle { background: #334155; border-color: #ef4444; }
+        body.dark .mode-circle { right: 27px; background: #1e293b; box-shadow: 0 0 8px #ef4444; }
+        body.dark .inner-icon { color: #ef4444; }
         
         body.dark nav { background-color: #1a1a1a !important; border-bottom: 1px solid #333; }
         body.dark .nav-link { color: #e5e7eb !important; }
         body.dark #digital-services { background-color: #181818 !important; }
+        body.dark #industrial-services { background-color: #121212 !important; }
         body.dark .service-card { background-color: #1f1f1f !important; color: #f3f4f6 !important; border-top-color: #ef4444; }
-        body.dark .text-gray-900 { color: #f3f4f6 !important; }
+        body.dark .service-card p { color: #9ca3af !important; }
+        body.dark .service-card h3 { color: #ffffff !important; }
+        body.dark .bg-white { background-color: #1a1a1a !important; }
+        body.dark .bg-gray-100 { background-color: #181818 !important; }
+        body.dark .text-gray-900, body.dark .text-gray-800 { color: #f3f4f6 !important; }
+        body.dark .text-gray-600 { color: #9ca3af !important; }
         body.dark footer { background-color: #080808 !important; }
+        body.dark .cart-badge { background: #ef4444; color: #fff; }
 
-        /* المنيو الملمومة المعتمدة */
+        @media (min-width: 769px) {
+            #mobile-menu { display: flex !important; position: static; background: none; box-shadow: none; width: auto; padding: 0; flex-direction: row; }
+            .burger-icon { display: none !important; }
+        }
+
         @media (max-width: 768px) {
-            #mobile-menu { display: none; width: 32%; position: fixed; top: 64px; left: 0; height: 65vh; background: rgba(45, 45, 48, 0.97); backdrop-filter: blur(12px); border-right: 2px solid #ef4444; border-bottom-right-radius: 20px; z-index: 9999; }
+            #mobile-menu { 
+                display: none; flex-direction: column; width: 32%; position: fixed; top: 64px; left: 0; height: 65vh; 
+                background: rgba(45, 45, 48, 0.97); backdrop-filter: blur(12px); padding: 10px 5px; 
+                box-shadow: 5px 5px 15px rgba(0,0,0,0.3); z-index: 9999; border-right: 2px solid #ef4444; border-bottom-right-radius: 20px; overflow-y: auto;
+            }
             #mobile-menu.active { display: flex !important; animation: slideInLeft 0.4s ease-out; }
-            .nav-link, .product-link { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: right; color: white !important; white-space: nowrap; }
+            .nav-link, .product-link { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%; text-align: right; color: white !important; font-size: 14px; white-space: nowrap; }
         }
         @keyframes slideInLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 20px; left: 20px; background-color: #25d366; color: #FFF;
+            border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001;
+            display: flex; align-items: center; justify-content: center; transition: 0.3s;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -66,16 +92,17 @@
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center gap-6">
                 <a href="index.html"><img src="logo.jpg" class="main-logo"></a>
-                <div id="mobile-menu" class="hidden md:flex flex-col md:flex-row items-center gap-8 border-r-0 md:border-r-2 md:pr-6 border-gray-200">
+                <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-r-0 md:border-r-2 md:pr-6 border-gray-200">
                     <a href="store.html" class="product-link menu-item"><i class="fas fa-shopping-cart ml-1"></i> المتجر</a>
+                    <a href="catalog.html" class="nav-link menu-item">الكتالوج</a>
                     <a href="#digital-services" class="nav-link menu-item">الرقمية</a>
+                    <a href="#industrial-services" class="nav-link menu-item">الصناعية</a>
                     <a href="team.html" class="nav-link menu-item">فريق العمل</a> 
-                    <a href="en.html" class="text-blue-400 font-bold md:hidden menu-item">English</a>
+                    <a href="about.html" class="nav-link menu-item">حول</a>
                 </div>
             </div>
-
             <div class="flex items-center gap-4">
-                <div class="mode-toggle mr-3" id="themeToggle">
+                <div class="mode-toggle" id="themeToggle">
                     <i class="fas fa-moon moon-icon-bg"></i>
                     <div class="mode-circle">
                         <i class="fas fa-sun inner-icon" id="innerIcon"></i>
@@ -83,10 +110,13 @@
                     <i class="fas fa-sun sun-icon-bg"></i>
                 </div>
 
-                <a href="store.html" class="hidden md:block cart-icon mr-2">
+                <a href="en.html" class="hidden md:block text-blue-600 font-bold border-l-2 pl-4 border-gray-200 hover:underline">English</a>
+                
+                <a href="store.html" class="cart-icon">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-badge">10</span>
                 </a>
+
                 <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
                     <i class="fas fa-bars text-2xl text-gray-700"></i>
                 </div>
@@ -95,18 +125,23 @@
     </nav>
 
     <section class="hero-section text-white py-20 text-center px-4">
-        <h1 class="text-4xl md:text-7xl font-extrabold mb-6">مرحبا بكم في <span class="text-red-600">DeSina</span></h1>
-        <p class="text-xl md:text-2xl text-gray-300 font-bold">نمزج بين الأناقة والابتكار في عالم الأزياء.</p>
-    </section>
-
-    <section id="digital-services" class="py-20 bg-gray-100 text-center px-6">
-        <h2 class="text-3xl font-bold mb-10 border-b-4 border-red-600 inline-block pb-2 text-gray-900">خدماتنا</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-4xl text-red-600 mb-4"></i><h3 class="text-xl font-bold mb-2 text-gray-800">إدارة الحسابات</h3><p class="text-gray-600">احترافية كاملة لهويتكم الرقمية.</p></div>
+        <div class="container mx-auto">
+            <img src="logo.jpg" class="hero-logo">
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6">مرحبا بكم في <span class="text-red-600">DeSina</span></h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">نمزج بين الأناقة والابتكار في عالم الأزياء.</p>
         </div>
     </section>
 
-    <footer class="bg-gray-950 text-white py-10 text-center">
+    <section id="digital-services" class="py-20 bg-gray-100 px-6 text-center">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا الرقمية</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">إدارة الحسابات</h3><p class="text-gray-600">ندير منصاتكم باحترافية.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 text-white py-16 text-center">
         <p class="text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
     </footer>
 
@@ -115,7 +150,7 @@
         const mobileMenu = document.getElementById('mobile-menu');
         burgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('active'));
 
-        // نظام تبديل الوضع (مانيوال بالذاكرة)
+        // --- كود الذاكرة والتبديل المانيوال (الفرز الأول) ---
         const themeToggle = document.getElementById('themeToggle');
         const innerIcon = document.getElementById('innerIcon');
         const body = document.body;
