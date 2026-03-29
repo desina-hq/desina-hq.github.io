@@ -12,9 +12,41 @@
         body { 
             font-family: 'Cairo', sans-serif; background-color: #f8f9fa; 
             -webkit-user-select: none; user-select: none; 
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.4s, color 0.4s;
         }
         img { pointer-events: none; -webkit-user-drag: none; }
+        
+        /* --- ستايل كبسولة ديسينا الميكس --- */
+        .mode-toggle {
+            width: 55px; height: 26px; background: #e2e8f0; border-radius: 20px;
+            position: relative; cursor: pointer; transition: 0.4s; display: flex; align-items: center; justify-content: space-between; padding: 0 5px;
+            border: 1px solid #ddd;
+        }
+        .mode-circle {
+            width: 20px; height: 20px; background: white; border-radius: 50%;
+            position: absolute; right: 3px; transition: 0.4s; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 2;
+        }
+        .mode-toggle i { font-size: 10px; }
+        .sun-icon-bg { color: #f59e0b; }
+        .moon-icon-bg { color: #94a3b8; }
+        .inner-icon { font-size: 9px; color: #f59e0b; }
+
+        /* --- تحويل الوضع الداكن لنظام مانيوال --- */
+        body.dark { background-color: #121212; color: #f3f4f6; }
+        body.dark .mode-toggle { background: #334155; border-color: #ef4444; }
+        body.dark .mode-circle { right: 30px; background: #1e293b; box-shadow: 0 0 10px #ef4444; }
+        body.dark .inner-icon { color: #ef4444; }
+        
+        body.dark nav { background-color: #1a1a1a !important; border-bottom: 1px solid #333; }
+        body.dark .store-card { background-color: #1f1f1f !important; border-color: #333 !important; }
+        body.dark .product-img-container { background-color: #242424 !important; }
+        body.dark .store-card h3 { color: #ffffff !important; }
+        body.dark .text-gray-800 { color: #f3f4f6 !important; }
+        body.dark footer { background-color: #1a1a1a !important; border-top-color: #333 !important; }
+        body.dark .badge { background: #ef4444; }
+
+        /* ستايلات المتجر الأصلية */
         .store-card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #eee; }
         .store-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .product-img-container { width: 100%; height: 200px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
@@ -23,18 +55,6 @@
         .buy-btn { background: #25d366; color: white; padding: 10px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; width: 100%; }
         .buy-btn:hover { background: #128c7e; }
         .badge { background: black; color: white; border-radius: 50%; padding: 2px 7px; font-size: 10px; }
-
-        /* --- ذكاء الوضع الداكن للمتجر العربي --- */
-        @media (prefers-color-scheme: dark) {
-            body { background-color: #121212; color: #f3f4f6; }
-            nav { background-color: #1a1a1a !important; border-bottom: 1px solid #333; }
-            .store-card { background-color: #1f1f1f !important; border-color: #333 !important; }
-            .product-img-container { background-color: #242424 !important; }
-            .store-card h3 { color: #ffffff !important; }
-            .text-gray-800 { color: #f3f4f6 !important; }
-            footer { background-color: #1a1a1a !important; color: #9ca3af !important; border-top-color: #333 !important; }
-            .badge { background: #ef4444; }
-        }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -46,16 +66,29 @@
                 </a>
                 <img src="logo.jpg" style="height: 38px; border-radius: 8px;">
             </div>
-            <div class="text-red-600 text-2xl relative">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="badge absolute -top-2 -right-2">10</span>
+            
+            <div class="flex items-center gap-5">
+                <div class="mode-toggle" id="themeToggle">
+                    <i class="fas fa-moon moon-icon-bg"></i>
+                    <div class="mode-circle">
+                        <i class="fas fa-sun inner-icon" id="innerIcon"></i>
+                    </div>
+                    <i class="fas fa-sun sun-icon-bg"></i>
+                </div>
+
+                <div class="text-red-600 text-2xl relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge absolute -top-2 -right-2">10</span>
+                </div>
             </div>
         </div>
     </nav>
+
     <section class="py-12 bg-gray-900 text-center">
         <h1 class="text-white text-3xl md:text-5xl font-extrabold">متجر <span class="text-red-600">DeSina</span></h1>
         <p class="text-gray-400 mt-2">أرقى الأزياء والمنتجات بين يديك</p>
     </section>
+
     <div class="container mx-auto py-12 px-4">
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
             <script>
@@ -76,10 +109,34 @@
             </script>
         </div>
     </div>
+
     <footer class="bg-white py-8 text-center border-t border-gray-100">
         <p class="text-gray-500 text-xs font-bold italic">DeSina - Excellence in Every Detail</p>
     </footer>
+
     <script>
+        // نظام الذاكرة وتبديل الوضع
+        const themeToggle = document.getElementById('themeToggle');
+        const innerIcon = document.getElementById('innerIcon');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+            innerIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            if (body.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                innerIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                localStorage.setItem('theme', 'light');
+                innerIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // حماية المحتوى
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's')) { e.preventDefault(); }
         });
