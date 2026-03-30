@@ -171,21 +171,60 @@
         </div>
     </section>
 
-    <footer id="contact" class="bg-gray-950 text-white py-16 px-6 text-center">
+    <footer id="contact" class="bg-gray-950 text-white py-12 px-6">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10 text-right" dir="rtl">
-            <div><h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4><p class="text-gray-400">سليمان أباظة، الدقي، الجيزة، مصر</p></div>
-            <div>
-                <h4 class="text-xl font-bold mb-4 text-white">تواصل معنا</h4>
-                <p class="text-lg mb-1" style="direction: ltr;">+20 100 128 3311</p>
-                <p class="text-lg mb-1" style="direction: ltr;">+20 111 568 0003</p>
+            
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="text-2xl font-bold text-red-600 mb-4 italic">DeSina</h4>
+                <div class="flex items-center gap-2 text-gray-400">
+                    <i class="fas fa-map-marker-alt text-red-600"></i>
+                    <span>سليمان أباظة، الدقي، الجيزة، مصر</span>
+                </div>
             </div>
-            <div>
+
+            <div class="flex flex-col items-center md:items-start gap-3">
+                <h4 class="text-xl font-bold mb-2 text-white border-b-2 border-red-600 pb-1 inline-block">تواصل معنا</h4>
+                
+                <div class="flex flex-col items-center md:items-start gap-1" style="direction: ltr;">
+                    <div class="flex items-center gap-2">
+                        <span class="text-lg">+20 100 128 3311</span>
+                        <i class="fas fa-phone-alt text-red-600 text-sm"></i>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-lg">+20 111 568 0003</span>
+                        <i class="fas fa-phone-alt text-red-600 text-sm"></i>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center md:items-start gap-1 mt-2" style="direction: ltr;">
+                    <div class="flex items-center gap-2">
+                        <span class="text-gray-300 text-sm">info@desina.net</span>
+                        <i class="fas fa-envelope text-red-600"></i>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-gray-300 text-sm">desina.com@gmail.com</span>
+                        <i class="fas fa-envelope text-red-600"></i>
+                    </div>
+                </div>
+
+                <a href="https://maps.app.goo.gl/YourActualLink" target="_blank" class="mt-4 flex items-center gap-2 text-red-500 font-bold hover:text-white transition-all group">
+                    <i class="fas fa-location-arrow animate-bounce"></i>
+                    <span class="border-b border-red-500 group-hover:border-white">موقعنا على الخريطة</span>
+                </a>
+            </div>
+
+            <div class="flex flex-col items-center md:items-start">
                 <h4 class="text-xl font-bold mb-4 text-white">روابط هامة</h4>
-                <a href="privacy.html" class="block text-gray-400 hover:text-white mb-2 underline">سياسة الخصوصية</a>
-                <a href="about.html" class="block text-gray-400 hover:text-white underline">حول الشركة</a>
+                <a href="privacy.html" class="text-gray-400 hover:text-red-500 mb-2 transition-colors flex items-center gap-2">
+                    <i class="fas fa-shield-alt text-xs"></i> سياسة الخصوصية
+                </a>
+                <a href="about.html" class="text-gray-400 hover:text-red-500 transition-colors flex items-center gap-2">
+                    <i class="fas fa-info-circle text-xs"></i> حول الشركة
+                </a>
             </div>
+            
         </div>
-        <p class="mt-10 text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
+        <p class="mt-10 text-center text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
     </footer>
 
     <script>
