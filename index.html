@@ -7,22 +7,21 @@
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class'
-        }
+        // تفعيل الدارك مود عن طريق الكلاس فقط (إلغاء الأوتوماتيك)
+        tailwind.config = { darkMode: 'class' }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; transition: background-color 0.3s, color 0.3s; }
         
-        /* تعريف ألوان الدارك مود يدوياً لضمان عدم حدوث أخطاء */
+        /* تعريف ألوان الدارك مود اليدوية لضمان الثبات */
         .dark body { background-color: #121212; color: #f3f4f6; }
         .dark nav { background-color: #1a1a1a !important; border-bottom: 1px solid #333; }
         .dark .nav-link { color: #e5e7eb !important; }
         .dark #digital-services { background-color: #181818 !important; }
         .dark #industrial-services { background-color: #121212 !important; }
-        .dark .service-card { background-color: #1f1f1f !important; color: #f3f4f6 !important; }
+        .dark .service-card { background-color: #1f1f1f !important; color: #f3f4f6 !important; border-top-color: #ef4444; }
         .dark .bg-white { background-color: #1a1a1a !important; }
         .dark .bg-gray-100 { background-color: #181818 !important; }
         .dark .text-gray-900, .dark .text-gray-800 { color: #f3f4f6 !important; }
@@ -42,7 +41,6 @@
 
         .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; }
         .cart-badge { position: absolute; top: -8px; right: -10px; background: #000; color: #fff; font-size: 10px; padding: 1px 5px; border-radius: 50%; font-weight: bold; }
-        .dark .cart-badge { background: #ef4444; }
 
         @media (min-width: 769px) {
             #mobile-menu { display: flex !important; position: static; background: none; box-shadow: none; width: auto; padding: 0; flex-direction: row; }
@@ -55,7 +53,7 @@
                 flex-direction: column; 
                 width: 32%; 
                 position: fixed; 
-                top: 75px; 
+                top: 64px; 
                 left: 0; 
                 height: 65vh; 
                 background: rgba(45, 45, 48, 0.97); 
@@ -86,13 +84,15 @@
             display: flex; align-items: center; justify-content: center; transition: 0.3s;
         }
 
-        /* تنسيق الزرار عشان يكون شيك تحت اللوجو ومناسب للأندرويد */
+        /* تنسيق الأيقونة الذهبية (خارج الشريط وتحت اللوجو) */
         #theme-toggle {
-            width: 40px; height: 32px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 6px; background: #f3f4f6; transition: 0.3s; border: 1px solid #ddd;
+            color: #FFD700; /* اللون الذهبي */
+            font-size: 28px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 100;
         }
-        .dark #theme-toggle { background: #333; border-color: #444; color: #fbbf24; }
+        #theme-toggle:hover { transform: scale(1.2); }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -104,13 +104,7 @@
     <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center gap-6">
-                <div class="flex flex-col items-center gap-1">
-                    <a href="index.html"><img src="logo.jpg" class="main-logo"></a>
-                    <button id="theme-toggle" title="تغيير الوضع">
-                        <i id="theme-icon" class="fas fa-moon"></i>
-                    </button>
-                </div>
-
+                <a href="index.html"><img src="logo.jpg" class="main-logo"></a>
                 <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-r-0 md:border-r-2 md:pr-6 border-gray-200">
                     <a href="store.html" class="product-link menu-item"><i class="fas fa-shopping-cart ml-1"></i> المتجر</a>
                     <a href="catalog.html" class="nav-link menu-item">الكتالوج</a>
@@ -123,7 +117,6 @@
                     <a href="en.html" class="text-blue-400 font-bold md:hidden menu-item">English</a>
                 </div>
             </div>
-
             <div class="flex items-center gap-4">
                 <a href="store.html" class="hidden md:block cart-icon mr-2">
                     <i class="fas fa-shopping-cart"></i>
@@ -146,6 +139,12 @@
         </div>
     </nav>
 
+    <div class="container mx-auto px-4 relative">
+        <div id="theme-toggle" class="absolute -bottom-10 right-4">
+            <i id="theme-icon" class="fas fa-sun"></i>
+        </div>
+    </div>
+
     <section class="hero-section text-white py-20 text-center px-4">
         <div class="container mx-auto">
             <img src="logo.jpg" class="hero-logo">
@@ -163,9 +162,9 @@
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا الرقمية</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">إدارة الحسابات</h3><p class="text-gray-600">ندير منصاتكم باحترافية لزيادة التفاعل وبناء قاعدة جماهيرية.</p></div>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">صناعة المحتوى</h3><p class="text-gray-600">نبتكر محتوى مرئي ومكتوب يجذب الأنظار ويعبر عن هويتكم.</p></div>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">مونتاج الفيديو</h3><p class="text-gray-600">تحويل لقطاتكم إلى فيديوهات سينمائية جذابة لجميع المنصات.</p></div>
+                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">إدارة الحسابات</h3><p class="text-gray-600">ندير منصاتكم باحترافية لزيادة التفاعل وبناء قاعدة جماهيرية.</p></div>
+                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">صناعة المحتوى</h3><p class="text-gray-600">نبتكر محتوى مرئي ومكتوب يجذب الأنظار ويعبر عن هويتكم.</p></div>
+                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">مونتاج الفيديو</h3><p class="text-gray-600">تحويل لقطاتكم إلى فيديوهات سينمائية جذابة لجميع المنصات.</p></div>
             </div>
         </div>
     </section>
@@ -174,9 +173,9 @@
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا الصناعية</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-palette text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">تصميم الأزياء</h3><p class="text-gray-600">نبتكر تصاميم أزياء عصرية تلبي تطلعات عملائنا وتبرز هويتهم.</p></div>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">إنتاج الملابس</h3><p class="text-gray-600">نقدم حلول إنتاج شاملة بدءاً من القص وحتى التجميع النهائي.</p></div>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">ضبط الجودة</h3><p class="text-gray-600">نضمن جودة القطع النهائية من خلال تفتيش صارم ومعايير دقيقة.</p></div>
+                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-palette text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">تصميم الأزياء</h3><p class="text-gray-600">نبتكر تصاميم أزياء عصرية تلبي تطلعات عملائنا وتبرز هويتهم.</p></div>
+                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-industry text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">إنتاج الملابس</h3><p class="text-gray-600">نقدم حلول إنتاج شاملة بدءاً من القص وحتى التجميع النهائي.</p></div>
+                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">ضبط الجودة</h3><p class="text-gray-600">نضمن جودة القطع النهائية من خلال تفتيش صارم ومعايير دقيقة.</p></div>
             </div>
         </div>
     </section>
@@ -231,29 +230,12 @@
     </footer>
 
     <script>
-        // كود القائمة الجانبية (البرجر)
+        // كود القائمة
         const burgerBtn = document.getElementById('burger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuItems = document.querySelectorAll('.menu-item');
+        burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('active'); });
 
-        burgerBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('active');
-        });
-
-        menuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
-
-        // كود تشغيل الدارك مود المضمون (جيمي)
+        // كود تشغيل الدارك مود (جيمي الفابريكا)
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const htmlElement = document.documentElement;
@@ -261,25 +243,25 @@
         function applyTheme(theme) {
             if (theme === 'dark') {
                 htmlElement.classList.add('dark');
-                themeIcon.className = 'fas fa-sun'; 
+                themeIcon.className = 'fas fa-moon'; 
                 localStorage.setItem('color-theme', 'dark');
             } else {
                 htmlElement.classList.remove('dark');
-                themeIcon.className = 'fas fa-moon';
+                themeIcon.className = 'fas fa-sun';
                 localStorage.setItem('color-theme', 'light');
             }
         }
 
-        // فحص المخزن عند التحميل
-        const savedTheme = localStorage.getItem('color-theme');
-        if (savedTheme) {
-            applyTheme(savedTheme);
+        // التحقق من التفضيل المحفوظ عند التحميل
+        if (localStorage.getItem('color-theme') === 'dark') {
+            applyTheme('dark');
+        } else {
+            applyTheme('light');
         }
 
-        // الضغط على الزرار
         themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
-            applyTheme(currentTheme);
+            const isDark = htmlElement.classList.contains('dark');
+            applyTheme(isDark ? 'light' : 'dark');
         });
     </script>
 </body>
