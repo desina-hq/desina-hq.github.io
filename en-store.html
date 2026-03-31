@@ -18,7 +18,10 @@
             user-select: none; 
             scroll-behavior: smooth; 
         }
-        h1, h2, h3, .filter-btn { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        /* تعديل هنا لضمان ظهور الحروف الكبيرة والصغيرة في العناوين */
+        h1, h2, h3, .filter-btn { font-family: 'Oswald', sans-serif; }
+        .uppercase-text { text-transform: uppercase; }
+        
         img { pointer-events: none; -webkit-user-drag: none; }
         
         /* Card Design */
@@ -33,7 +36,7 @@
         .search-container { max-width: 600px; margin: 20px auto 10px; position: relative; padding: 0 15px; }
         .search-input { width: 100%; padding: 12px 20px 12px 45px; border-radius: 50px; border: 2px solid #eee; outline: none; transition: 0.3s; }
         .search-input:focus { border-color: #ef4444; }
-        .filter-btn { padding: 8px 20px; border-radius: 50px; background: white; border: 1px solid #ddd; font-weight: bold; font-size: 13px; transition: 0.3s; }
+        .filter-btn { padding: 8px 20px; border-radius: 50px; background: white; border: 1px solid #ddd; font-weight: bold; font-size: 13px; transition: 0.3s; text-transform: uppercase; }
         .filter-btn.active { background: #ef4444; color: white; border-color: #ef4444; }
 
         /* Luxury Review Style */
@@ -47,13 +50,6 @@
         .modal-content { background: white; width: 100%; max-width: 450px; padding: 35px; border-radius: 30px; position: relative; animation: popIn 0.3s ease; }
         @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .star-rating i { cursor: pointer; font-size: 26px; color: #ddd; transition: 0.2s; }
-
-        /* Misc */
-        #lightbox { display: none; position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
-        #lightbox.active { display: flex; }
-        #toast { display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #10b981; color: white; padding: 12px 30px; border-radius: 50px; z-index: 9999; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        #toast.active { display: block; animation: slideDown 0.4s ease; }
-        @keyframes slideDown { from { top: -60px; } to { top: 20px; } }
     </style>
 </head>
 <body>
@@ -64,7 +60,7 @@
         <div class="container mx-auto flex justify-between items-center px-2">
             <div class="flex items-center gap-4">
                 <img src="logo.jpg" style="height: 38px; border-radius: 8px;">
-                <a href="index.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition text-sm">HOME <i class="fas fa-arrow-left"></i></a>
+                <a href="en-index.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition text-sm">HOME <i class="fas fa-arrow-left"></i></a>
             </div>
             <div class="text-red-600 text-2xl relative cursor-pointer" onclick="sendOrderToWhatsApp()">
                 <i class="fas fa-shopping-cart"></i>
@@ -91,8 +87,8 @@
     <section class="bg-gray-50 py-24 px-4 border-t border-gray-100 overflow-hidden">
         <div class="container mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900">
-                    What clients say about <span class="text-red-600">DeSina</span> ⭐
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 uppercase-text">
+                    What clients say about <span class="text-red-600" style="text-transform: none;">DeSina</span> ⭐
                 </h2>
                 <p class="text-gray-500 font-medium">We value your trust and always strive for the best</p>
                 <button class="add-review-btn mt-8" onclick="toggleReviewModal(true)">Share Your Experience</button>
@@ -149,7 +145,6 @@
         const grid = document.getElementById('product-grid');
         let currentFilter = 'all';
 
-        // 1. Display Products
         function displayProducts() {
             grid.innerHTML = "";
             const search = document.getElementById('searchInput').value.toLowerCase();
@@ -178,7 +173,6 @@
             displayProducts();
         }
 
-        // 2. Cart System
         let cartItems = [];
         function addToCart(name, e) {
             e.stopPropagation();
@@ -199,7 +193,6 @@
             cartItems = []; document.getElementById('cart-badge').style.display = 'none';
         }
 
-        // 3. Reviews System
         let selectedStars = 5;
         function toggleReviewModal(show) { document.getElementById('review-modal').style.display = show ? 'flex' : 'none'; }
         
@@ -227,7 +220,6 @@
             toggleReviewModal(false);
         }
 
-        // 4. Lightbox & Swiper
         function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox').classList.add('active'); document.body.style.overflow='hidden'; }
         function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow='auto'; }
 
