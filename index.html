@@ -11,8 +11,12 @@
     <style>
         body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; transition: background-color 0.3s, color 0.3s; }
         .hero-section {
-            background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
-            background-size: cover; background-position: center; background-attachment: fixed;
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
         .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
         .nav-link:hover { color: #ef4444; }
@@ -22,10 +26,9 @@
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; }
         .service-card:hover { transform: translateY(-10px); }
 
-        /* أيقونة العربة في الهيدر */
-        .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; }
+        /* أيقونة العربة في الهيدر - سادة بدون أرقام */
+        .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; display: flex; align-items: center; }
         .cart-icon:hover { transform: scale(1.1); }
-        .cart-badge { position: absolute; top: -8px; right: -10px; background: #000; color: #fff; font-size: 10px; padding: 1px 5px; border-radius: 50%; font-weight: bold; }
 
         /* --- تعديلات جيمي المعتمدة (المنيو الملمومة) --- */
         @media (min-width: 769px) {
@@ -90,20 +93,18 @@
                     <a href="privacy.html" class="nav-link menu-item" style="font-size: 12px;">سياسة الخصوصية</a>
                     <a href="about.html" class="nav-link menu-item">حول</a>
                     <a href="#contact" class="nav-link menu-item">اتصل بنا</a>
-                    <a href="en.html" class="text-blue-400 font-bold md:hidden menu-item">English</a>
+                    <a href="en.html" class="text-blue-600 font-bold md:hidden menu-item">English</a>
                 </div>
             </div>
             <div class="flex items-center gap-4">
                 <a href="store.html" class="hidden md:block cart-icon mr-2">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-badge">10</span>
                 </a>
 
                 <a href="en.html" class="hidden md:block text-blue-600 font-bold border-l-2 pl-4 border-gray-200 hover:underline">English</a>
                 
                 <a href="store.html" class="md:hidden cart-icon">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-badge" style="font-size: 8px; top: -5px; right: -7px;">10</span>
                 </a>
 
                 <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
@@ -118,8 +119,14 @@
         </div>
     </nav>
 
-    <section class="hero-section text-white py-20 text-center px-4">
-        <div class="container mx-auto">
+    <section class="hero-section text-white text-center px-4">
+        <video autoplay loop muted playsinline class="absolute z-10 w-auto min-w-full min-h-full max-w-none object-cover">
+            <source src="39750.mp4" type="video/mp4">
+        </video>
+        
+        <div class="absolute z-20 w-full h-full bg-black/50"></div>
+
+        <div class="container mx-auto relative z-30">
             <img src="logo.jpg" class="hero-logo">
             <h1 class="text-4xl md:text-7xl font-extrabold mb-6">مرحبا بكم في <span class="text-red-600">DeSina</span></h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">نمزج بين الأناقة والابتكار في عالم الأزياء والخدمات الرقمية.</p>
