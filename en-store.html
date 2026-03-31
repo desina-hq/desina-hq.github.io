@@ -6,74 +6,113 @@
     <title>DeSina Store | Premium Collection</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; scroll-behavior: smooth; }
-        /* تعديل عشان DeSina تظهر صح في العناوين */
-        h1, h2, h3, .filter-btn { font-family: 'Oswald', sans-serif; }
-        .store-card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #eee; cursor: pointer; }
-        .product-img-container { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .product-img { width: 100%; height: 100%; object-fit: cover; }
-        .buy-btn { background: #25d366; color: white; padding: 12px; border-radius: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; border: none; transition: 0.3s; }
-        .search-input { width: 100%; padding: 12px 20px 12px 45px; border-radius: 50px; border: 2px solid #eee; outline: none; }
-        .filter-btn { padding: 8px 20px; border-radius: 50px; background: white; border: 1px solid #ddd; font-weight: bold; text-transform: uppercase; }
-        .filter-btn.active { background: #ef4444; color: white; border-color: #ef4444; }
-        .star-gold { color: #FFD700 !important; }
-        .review-card { background: #ffffff; border-radius: 25px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-        #review-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 10001; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-        .modal-content { background: white; width: 90%; max-width: 450px; padding: 35px; border-radius: 30px; position: relative; }
+        /* تطبيق خط Cairo على الموقع بالكامل لتوحيد الهوية */
+        body { font-family: 'Cairo', sans-serif; background-color: #fcfcfc; scroll-behavior: smooth; }
+        h1, h2, h3, h4, .filter-btn, .buy-btn { font-family: 'Cairo', sans-serif; font-weight: 900; }
+        
+        .store-card { background: white; border-radius: 25px; overflow: hidden; transition: 0.4s; border: 1px solid #f0f0f0; }
+        .store-card:hover { transform: translateY(-10px); shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: #ef4444; }
+        
+        .product-img-container { width: 100%; height: 280px; overflow: hidden; background: #f3f4f6; }
+        .product-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .store-card:hover .product-img { transform: scale(1.1); }
+
+        /* تعديل زر السلة ليكون بريميوم */
+        .buy-btn { 
+            background: #111827; 
+            color: white; 
+            padding: 14px; 
+            border-radius: 15px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 12px; 
+            width: 100%; 
+            transition: 0.3s; 
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        .buy-btn:hover { background: #ef4444; }
+
+        .filter-btn { padding: 10px 25px; border-radius: 50px; background: white; border: 2px solid #eee; font-weight: 800; transition: 0.3s; }
+        .filter-btn.active { background: #ef4444; color: white; border-color: #ef4444; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3); }
+        
+        /* تنسيق النجوم والتقييمات */
+        .star-gold { color: #FFD700; font-size: 18px; margin-bottom: 10px; }
+        .review-card { background: #ffffff; border-radius: 30px; padding: 40px; border: 1px solid #f0f0f0; box-shadow: 0 10px 25px rgba(0,0,0,0.02); }
+        
+        .search-input { width: 100%; padding: 15px 25px 15px 50px; border-radius: 20px; border: 2px solid #eee; outline: none; font-weight: 700; transition: 0.3s; }
+        .search-input:focus { border-color: #ef4444; }
+
+        #review-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10001; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+        .modal-content { background: white; width: 92%; max-width: 480px; padding: 40px; border-radius: 35px; position: relative; }
     </style>
 </head>
 <body>
 
-    <div id="toast" style="display:none; position:fixed; top:20px; left:50%; transform:translateX(-50%); background:#10b981; color:white; padding:12px 30px; border-radius:50px; z-index:9999;">Model added to cart! ✅</div>
+    <div id="toast" style="display:none; position:fixed; top:30px; left:50%; transform:translateX(-50%); background:#ef4444; color:white; padding:15px 35px; border-radius:15px; z-index:9999; font-weight:900; box-shadow: 0 10px 20px rgba(0,0,0,0.2);">Model added to cart! ✅</div>
 
     <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-2">
             <div class="flex items-center gap-4">
-                <img src="logo.jpg" style="height: 38px; border-radius: 8px;">
-                <a href="en.html" class="text-gray-600 font-bold flex items-center gap-2 hover:text-red-600 transition text-sm">HOME <i class="fas fa-arrow-left"></i></a>
+                <img src="logo.jpg" style="height: 42px; border-radius: 10px;">
+                <a href="en.html" class="text-gray-900 font-black flex items-center gap-2 hover:text-red-600 transition text-sm uppercase tracking-tighter">HOME <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="text-red-600 text-2xl relative cursor-pointer" onclick="sendOrderToWhatsApp()">
-                <i class="fas fa-shopping-cart"></i>
-                <span id="cart-badge" class="bg-black text-white rounded-full px-2 py-0.5 text-[10px] absolute -top-2 -right-2 hidden">0</span>
+            <div class="flex items-center gap-5">
+                <a href="store.html" class="text-blue-600 font-black border-r-2 pr-4 border-gray-100 hover:underline text-xs">عربي</a>
+                <div class="text-red-600 text-2xl relative cursor-pointer" onclick="sendOrderToWhatsApp()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-badge" class="bg-black text-white rounded-full px-2 py-0.5 text-[10px] absolute -top-2 -right-2 hidden">0</span>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="max-w-[600px] mx-auto my-5 px-4 relative">
-        <i class="fas fa-search absolute left-8 top-1/2 -translate-y-1/2 text-gray-400"></i>
-        <input type="text" id="searchInput" class="search-input" placeholder="Search for a specific model..." onkeyup="displayProducts()">
+    <header class="py-12 text-center px-4 bg-white">
+        <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-2 uppercase italic"><span class="text-red-600">DeSina</span> STORE</h1>
+        <p class="text-gray-500 font-bold">Premium Quality Models & Digital Innovation</p>
+    </header>
+
+    <div class="max-w-[650px] mx-auto mb-8 px-4 relative">
+        <i class="fas fa-search absolute left-9 top-1/2 -translate-y-1/2 text-gray-400"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search for your favorite model..." onkeyup="displayProducts()">
     </div>
 
-    <div class="flex flex-wrap justify-center gap-3 mb-10 px-4">
-        <button class="filter-btn active" onclick="setCategory('all', this)">All Models</button>
-        <button class="filter-btn" onclick="setCategory('summer', this)">Summer</button>
-        <button class="filter-btn" onclick="setCategory('winter', this)">Winter</button>
+    <div class="flex flex-wrap justify-center gap-4 mb-12 px-4">
+        <button class="filter-btn active" onclick="setCategory('all', this)">All Collections</button>
+        <button class="filter-btn" onclick="setCategory('summer', this)">Summer ☀️</button>
+        <button class="filter-btn" onclick="setCategory('winter', this)">Winter ❄️</button>
     </div>
 
-    <div class="container mx-auto py-2 px-4 mb-20">
-        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 min-h-[300px]"></div>
+    <div class="container mx-auto py-2 px-4 mb-24">
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10"></div>
     </div>
 
     <section class="bg-gray-50 py-24 px-4 border-t border-gray-100">
-        <div class="container mx-auto text-center">
+        <div class="container mx-auto text-center max-w-4xl">
             <div class="mb-16">
-                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900" style="text-transform: uppercase;">
-                    What clients say about <span class="text-red-600" style="text-transform: none;">DeSina</span> ⭐
+                <h2 class="text-4xl md:text-5xl font-black mb-4 text-gray-900 uppercase">
+                    What clients say about <span class="text-red-600">DeSina</span> ⭐
                 </h2>
-                <button class="bg-red-600 text-white px-8 py-3 rounded-full font-bold mt-5" onclick="toggleReviewModal(true)">Share Your Experience</button>
+                <p class="text-gray-500 font-bold mb-8">We value your trust and always strive for the best</p>
+                <button class="bg-red-600 text-white px-10 py-4 rounded-2xl font-black shadow-lg hover:bg-black transition-all" onclick="toggleReviewModal(true)">SHARE YOUR EXPERIENCE</button>
             </div>
             
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide review-card text-center">
-                        <div class="flex justify-center mb-5 star-gold"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-gray-700">"The material is excellent and delivery was very fast. DeSina is a truly professional brand."</p>
-                        <h4 class="mt-8 font-bold text-gray-900">Ahmed Mahmoud</h4>
+                    <div class="swiper-slide">
+                        <div class="review-card">
+                            <div class="flex justify-center mb-4 star-gold">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 text-lg font-bold italic">"The material is excellent and delivery was very fast. DeSina is a truly professional brand."</p>
+                            <h4 class="mt-8 font-black text-red-600 uppercase">Ahmed Mahmoud</h4>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,11 +121,11 @@
 
     <div id="review-modal">
         <div class="modal-content">
-            <i class="fas fa-times absolute right-6 top-6 text-gray-400 cursor-pointer" onclick="toggleReviewModal(false)"></i>
-            <h3 class="text-2xl font-bold mb-6 text-center">Your Feedback ✍️</h3>
-            <input type="text" id="revName" placeholder="Your Name" class="w-full border-2 p-3 rounded-2xl mb-4">
-            <textarea id="revMsg" placeholder="Your Comment" class="w-full border-2 p-3 rounded-2xl h-28 mb-4"></textarea>
-            <button onclick="submitReview()" class="w-full bg-green-500 text-white py-4 rounded-2xl font-bold">Send via WhatsApp</button>
+            <i class="fas fa-times absolute right-8 top-8 text-gray-400 cursor-pointer text-xl" onclick="toggleReviewModal(false)"></i>
+            <h3 class="text-3xl font-black mb-8 text-center text-gray-900">YOUR FEEDBACK ✍️</h3>
+            <input type="text" id="revName" placeholder="Full Name" class="w-full border-2 p-4 rounded-2xl mb-4 outline-none focus:border-red-600 font-bold">
+            <textarea id="revMsg" placeholder="Write your experience..." class="w-full border-2 p-4 rounded-2xl h-32 mb-6 outline-none focus:border-red-600 font-bold"></textarea>
+            <button onclick="submitReview()" class="w-full bg-green-500 text-white py-5 rounded-2xl font-black text-lg shadow-lg hover:bg-green-600 transition">SEND VIA WHATSAPP</button>
         </div>
     </div>
 
@@ -106,12 +145,15 @@
                 const category = (i % 2 === 0) ? 'winter' : 'summer';
                 if ((currentFilter === 'all' || category === currentFilter) && modelName.toLowerCase().includes(search)) {
                     grid.innerHTML += `
-                        <div class="store-card">
+                        <div class="store-card group">
                             <div class="product-img-container"><img src="cod${i}.jpeg" class="product-img"></div>
-                            <div class="p-4">
-                                <h3 class="text-xs md:text-sm font-bold text-gray-800">${modelName}</h3>
-                                <p class="text-red-600 font-extrabold mb-4">${productPrice}</p>
-                                <button class="buy-btn" onclick="addToCart('${modelName}', event)"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+                            <div class="p-6">
+                                <h3 class="text-lg font-black text-gray-900 mb-1 uppercase">${modelName}</h3>
+                                <p class="text-gray-500 font-bold text-xs mb-3">Premium Cotton Quality</p>
+                                <p class="text-red-600 font-black text-2xl mb-5">${productPrice}</p>
+                                <button class="buy-btn" onclick="addToCart('${modelName}', event)">
+                                    <i class="fas fa-shopping-bag"></i> ADD TO CART
+                                </button>
                             </div>
                         </div>`;
                 }
@@ -132,12 +174,12 @@
             const b = document.getElementById('cart-badge');
             b.innerText = cartItems.length; b.style.display = 'block';
             const t = document.getElementById('toast');
-            t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 2500);
+            t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 3000);
         }
 
         function sendOrderToWhatsApp() {
-            if (cartItems.length === 0) return alert("Cart is empty!");
-            let msg = `New Order from DeSina 🚀\n----------\n` + cartItems.map((v,i) => `${i+1}- ${v}`).join("\n");
+            if (cartItems.length === 0) return alert("Your cart is empty, Jimmy!");
+            let msg = `DeSina Order 🚀\n----------\n` + cartItems.map((v,i) => `${i+1}- ${v}`).join("\n");
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
@@ -146,12 +188,12 @@
         function submitReview() {
             const name = document.getElementById('revName').value;
             const msg = document.getElementById('revMsg').value;
-            if (!name || !msg) return alert("Fill all fields");
-            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent("Review: " + msg + " by " + name)}`, '_blank');
+            if (!name || !msg) return alert("Please fill all fields");
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent("DeSina Review: " + msg + " by " + name)}`, '_blank');
             toggleReviewModal(false);
         }
 
-        new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3500 } });
+        new Swiper(".mySwiper", { loop: true, autoplay: { delay: 4000 } });
     </script>
 </body>
 </html>
