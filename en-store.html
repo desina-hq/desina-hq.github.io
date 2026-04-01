@@ -12,17 +12,14 @@
     
     <style>
         body { font-family: 'Cairo', sans-serif; background-color: #fcfcfc; scroll-behavior: smooth; font-style: normal !important; }
-        * { font-style: normal !important; text-transform: none !important; } /* منع تحويل الحروف لكابيتال تلقائياً */
+        * { font-style: normal !important; text-transform: none !important; }
 
-        /* الشريط العلوي - حجم متوسط وشيك */
         .nav-link { font-weight: 900 !important; font-size: 14px !important; letter-spacing: 0.5px; }
 
-        /* الهيرو سيكشن - DeSina المظبوطة */
         .hero-section { background-color: #0f172a; padding: 30px 20px 50px; text-align: center; }
         .brand-text { font-weight: 900 !important; letter-spacing: -1.5px; font-size: 3.2rem; color: white; line-height: 1; }
         .brand-red { color: #ef4444; }
 
-        /* محرك البحث */
         .search-container { max-width: 600px; margin: -28px auto 25px; padding: 0 20px; position: relative; z-index: 10; }
         .search-bar { width: 100%; padding: 15px 25px 15px 55px; border-radius: 50px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.15); outline: none; font-weight: 700; }
         .search-icon { position: absolute; left: 40px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
@@ -30,22 +27,23 @@
         .filter-btn { padding: 8px 25px; border-radius: 50px; background: white; border: 2px solid #eee; font-weight: 800; font-size: 13px; transition: 0.3s; }
         .filter-btn.active { background: #ef4444; color: white; border-color: #ef4444; }
 
-        /* كارت المنتج */
         .store-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #f1f5f9; transition: 0.3s; text-align: center; }
         .product-img-container { width: 100%; height: 180px; overflow: hidden; background: #f1f5f9; cursor: zoom-in; position: relative; }
         @media (min-width: 768px) { .product-img-container { height: 320px; } }
         .product-img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
 
-        /* Lightbox */
         #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 10000; align-items: center; justify-content: center; }
         #lightbox-img { max-width: 90%; max-height: 80vh; border-radius: 12px; }
         .lb-close { position: absolute; top: 20px; right: 25px; color: white; font-size: 45px; cursor: pointer; z-index: 10002; }
         .lb-arrow { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 45px; cursor: pointer; padding: 25px; z-index: 10002; }
 
-        /* التقييمات */
         .review-card { background: white; border-radius: 25px; padding: 30px; border: 1px solid #f0f0f0; margin: 10px; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         .star-gold { color: #fbbf24; font-size: 18px; margin-bottom: 8px; }
         .review-btn { background: #ef4444; color: white; padding: 12px 35px; border-radius: 50px; font-weight: 900; font-size: 15px; margin-bottom: 30px; transition: 0.3s; box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2); }
+
+        /* ستايل زر الطلب الأخضر الفاتح مع الأيقونة */
+        .btn-order { background-color: #22c55e; color: white; width: 100%; padding: 10px; border-radius: 12px; font-weight: 900; font-size: 14px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-order:hover { background-color: #16a34a; }
     </style>
 </head>
 <body>
@@ -137,7 +135,9 @@
                             <div class="p-4">
                                 <h3 class="text-xs font-bold text-slate-800 mb-1 uppercase">${modelName}</h3>
                                 <p class="text-red-600 font-black text-lg mb-3">1000 EGP</p>
-                                <button class="bg-emerald-500 text-white w-full py-2 rounded-lg font-black text-[10px]" onclick="addToCart('${modelName}')">ORDER NOW</button>
+                                <button class="btn-order" onclick="addToCart('${modelName}')">
+                                    ORDER NOW <i class="fas fa-shopping-cart"></i>
+                                </button>
                             </div>
                         </div>`;
                 }
