@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getServerSideElements()[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '790032697153678');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=790032697153678&ev=PageView&noscript=1"
+    /></noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>متجر DeSina | التشكيلة المميزة</title>
@@ -134,7 +149,7 @@
                 const category = (i % 2 === 0) ? 'winter' : 'summer';
                 if ((currentFilter === 'all' || category === currentFilter) && modelName.toLowerCase().includes(search)) {
                     grid.innerHTML += `
-                        <div class="store-card">
+                        <div class="store-card" id="COD-${i < 10 ? '0'+i : i}">
                             <div class="product-img-container" onclick="openLightbox(${i})">
                                 <img src="cod${i}.jpeg" class="product-img" loading="lazy">
                             </div>
@@ -183,13 +198,18 @@
         }
 
         let cart = [];
-        function addToCart(n) { cart.push(n); const b = document.getElementById('cart-badge'); b.innerText = cart.length; b.style.display = 'block'; }
+        function addToCart(n) { 
+            cart.push(n); 
+            const b = document.getElementById('cart-badge'); 
+            b.innerText = cart.length; 
+            b.style.display = 'block';
+            // تتبع إضافة للسلة في فيسبوك
+            fbq('track', 'AddToCart', { content_name: n });
+        }
         
-        // الدالة المعدلة برقم الأوردر العشوائي وتنسيق الرسالة
         function sendOrderToWhatsApp() {
             if (cart.length === 0) return alert("السلة فارغة");
 
-            // توليد رقم أوردر عشوائي يبدأ بـ DS
             const orderNumber = "DS-" + Math.floor(1000 + Math.random() * 9000);
             
             let orderDetails = "🚀 طلب جديد من DeSina\n";
@@ -202,6 +222,14 @@
             
             orderDetails += "--------------------------\n";
             orderDetails += "برجاء تأكيد الطلب ومتابعة الحالة.";
+
+            // إرسال حدث الشراء للفيسبوك بيكسل قبل فتح واتساب
+            fbq('track', 'Purchase', {
+                value: cart.length * 1000,
+                currency: 'EGP',
+                contents: cart.map(item => ({ name: item, quantity: 1 })),
+                content_type: 'product'
+            });
 
             window.open(`https://wa.me/201001283311?text=${encodeURIComponent(orderDetails)}`, '_blank');
         }
