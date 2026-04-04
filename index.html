@@ -25,83 +25,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg-color: #f9fafb; --text-color: #111827; --card-bg: #ffffff; }
-        .dark { --bg-color: #0a0c10; --text-color: #f3f4f6; --card-bg: #161b22; }
+        :root { --bg-color: #f9fafb; --text-color: #111827; --card-bg: #ffffff; --nav-bg: #ffffff; }
+        .dark { --bg-color: #0a0c10; --text-color: #f0f0f0; --card-bg: #161b22; --nav-bg: #111; }
 
         body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; transition: background-color 0.4s, color 0.4s; background-color: var(--bg-color); color: var(--text-color); }
-        
         .hero-section { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .nav-link { color: inherit; font-weight: bold; transition: 0.3s; opacity: 0.8; }
         .nav-link:hover { color: #ef4444; opacity: 1; }
         .product-link { color: #ef4444 !important; font-weight: 800; }
         .main-logo { height: 40px; border-radius: 8px; }
         .hero-logo { height: 110px; border-radius: 15px; margin: 0 auto 20px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: var(--card-bg); }
         .service-card:hover { transform: translateY(-10px); }
+        .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; display: flex; align-items: center; }
 
-        .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; display: flex; align-items: center; margin-right: 15px; }
-        .cart-icon:hover { transform: scale(1.1); }
-
-        /* --- زرار النيون السحري المطوّر --- */
-        .theme-switch-wrapper { display: flex; align-items: center; margin-right: 20px; }
+        /* كبسولة النيون الحمراء */
+        .theme-switch-wrapper { display: flex; align-items: center; margin-left: 20px; }
         .theme-switch { display: inline-block; height: 28px; position: relative; width: 65px; }
         .theme-switch input { display:none; }
-        .slider { background-color: #333; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .slider { background-color: #333; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; border: 1px solid rgba(239, 68, 68, 0.4); }
         .slider:before { background-color: #fff; bottom: 3px; content: ""; height: 20px; left: 4px; position: absolute; transition: .4s; width: 20px; border-radius: 50%; z-index: 2; }
-        
-        input:checked + .slider { background-color: #111; box-shadow: 0 0 15px rgba(239, 68, 68, 0.5); }
+        input:checked + .slider { background-color: #111; box-shadow: 0 0 15px rgba(239, 68, 68, 0.6); }
         input:checked + .slider:before { transform: translateX(36px); }
-
         .slider .content { position: absolute; width: 100%; height: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 8px; font-size: 10px; font-weight: bold; pointer-events: none; }
-        .slider .sun-icon, .slider .moon-icon { font-size: 11px; text-shadow: 0 0 8px #ef4444; color: #ef4444; }
-        .slider .text-off, .slider .text-on { color: #ef4444; text-shadow: 0 0 8px #ef4444; }
+        .slider .sun-icon, .slider .moon-icon, .slider .text-off, .slider .text-on { color: #ef4444; text-shadow: 0 0 8px #ef4444; }
 
         @media (max-width: 768px) {
             #mobile-menu { display: none; flex-direction: column; width: 35%; position: fixed; top: 64px; left: 0; height: 65vh; background: rgba(15, 15, 15, 0.98); backdrop-filter: blur(12px); padding: 10px 5px; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); z-index: 9999; border-right: 2px solid #ef4444; border-bottom-right-radius: 20px; }
-            #mobile-menu.active { display: flex !important; animation: slideInLeft 0.4s ease-out; }
-            .nav-link, .product-link { color: white !important; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            #mobile-menu.active { display: flex !important; }
+            .nav-link, .product-link { color: white !important; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%; padding: 10px; }
         }
 
-        #music-toggle { position: fixed; bottom: 25px; left: 25px; width: 40px; height: 40px; background: #111; color: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1001; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.3s; }
-        #music-icon { font-size: 16px; }
+        #music-toggle { position: fixed; bottom: 25px; left: 25px; width: 40px; height: 40px; background: #111; color: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1001; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001; display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
 
     <a href="https://wa.me/201001283311" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
     <div id="music-toggle" onclick="handleMusicToggle()"><i id="music-icon" class="fas fa-music"></i></div>
     <audio id="bg-audio" loop preload="auto" playsinline><source src="bg-music.mp3" type="audio/mpeg"></audio>
 
     <nav class="bg-white dark:bg-gray-900 shadow-md p-3 sticky top-0 z-50 transition-colors">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-6">
                 <a href="index.html"><img src="logo.jpg" class="main-logo"></a>
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox" />
-                        <div class="slider">
-                            <div class="content">
-                                <span class="text-on">ON <i class="fas fa-moon moon-icon"></i></span>
-                                <span class="text-off"><i class="fas fa-sun sun-icon"></i> OFF</span>
-                            </div>
-                        </div>
-                    </label>
-                </div>
                 <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-r-0 md:border-r-2 md:pr-6 border-gray-200">
                     <a href="store.html" class="product-link menu-item"><i class="fas fa-shopping-cart ml-1"></i> المتجر</a>
                     <a href="catalog.html" class="nav-link menu-item">الكتالوج</a>
                     <a href="#digital-services" class="nav-link menu-item">الرقمية</a>
                     <a href="#industrial-services" class="nav-link menu-item">الصناعية</a>
+                    <a href="team.html" class="nav-link menu-item">فريق العمل</a>
+                    <a href="about.html" class="nav-link menu-item">حول</a>
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <a href="store.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
-                <div class="burger-icon md:hidden cursor-pointer" id="burger-btn"><i class="fas fa-bars text-2xl text-gray-700 dark:text-white"></i></div>
-                <div class="hidden md:block">
-                    <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-sm"><i class="fab fa-whatsapp"></i> تواصل معنا</a>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch"><input type="checkbox" id="checkbox"><div class="slider"><div class="content"><span class="text-on">ON <i class="fas fa-moon moon-icon"></i></span><span class="text-off"><i class="fas fa-sun sun-icon"></i> OFF</span></div></div></label>
                 </div>
+                <a href="store.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <div class="burger-icon md:hidden cursor-pointer" id="burger-btn"><i class="fas fa-bars text-2xl"></i></div>
             </div>
         </div>
     </nav>
@@ -112,56 +95,61 @@
         <div class="container mx-auto relative z-30">
             <img src="logo.jpg" class="hero-logo">
             <h1 class="text-4xl md:text-7xl font-extrabold mb-6">مرحبا بكم في <span class="text-red-600">DeSina</span></h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">نمزج بين الأناقة والابتكار.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://www.facebook.com/egy.desina" target="_blank" class="bg-blue-600 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:bg-blue-700 transition"><i class="fab fa-facebook"></i> فيسبوك</a>
-                <a href="https://www.instagram.com/de__sina" target="_blank" class="bg-gradient-to-r from-purple-500 to-yellow-500 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-lg hover:opacity-90 transition"><i class="fab fa-instagram"></i> انستجرام</a>
-            </div>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 font-bold">نمزج بين الأناقة والابتكار في عالم الأزياء والخدمات الرقمية.</p>
         </div>
     </section>
 
-    <section id="digital-services" class="py-20 px-6 text-center transition-colors">
+    <section id="digital-services" class="py-20 px-6 text-center">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-5xl font-bold mb-16 border-b-4 border-red-600 inline-block pb-2">خدماتنا الرقمية</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">إدارة الحسابات</h3><p class="opacity-70">ندير منصاتكم باحترافية لزيادة التفاعل.</p></div>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">مونتاج الفيديو</h3><p class="opacity-70">تحويل لقطاتكم إلى فيديوهات سينمائية.</p></div>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-check-circle text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">ضبط الجودة</h3><p class="opacity-70">نضمن جودة القطع النهائية.</p></div>
+                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">إدارة الحسابات</h3><p class="opacity-70">ندير منصاتكم باحترافية لزيادة التفاعل وبناء قاعدة جماهيرية.</p></div>
+                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">صناعة المحتوى</h3><p class="opacity-70">نبتكر محتوى مرئي ومكتوب يجذب الأنظار ويعبر عن هويتكم.</p></div>
+                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4">مونتاج الفيديو</h3><p class="opacity-70">تحويل لقطاتكم إلى فيديوهات سينمائية جذابة لجميع المنصات.</p></div>
             </div>
         </div>
     </section>
 
     <footer id="contact" class="bg-gray-950 text-white py-12 px-6">
-        <p class="text-center text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10 text-right" dir="rtl">
+            <div>
+                <h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4>
+                <div class="flex items-center gap-2 text-gray-400"><i class="fas fa-map-marker-alt text-red-600"></i><span>سليمان أباظة، الدقي، الجيزة، مصر</span></div>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h4 class="text-xl font-bold mb-2 border-b-2 border-red-600 pb-1 inline-block">تواصل معنا</h4>
+                <div style="direction: ltr;" class="flex flex-col gap-1">
+                    <span>+20 100 128 3311 <i class="fas fa-phone-alt text-red-600 ml-2"></i></span>
+                    <span>+20 111 568 0003 <i class="fas fa-phone-alt text-red-600 ml-2"></i></span>
+                </div>
+                <div class="mt-2">
+                    <p>info@desina.net <i class="fas fa-envelope text-red-600 ml-2"></i></p>
+                    <p>desina.com@gmail.com <i class="fas fa-envelope text-red-600 ml-2"></i></p>
+                </div>
+                <a href="https://maps.google.com" target="_blank" class="text-red-500 font-bold mt-2">موقعنا على الخريطة <i class="fas fa-location-arrow ml-1"></i></a>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-4">روابط هامة</h4>
+                <a href="privacy.html" class="block text-gray-400 mb-2">سياسة الخصوصية</a>
+                <a href="about.html" class="block text-gray-400">حول الشركة</a>
+            </div>
+        </div>
+        <p class="mt-10 text-center text-gray-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
     </footer>
 
     <script>
-        // --- كود الدارك مود الذكي والمزدوج ---
         const toggleSwitch = document.querySelector('#checkbox');
-        const currentTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        document.documentElement.classList.add(currentTheme);
+        if (currentTheme === 'dark') toggleSwitch.checked = true;
 
-        // تحديد الوضع الأولي (أوتو + ذاكرة)
-        if (currentTheme) {
-            document.documentElement.classList.add(currentTheme);
-            if (currentTheme === 'dark') toggleSwitch.checked = true;
-        } else if (prefersDark) {
-            document.documentElement.classList.add('dark');
-            toggleSwitch.checked = true;
-        }
+        toggleSwitch.addEventListener('change', (e) => {
+            const theme = e.target.checked ? 'dark' : 'light';
+            document.documentElement.className = theme;
+            localStorage.setItem('theme', theme);
+        });
 
-        function switchTheme(e) {
-            if (e.target.checked) {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            }    
-        }
-        toggleSwitch.addEventListener('change', switchTheme, false);
-
-        // المنيو والموسيقى (نفس الكود المستقر)
         const burgerBtn = document.getElementById('burger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('active'); });
@@ -172,9 +160,6 @@
             if (audio.paused) { audio.play().then(() => { icon.className = 'fas fa-pause'; audio.volume = 0.3; }); }
             else { audio.pause(); icon.className = 'fas fa-music'; }
         }
-        
-        const audioEl = document.getElementById('bg-audio');
-        audioEl.addEventListener('timeupdate', function() { if(this.currentTime > this.duration - 0.44){ this.currentTime = 0; this.play(); } });
     </script>
 </body>
 </html>
