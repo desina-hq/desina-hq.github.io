@@ -19,7 +19,7 @@
     /></noscript>
     <meta charset="UTF-8">
     <meta name="google" content="notranslate">
-<meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Language" content="en">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeSina | Home</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
@@ -27,15 +27,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; transition: background-color 0.3s, color 0.3s; }
-        .hero-section {
-            position: relative;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; transition: background-color 0.4s, color 0.4s; }
+        .hero-section { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
         .nav-link:hover { color: #ef4444; }
         .product-link { color: #ef4444 !important; font-weight: 800; }
@@ -44,20 +37,27 @@
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; }
         .service-card:hover { transform: translateY(-10px); }
 
-        .cart-icon { 
-            color: #ef4444; 
-            font-size: 22px; 
-            position: relative; 
-            transition: all 0.3s ease; 
-            display: flex; 
-            align-items: center;
-            padding: 8px;
-            border-radius: 50%;
+        /* Automatic Dark Mode (Silent Intelligence) */
+        @media (prefers-color-scheme: dark) {
+            body { background-color: #0a0c10; color: #f3f4f6; }
+            nav { background-color: #111111 !important; border-bottom: 1px solid #222; }
+            .nav-link { color: #e5e7eb; }
+            .service-card { background-color: #161b22; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+            .service-card h3 { color: #ffffff !important; }
+            .service-card p { color: #9ca3af !important; }
+            section#digital-services { background-color: #111827 !important; }
+            section#industrial-services { background-color: #0a0c10 !important; }
+            .burger-icon i { color: #ffffff !important; }
+            .bg-gray-100 { background-color: #111827 !important; }
+            .bg-white { background-color: #0a0c10 !important; }
+            .text-gray-900 { color: #f3f4f6 !important; }
+            .text-gray-800 { color: #ffffff !important; }
+            .text-gray-600 { color: #9ca3af !important; }
+            nav div div div.border-gray-200 { border-color: #333 !important; }
         }
-        .cart-icon:hover { 
-            background-color: rgba(239, 68, 68, 0.1);
-            transform: scale(1.15); 
-        }
+
+        .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: all 0.3s ease; display: flex; align-items: center; padding: 8px; border-radius: 50%; }
+        .cart-icon:hover { background-color: rgba(239, 68, 68, 0.1); transform: scale(1.15); }
 
         @media (min-width: 769px) {
             #mobile-menu { display: flex !important; position: static; background: none; box-shadow: none; width: auto; padding: 0; flex-direction: row; }
@@ -66,65 +66,24 @@
 
         @media (max-width: 768px) {
             #mobile-menu { 
-                display: none; 
-                flex-direction: column; 
-                width: 35%; 
-                position: fixed; 
-                top: 64px; 
-                right: 0; 
-                height: 65vh; 
-                background: rgba(45, 45, 48, 0.97); 
-                backdrop-filter: blur(12px);
-                padding: 10px 5px; 
-                box-shadow: -5px 5px 15px rgba(0,0,0,0.3); 
-                z-index: 9999; 
-                border-left: 2px solid #ef4444;
-                border-bottom-left-radius: 20px;
-                overflow-y: auto;
+                display: none; flex-direction: column; width: 35%; position: fixed; top: 64px; right: 0; height: 65vh; 
+                background: rgba(15, 15, 15, 0.98); backdrop-filter: blur(12px); padding: 10px 5px; 
+                box-shadow: -5px 5px 15px rgba(0,0,0,0.5); z-index: 9999; border-left: 2px solid #ef4444; border-bottom-left-radius: 20px; overflow-y: auto;
             }
             #mobile-menu.active { display: flex !important; animation: slideInRight 0.4s ease-out; }
-            .nav-link, .product-link { 
-                padding: 6px 8px; 
-                border-bottom: 1px solid rgba(255,255,255,0.05); 
-                width: 100%; 
-                text-align: left; 
-                color: white !important;
-                font-size: 14px;
-                white-space: nowrap; 
-            }
+            .nav-link, .product-link { padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%; text-align: left; color: white !important; font-size: 14px; white-space: nowrap; }
         }
         @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
-        .whatsapp-float {
-            position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF;
-            border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001;
-            display: flex; align-items: center; justify-content: center; transition: 0.3s;
-        }
-
-        #music-toggle {
-            position: fixed; bottom: 25px; left: 25px; width: 40px; height: 40px; 
-            background: #111; color: #ef4444; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; z-index: 1001;
-            cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.3s;
-            -webkit-tap-highlight-color: transparent;
-        }
-        #music-toggle:hover { transform: scale(1.1); background: #222; }
-        #music-icon { font-size: 16px; color: #ef4444; }
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        #music-toggle { position: fixed; bottom: 25px; left: 25px; width: 40px; height: 40px; background: #111; color: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1001; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.3s; -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
-    <a href="https://wa.me/201001283311" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <div id="music-toggle" onclick="handleMusicToggle()">
-        <i id="music-icon" class="fas fa-music"></i>
-    </div>
-    
-    <audio id="bg-audio" loop preload="auto" playsinline>
-        <source src="bg-music.mp3" type="audio/mpeg">
-    </audio>
+    <a href="https://wa.me/201001283311" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <div id="music-toggle" onclick="handleMusicToggle()"><i id="music-icon" class="fas fa-music"></i></div>
+    <audio id="bg-audio" loop preload="auto" playsinline><source src="bg-music.mp3" type="audio/mpeg"></audio>
 
     <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
@@ -143,29 +102,19 @@
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <a href="en-store.html" class="hidden md:block cart-icon ml-2" title="View Cart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
+                <a href="en-store.html" class="hidden md:block cart-icon ml-2" title="View Cart"><i class="fas fa-shopping-cart"></i></a>
                 <a href="index.html" class="hidden md:block text-blue-600 font-bold border-r-2 pr-4 border-gray-200 hover:underline">عربي</a>
-                <a href="en-store.html" class="md:hidden cart-icon" title="View Cart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-                <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
-                    <i class="fas fa-bars text-2xl text-gray-700"></i>
-                </div>
+                <a href="en-store.html" class="md:hidden cart-icon" title="View Cart"><i class="fas fa-shopping-cart"></i></a>
+                <div class="burger-icon md:hidden cursor-pointer" id="burger-btn"><i class="fas fa-bars text-2xl text-gray-700"></i></div>
                 <div class="hidden md:block">
-                    <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-sm">
-                        <i class="fab fa-whatsapp"></i> Contact Us
-                    </a>
+                    <a href="https://wa.me/201001283311" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-sm"><i class="fab fa-whatsapp"></i> Contact Us</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <section class="hero-section text-white text-center px-4">
-        <video autoplay loop muted playsinline class="absolute z-10 w-auto min-w-full min-h-full max-w-none object-cover">
-            <source src="39750.mp4.mp4" type="video/mp4">
-        </video>
+        <video autoplay loop muted playsinline class="absolute z-10 w-auto min-w-full min-h-full max-w-none object-cover"><source src="39750.mp4.mp4" type="video/mp4"></video>
         <div class="absolute z-20 w-full h-full bg-gradient-to-b from-black/80 via-black/50 to-black/80"></div>
         <div class="container mx-auto relative z-30">
             <img src="logo.jpg" class="hero-logo">
@@ -205,101 +154,45 @@
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-10 text-left">
             <div class="flex flex-col items-center md:items-start">
                 <h4 class="text-2xl font-bold text-red-600 mb-4">DeSina</h4>
-                <div class="flex items-center gap-2 text-gray-400">
-                    <i class="fas fa-map-marker-alt text-red-600"></i>
-                    <span>Soliman Abaza, Dokki, Giza, Egypt</span>
-                </div>
+                <div class="flex items-center gap-2 text-gray-400"><i class="fas fa-map-marker-alt text-red-600"></i><span>Soliman Abaza, Dokki, Giza, Egypt</span></div>
             </div>
             <div class="flex flex-col items-center md:items-start gap-3">
                 <h4 class="text-xl font-bold mb-2 text-white border-b-2 border-red-600 pb-1 inline-block">Connect With Us</h4>
                 <div class="flex flex-col items-center md:items-start gap-1">
-                    <div class="flex items-center gap-2">
-                        <i class="fas fa-phone-alt text-red-600 text-sm"></i>
-                        <span class="text-lg">+20 100 128 3311</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fas fa-phone-alt text-red-600 text-sm"></i>
-                        <span class="text-lg">+20 111 568 0003</span>
-                    </div>
+                    <div class="flex items-center gap-2"><i class="fas fa-phone-alt text-red-600 text-sm"></i><span class="text-lg">+20 100 128 3311</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-phone-alt text-red-600 text-sm"></i><span class="text-lg">+20 111 568 0003</span></div>
                 </div>
                 <div class="flex flex-col items-center md:items-start gap-1 mt-2">
-                    <div class="flex items-center gap-2">
-                        <i class="fas fa-envelope text-red-600"></i>
-                        <span class="text-gray-300 text-sm">info@desina.net</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fas fa-envelope text-red-600"></i>
-                        <span class="text-gray-300 text-sm">desina.com@gmail.com</span>
-                    </div>
+                    <div class="flex items-center gap-2"><i class="fas fa-envelope text-red-600"></i><span class="text-gray-300 text-sm">info@desina.net</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-envelope text-red-600"></i><span class="text-gray-300 text-sm">desina.com@gmail.com</span></div>
                 </div>
-                <a href="https://maps.app.goo.gl/WBfgP3kfhdrsG4Jv6" target="_blank" class="mt-4 flex items-center gap-2 text-red-500 font-bold hover:text-white transition-all group">
-                    <i class="fas fa-location-arrow animate-bounce"></i>
-                    <span class="border-b border-red-500 group-hover:border-white">Find us on map</span>
-                </a>
+                <a href="https://maps.app.goo.gl/WBfgP3kfhdrsG4Jv6" target="_blank" class="mt-4 flex items-center gap-2 text-red-500 font-bold hover:text-white transition-all group"><i class="fas fa-location-arrow animate-bounce"></i><span class="border-b border-red-500 group-hover:border-white">Find us on map</span></a>
             </div>
             <div class="flex flex-col items-center md:items-start">
                 <h4 class="text-xl font-bold mb-4 text-white">Quick Links</h4>
-                <a href="en-privacy.html" class="text-gray-400 hover:text-red-500 mb-2 transition-colors flex items-center gap-2">
-                    <i class="fas fa-shield-alt text-xs"></i> Privacy Policy
-                </a>
-                <a href="en-about.html" class="text-gray-400 hover:text-red-500 transition-colors flex items-center gap-2">
-                    <i class="fas fa-info-circle text-xs"></i> About Us
-                </a>
+                <a href="en-privacy.html" class="text-gray-400 hover:text-red-500 mb-2 transition-colors flex items-center gap-2"><i class="fas fa-shield-alt text-xs"></i> Privacy Policy</a>
+                <a href="en-about.html" class="text-gray-400 hover:text-red-500 transition-colors flex items-center gap-2"><i class="fas fa-info-circle text-xs"></i> About Us</a>
             </div>
         </div>
         <p class="mt-10 text-center text-gray-600 text-sm font-bold">All rights reserved to DeSina © 2026</p>
     </footer>
 
     <script>
-        // Mobile Menu Logic
         const burgerBtn = document.getElementById('burger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuItems = document.querySelectorAll('.menu-item');
+        burgerBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('active'); });
+        menuItems.forEach(item => { item.addEventListener('click', () => { mobileMenu.classList.remove('active'); }); });
+        document.addEventListener('click', (e) => { if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) mobileMenu.classList.remove('active'); });
 
-        burgerBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('active');
-        });
-
-        menuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !burgerBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
-
-        // --- DeSina Seamless Audio Controller (Color Adjustment Only) ---
         function handleMusicToggle() {
             const audio = document.getElementById('bg-audio');
             const icon = document.getElementById('music-icon');
-            
-            if (audio.paused) {
-                audio.play().then(() => {
-                    icon.className = 'fas fa-pause';
-                    audio.volume = 0.3;
-                }).catch(error => {
-                    console.log("Playback prevented:", error);
-                });
-            } else {
-                audio.pause();
-                icon.className = 'fas fa-music';
-            }
+            if (audio.paused) { audio.play().then(() => { icon.className = 'fas fa-pause'; audio.volume = 0.3; }); }
+            else { audio.pause(); icon.className = 'fas fa-music'; }
         }
-
-        // Seamless Audio Loop
         const audioEl = document.getElementById('bg-audio');
-        audioEl.addEventListener('timeupdate', function() {
-            var buffer = 0.44; 
-            if(this.currentTime > this.duration - buffer){
-                this.currentTime = 0;
-                this.play();
-            }
-        });
+        audioEl.addEventListener('timeupdate', function() { if(this.currentTime > this.duration - 0.44){ this.currentTime = 0; this.play(); } });
     </script>
 </body>
 </html>
