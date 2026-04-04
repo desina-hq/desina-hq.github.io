@@ -17,8 +17,6 @@
     src="https://www.facebook.com/tr?id=790032697153678&ev=PageView&noscript=1"
     /></noscript>
     <meta charset="UTF-8">
-        <meta name="google" content="notranslate">
-<meta http-equiv="Content-Language" content="en">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Team | DeSina</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
@@ -26,12 +24,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
-        .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
+        :root { --bg-main: #f9fafb; --bg-card: #ffffff; --text-main: #111827; --text-muted: #4b5563; --nav-bg: #ffffff; --card-img-bg: #f9f9f9; }
+        
+        @media (prefers-color-scheme: dark) {
+            :root { --bg-main: #0a0c10; --bg-card: #111827; --text-main: #f3f4f6; --text-muted: #9ca3af; --nav-bg: #111111; --card-img-bg: #1f2937; }
+        }
+
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-main); color: var(--text-main); scroll-behavior: smooth; overflow-x: hidden; transition: background-color 0.4s; }
+        .nav-link { color: var(--text-main); font-weight: bold; transition: 0.3s; }
         .nav-link:hover { color: #ef4444; }
         .main-logo { height: 40px; border-radius: 8px; }
         
-        /* Back Button Style */
         .back-btn {
             display: flex; align-items: center; gap: 8px; color: #ef4444; 
             font-weight: bold; transition: 0.3s; border: 1px solid #ef4444;
@@ -39,7 +42,6 @@
         }
         .back-btn:hover { background: #ef4444; color: white; }
 
-        /* Compressed Menu (English - Right Side) */
         @media (max-width: 768px) {
             #mobile-menu { 
                 display: none; flex-direction: column; width: 32%; position: fixed; 
@@ -52,22 +54,29 @@
         }
         @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
-        /* Small Team Cards */
-        .team-card { transition: 0.3s; overflow: hidden; border-top: 3px solid #ef4444; background: white; border-radius: 15px; }
-        .team-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .team-img { width: 100%; height: 150px; object-fit: contain; background: #f9f9f9; padding: 20px; }
+        .team-card { transition: 0.3s; overflow: hidden; border-top: 3px solid #ef4444; background: var(--bg-card); border-radius: 15px; }
+        .team-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .team-img { width: 100%; height: 150px; object-fit: contain; background: var(--card-img-bg); padding: 20px; transition: background-color 0.4s; }
+        
+        @media (prefers-color-scheme: dark) {
+            .bg-white { background-color: var(--nav-bg) !important; }
+            .bg-gray-50 { background-color: var(--bg-main) !important; }
+            header.bg-gray-900, section.bg-gray-900 { background-color: #000000 !important; }
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50">
 
-    <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
+    <nav class="bg-white shadow-md p-3 sticky top-0 z-50 transition-colors">
         <div class="container mx-auto flex justify-between items-center px-4 relative">
             <div class="flex items-center gap-4">
                 <a href="en.html" class="back-btn">
                     <i class="fas fa-arrow-left"></i> Back
                 </a>
                 <a href="en.html"><img src="logo.jpg" class="main-logo"></a>
-                
+            </div>
+
+            <div class="flex items-center gap-6">
                 <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-l-0 md:border-l-2 md:pl-6 border-gray-200">
                     <a href="en.html" class="nav-link menu-item text-red-600">Home</a>
                     <a href="en-catalog.html" class="nav-link menu-item">Catalog</a>
@@ -75,19 +84,19 @@
                     <a href="en-privacy.html" class="nav-link menu-item" style="font-size: 12px;">Privacy</a>
                     <a href="en-about.html" class="nav-link menu-item">About</a>
                     <a href="en.html#contact" class="nav-link menu-item">Contact</a>
-                    <a href="team.html" class="text-red-600 font-bold md:hidden menu-item">العربية</a>
+                    <a href="team.html" class="text-red-400 font-bold md:hidden menu-item">عربي</a>
                 </div>
-            </div>
-            <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
-                <i class="fas fa-bars text-2xl text-gray-700"></i>
+                <div class="burger-icon md:hidden cursor-pointer" id="burger-btn">
+                    <i class="fas fa-bars text-2xl text-gray-700 dark:text-gray-300"></i>
+                </div>
             </div>
         </div>
     </nav>
 
-    <section class="bg-gray-900 text-white py-12 text-center">
+    <section class="bg-gray-900 text-white py-12 text-center transition-colors">
         <div class="container mx-auto px-4">
-            <h1 class="text-3xl md:text-5xl font-extrabold mb-3"><span class="text-red-600">DeSina</span> Team</h1>
-            <p class="text-lg text-gray-400">Creative Minds Making an Impact</p>
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-3">DeSina <span class="text-red-600">Team</span></h1>
+            <p class="text-lg text-gray-400">Creative minds making the difference</p>
         </div>
     </section>
 
@@ -113,9 +122,9 @@
         </div>
     </section>
 
-    <footer class="bg-gray-950 text-white py-8 text-center border-t border-gray-800">
+    <footer class="bg-gray-950 text-white py-8 text-center border-t border-gray-800 transition-colors">
         <a href="en.html" class="text-red-600 font-bold text-xl block mb-2">DeSina</a>
-        <p class="text-gray-500 text-xs font-bold">All rights reserved to DeSina © 2026</p>
+        <p class="text-gray-500 text-xs font-bold uppercase">All Rights Reserved to DeSina Company © 2026</p>
     </footer>
 
     <script>
