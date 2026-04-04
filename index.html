@@ -107,7 +107,7 @@
     <div id="music-toggle">
         <i id="music-icon" class="fas fa-music"></i>
     </div>
-    <audio id="bg-audio" loop>
+    <audio id="bg-audio" loop preload="auto" playsinline>
         <source src="bg-music.mp3" type="audio/mpeg">
     </audio>
 
@@ -257,20 +257,26 @@
             }
         });
 
-        // كود تشغيل الموسيقى - مستوى الصوت 30%
+        // كود تشغيل الموسيقى المطور لحل مشاكل الأيفون والتكة
         const musicToggle = document.getElementById('music-toggle');
         const musicIcon = document.getElementById('music-icon');
         const bgAudio = document.getElementById('bg-audio');
         
-        // ضبط الصوت ليكون هادئاً (0.3 يعني 30%)
         bgAudio.volume = 0.3;
 
         musicToggle.addEventListener('click', () => {
             if (bgAudio.paused) {
-                bgAudio.play();
-                musicIcon.classList.remove('fa-music');
-                musicIcon.classList.add('fa-pause');
-                musicToggle.style.background = '#22c55e'; 
+                // محاولة التشغيل مع معالجة قيود الأيفون
+                const playPromise = bgAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        musicIcon.classList.remove('fa-music');
+                        musicIcon.classList.add('fa-pause');
+                        musicToggle.style.background = '#22c55e'; 
+                    }).catch(error => {
+                        console.log("Auto-play was prevented");
+                    });
+                }
             } else {
                 bgAudio.pause();
                 musicIcon.classList.remove('fa-pause');
