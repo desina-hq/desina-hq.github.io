@@ -128,6 +128,18 @@
                 homeLink.innerText = 'الرئيسية'; homeLink.href = 'index.html';
             }
         }
+
+        // --- اللمسة السحرية للأستاذ حسين بدأت هنا ---
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+            if (langParam === 'en') {
+                setLang('en');
+            } else {
+                setLang('ar');
+            }
+        };
+        // --- اللمسة السحرية انتهت هنا ---
     </script>
 </body>
 </html>
