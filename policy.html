@@ -3,71 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeSina | Return Policy</title>
+    <title>سياسة الاسترجاع | DeSina</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --royal-red: #9B1B1E; }
-        .text-royal-red { color: var(--royal-red); }
-        .bg-royal-red { background-color: var(--royal-red); }
-        .border-royal-red { border-color: var(--royal-red); }
+        /* اقتباس الألوان من سياسة الخصوصية الأصلية لـ DeSina */
+        :root { --bg-body: #f9fafb; --bg-card: #ffffff; --text-main: #111827; --text-muted: #4b5563; --border-color: #ef4444; }
+        @media (prefers-color-scheme: dark) {
+            :root { --bg-body: #0a0c10; --bg-card: #111827; --text-main: #f3f4f6; --text-muted: #9ca3af; --border-color: #ef4444; }
+        }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); transition: 0.4s; }
+        .content-box { background: var(--bg-card); border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 5px solid var(--border-color); transition: background-color 0.4s; }
         .hidden-lang { display: none; }
-        
-        /* تأثيرات الدارك مود الجاهزة */
-        .dark-mode { background-color: #000 !important; color: #fff !important; }
-        .dark-mode section { background-color: #111 !important; border-color: var(--royal-red) !important; }
+        .lang-btn { background-color: var(--border-color); color: white; padding: 8px 20px; border-radius: 50px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+        .lang-btn:hover { opacity: 0.8; transform: scale(1.05); }
     </style>
 </head>
-<body class="bg-white text-black font-sans transition-all duration-500">
+<body class="py-12 px-6">
+    <div class="container mx-auto max-w-4xl">
+        
+        <div class="flex justify-between items-start mb-10">
+            <div class="flex-1"></div> <div class="text-center flex-[2]">
+                <img src="logo.jpg" class="h-16 mx-auto mb-4 rounded-lg shadow-sm border-2 border-transparent dark:border-gray-800">
+                <h1 id="title-ar" class="text-3xl font-bold">سياسة الاسترجاع</h1>
+                <h1 id="title-en" class="text-3xl font-bold hidden-lang">Return Policy</h1>
+                <p class="text-red-600 font-bold mt-2">شركة DeSina</p>
+            </div>
+            <div class="flex-1 text-left">
+                <button onclick="toggleLanguage()" id="langBtn" class="lang-btn">English</button>
+            </div>
+        </div>
 
-    <div class="container mx-auto p-4 flex justify-between items-center border-b border-gray-200">
-        <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">🌙/☀️</button>
-        <button onclick="toggleLanguage()" id="langBtn" class="bg-royal-red text-white px-6 py-2 rounded-full font-bold">Switch to English</button>
+        <div id="content-ar" class="content-box p-8 md:p-12 leading-relaxed text-right">
+            <h2 class="text-xl font-bold mb-4"><i class="fas fa-calendar-alt ml-2 text-red-600"></i> فترة الاسترجاع</h2>
+            <p class="mb-8 text-gray-600">يتم قبول طلبات الاسترجاع خلال **14 يوماً** من تاريخ استلام المنتج، وخلال **30 يوماً** في حالة وجود عيب صناعة، وذلك وفقاً لقوانين حماية المستهلك.</p>
+
+            <h2 class="text-xl font-bold mb-4"><i class="fas fa-check-circle ml-2 text-red-600"></i> حالة المنتج</h2>
+            <p class="mb-8 text-gray-600">يجب أن يكون المنتج بحالته الأصلية، غير مستخدم، وبجميع الملصقات (Tags) والعبوات الأصلية. يجب إرفاق فاتورة الشراء الأصلية مع الطلب.</p>
+
+            <h2 class="text-xl font-bold mb-4"><i class="fas fa-ban ml-2 text-red-600"></i> المنتجات المستثناة</h2>
+            <p class="mb-8 text-gray-600">لدواعي الصحة العامة، لا يتم استرجاع الملابس الداخلية أو ملابس السباحة، أو أي منتجات تم تصنيعها بمقاسات خاصة (Customized) بناءً على طلب العميل.</p>
+
+            <h2 class="text-xl font-bold mb-4"><i class="fas fa-money-bill-wave ml-2 text-red-600"></i> استرداد الأموال</h2>
+            <p class="mb-8 text-gray-600">يتم رد المبلغ بنفس طريقة الدفع الأصلية (فيزا / باي بال). تستغرق عملية الفحص والاسترداد من **5 إلى 7 أيام عمل** من وصول المنتج لمخازنا.</p>
+        </div>
+
+        <div id="content-en" class="content-box p-8 md:p-12 leading-relaxed text-left hidden-lang">
+            <h2 class="text-xl font-bold mb-4 text-red-600"><i class="fas fa-calendar-alt mr-2"></i> Return Period</h2>
+            <p class="mb-8 text-gray-600">Returns are accepted within **14 days** of receipt. Manufacturing defects are covered for up to **30 days** in accordance with consumer protection laws.</p>
+
+            <h2 class="text-xl font-bold mb-4 text-red-600"><i class="fas fa-check-circle mr-2"></i> Item Condition</h2>
+            <p class="mb-8 text-gray-600">Items must be in their original, unworn condition with all tags and original packaging attached. The original purchase invoice must be provided.</p>
+
+            <h2 class="text-xl font-bold mb-4 text-red-600"><i class="fas fa-ban mr-2"></i> Non-Returnable Items</h2>
+            <p class="mb-8 text-gray-600">For hygiene reasons, underwear, swimwear, and customized items tailored to specific customer requests cannot be returned or exchanged.</p>
+
+            <h2 class="text-xl font-bold mb-4 text-red-600"><i class="fas fa-money-bill-wave mr-2"></i> Refund Process</h2>
+            <p class="mb-8 text-gray-600">Refunds are issued to the original payment method (Visa / PayPal). Processing takes **5-7 business days** after the item is inspected at our facility.</p>
+        </div>
+
+        <div class="text-center mt-10">
+            <a href="index.html" id="homeLink" class="bg-gray-900 text-white px-10 py-3 rounded-full font-bold shadow-lg hover:bg-red-600 transition inline-block">
+                العودة للصفحة الرئيسية
+            </a>
+        </div>
     </div>
-
-    <main id="content-ar" class="container mx-auto px-6 py-12 max-w-5xl text-right">
-        <h1 class="text-4xl font-bold text-royal-red mb-10 border-b-2 border-royal-red pb-4">سياسة الاسترجاع والاستبدال المعتمدة</h1>
-        <div class="space-y-6">
-            <section class="p-6 border-r-4 border-royal-red bg-gray-50 rounded-l-lg shadow-sm">
-                <h2 class="text-2xl font-bold text-royal-red mb-3">1. فترة الاسترجاع القانونية</h2>
-                <p>يتم قبول المرتجعات خلال <strong>14 يوماً</strong> من تاريخ الاستلام وفقاً لقانون حماية المستهلك.</p>
-            </section>
-            <p class="text-center text-gray-500 mt-10">جميع الحقوق محفوظة لبراند دي سينا © 2026</p>
-        </div>
-    </main>
-
-    <main id="content-en" class="container mx-auto px-6 py-12 max-w-5xl text-left hidden-lang">
-        <h1 class="text-4xl font-bold text-royal-red mb-10 border-b-2 border-royal-red pb-4">Certified Return Policy</h1>
-        <div class="space-y-6">
-            <section class="p-6 border-l-4 border-royal-red bg-gray-50 rounded-r-lg shadow-sm">
-                <h2 class="text-2xl font-bold text-royal-red mb-3">1. Legal Return Period</h2>
-                <p>Returns are accepted within <strong>14 days</strong> of receipt as per consumer protection laws.</p>
-            </section>
-             <p class="text-center text-gray-400 mt-10">DeSina Brand All Rights Reserved © 2026</p>
-        </div>
-    </main>
 
     <script>
         function toggleLanguage() {
             const htmlTag = document.getElementById('mainHtml');
             const arContent = document.getElementById('content-ar');
             const enContent = document.getElementById('content-en');
+            const arTitle = document.getElementById('title-ar');
+            const enTitle = document.getElementById('title-en');
             const btn = document.getElementById('langBtn');
+            const homeLink = document.getElementById('homeLink');
 
             if (htmlTag.dir === 'rtl') {
+                // تحويل لإنجليزي
                 htmlTag.dir = 'ltr';
+                htmlTag.lang = 'en';
                 arContent.classList.add('hidden-lang');
                 enContent.classList.remove('hidden-lang');
-                btn.innerText = 'التحويل للعربية';
+                arTitle.classList.add('hidden-lang');
+                enTitle.classList.remove('hidden-lang');
+                btn.innerText = 'العربية';
+                homeLink.innerText = 'Back to Home';
+                homeLink.href = 'en/index.html'; // تأكد من مسار النسخة الإنجليزي عندك
             } else {
+                // تحويل لعربي
                 htmlTag.dir = 'rtl';
+                htmlTag.lang = 'ar';
                 enContent.classList.add('hidden-lang');
                 arContent.classList.remove('hidden-lang');
-                btn.innerText = 'Switch to English';
+                enTitle.classList.add('hidden-lang');
+                arTitle.classList.remove('hidden-lang');
+                btn.innerText = 'English';
+                homeLink.innerText = 'العودة للصفحة الرئيسية';
+                homeLink.href = 'index.html';
             }
-        }
-
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
         }
     </script>
 </body>
