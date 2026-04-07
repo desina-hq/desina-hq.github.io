@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { font-family: 'Cairo', sans-serif; background-color: #0a0c10; color: white; min-height: 100vh; }
-        .content-card { background: #161b22; border-top: 4px solid #ef4444; transition: 0.3s; }
-        .content-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(239, 68, 68, 0.1); }
-        /* ستايل المشغل الخاص بأنغامي عشان يملأ المكان بشياكة */
-        .anghami-wrapper { width: 100%; border-radius: 15px; overflow: hidden; background: #000; }
+        .content-card { background: #161b22; border-top: 4px solid #ef4444; transition: 0.3s; height: 100%; }
+        .content-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2); }
+        /* حاوية مشغل أنغامي لضمان التناسب */
+        .anghami-container { width: 100%; border-radius: 15px; overflow: hidden; background: #000; }
+        .anghami-container iframe { width: 100% !important; height: 450px !important; border: none; }
     </style>
 </head>
 <body>
@@ -43,8 +44,9 @@
                     </div>
                 </div>
 
-                <div class="anghami-wrapper">
-                    </div>
+                <div class="anghami-container">
+                    <iframe src="https://widget.anghami.com/playlist/252198952/?theme=fulldark&layout=list&lang=en" scrolling="no" frameborder="0"></iframe>
+                </div>
             </div>
 
             <div class="p-8 rounded-3xl content-card shadow-2xl flex flex-col justify-between">
@@ -55,16 +57,17 @@
                         <p class="text-gray-500 text-sm">سينمائية في كل تفصيلة</p>
                     </div>
                 </div>
-                <div class="bg-black/60 border-2 border-dashed border-gray-700 h-72 rounded-2xl flex flex-col items-center justify-center gap-4 text-center p-4">
-                    <i class="fas fa-play-circle text-5xl text-gray-700 animate-pulse"></i>
-                    <p class="text-gray-500 font-bold">معرض الفيديوهات قيد التجهيز..</p>
+                <div class="bg-black/60 border-2 border-dashed border-gray-700 h-[450px] rounded-2xl flex flex-col items-center justify-center gap-4 text-center p-4">
+                    <i class="fas fa-play-circle text-6xl text-gray-700 animate-pulse"></i>
+                    <p class="text-gray-500 font-bold text-xl">معرض الفيديوهات قيد التجهيز..</p>
+                    <p class="text-gray-600 text-sm">قريباً سيتم عرض أحدث أعمال المونتاج هنا</p>
                 </div>
             </div>
 
         </div>
     </main>
 
-    <footer class="py-10 text-center border-t border-gray-900">
+    <footer class="py-10 text-center border-t border-gray-900 mt-10">
         <p class="text-gray-600 text-sm">DeSina Creative © 2026</p>
     </footer>
 
