@@ -38,7 +38,7 @@
         .product-link { color: #ef4444 !important; font-weight: 800; }
         .main-logo { height: 40px; border-radius: 8px; }
         .hero-logo { height: 110px; border-radius: 15px; margin: 0 auto 20px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; }
+        .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
         .service-card:hover { transform: translateY(-10px); }
 
         /* كلاس مخصص لتنوير الإيميلات والتليفونات باللون الأحمر */
@@ -155,21 +155,36 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 
                 <a href="account.html" class="p-8 rounded-2xl shadow-lg service-card block hover:shadow-2xl transition-all cursor-pointer no-underline">
-                    <i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">إدارة الحسابات</h3>
-                    <p class="text-gray-600">ندير منصاتكم باحترافية لزيادة التفاعل وبناء قاعدة جماهيرية.</p>
-                </a>
-
-                <a href="content.html" class="p-8 rounded-2xl shadow-lg service-card block hover:shadow-2xl transition-all cursor-pointer">
-                    <i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">صناعة المحتوى</h3>
-                    <p class="text-gray-600">نبتكر محتوى مرئي ومكتوب يعبر عن هويتكم.</p>
-                    <div class="mt-4 text-red-600 font-bold flex items-center justify-center gap-2">
+                    <div>
+                        <i class="fas fa-bullhorn text-5xl text-red-600 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">إدارة الحسابات</h3>
+                        <p class="text-gray-600 mb-6">ندير منصاتكم باحترافية لزيادة التفاعل وبناء قاعدة جماهيرية.</p>
+                    </div>
+                    <div class="text-red-600 font-bold flex items-center justify-center gap-2">
                         <span>عرض الأعمال</span>
                         <i class="fas fa-arrow-left"></i>
                     </div>
                 </a>
-                <div class="p-8 rounded-2xl shadow-lg service-card"><i class="fas fa-video text-5xl text-red-600 mb-6"></i><h3 class="text-2xl font-bold mb-4 text-gray-800">مونتاج الفيديو</h3><p class="text-gray-600">تحويل لقطاتكم إلى فيديوهات سينمائية جذابة لجميع المنصات.</p></div>
+
+                <a href="content.html" class="p-8 rounded-2xl shadow-lg service-card block hover:shadow-2xl transition-all cursor-pointer">
+                    <div>
+                        <i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">صناعة المحتوى</h3>
+                        <p class="text-gray-600 mb-6">نبتكر محتوى مرئي ومكتوب يعبر عن هويتكم.</p>
+                    </div>
+                    <div class="text-red-600 font-bold flex items-center justify-center gap-2">
+                        <span>عرض الأعمال</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                </a>
+                
+                <div class="p-8 rounded-2xl shadow-lg service-card">
+                    <div>
+                        <i class="fas fa-video text-5xl text-red-600 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">مونتاج الفيديو</h3>
+                        <p class="text-gray-600">تحويل لقطاتكم إلى فيديوهات سينمائية جذابة لجميع المنصات.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
