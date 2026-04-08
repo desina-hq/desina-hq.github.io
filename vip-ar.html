@@ -16,6 +16,12 @@
             --text-gray: #9ca3af;
             --border-color: #21262d;
             --red-500: #ef4444;
+            /* ألوان المنصات الأصلية */
+            --bein-color: #49007e;
+            --temu-color: #ff6900;
+            --noon-color: #feee00;
+            --anghami-color: #d400ff;
+            --osn-color: #ff0000;
         }
 
         body { 
@@ -39,8 +45,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            padding: 2rem;
+            padding: 2.5rem 1.5rem;
             border-radius: 1.5rem;
+            min-height: 260px;
         }
 
         .vip-card:hover { 
@@ -49,12 +56,28 @@
             border-color: var(--red-500);
         }
 
+        /* تنسيق اسم المنصة الكبير بالألوان الأصلية */
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .brand-icon {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+
         .back-link { color: var(--text-main); transition: 0.3s; }
         .back-link:hover { color: var(--red-500); }
 
-        .brand-logo {
-            max-width: 130px;
-            height: 50px;
+        .brand-logo-img {
+            max-width: 140px;
+            height: 55px;
             object-fit: contain;
             filter: brightness(0) invert(1);
             margin-bottom: 1.5rem;
@@ -69,7 +92,7 @@
         .btn-vip {
             border: 1px solid var(--red-500);
             color: white;
-            padding: 8px 20px;
+            padding: 10px 20px;
             border-radius: 8px;
             width: 100%;
             text-align: center;
@@ -111,19 +134,28 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Anghami_logo.svg" class="brand-logo" alt="Anghami">
+                <div class="brand-name" style="color: var(--anghami-color);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Anghami_logo.svg" class="brand-icon">
+                    <span>Anghami</span>
+                </div>
                 <a href="#" class="btn-vip">عروض أنغامي</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" class="brand-logo" style="width: 50px;" alt="Spotify">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" class="brand-logo-img" style="width: 50px;">
                 <a href="#" class="btn-vip">اشتراك سبوتيفاي</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/BeIN_Sports_logo.svg" class="brand-logo" alt="beIN">
+                <div class="brand-name" style="color: white;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/BeIN_Sports_logo.svg" class="brand-icon">
+                    <span style="color: var(--bein-color);">beIN</span>
+                </div>
                 <a href="#" class="btn-vip">باقات بي إن</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/OSN_Logo.svg" class="brand-logo" alt="OSN">
+                <div class="brand-name" style="color: var(--osn-color);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/OSN_Logo.svg" class="brand-icon">
+                    <span>OSN+</span>
+                </div>
                 <a href="#" class="btn-vip">اشتراك OSN+</a>
             </div>
         </div>
@@ -133,15 +165,21 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="brand-logo" alt="Amazon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="brand-logo-img">
                 <a href="#" class="btn-vip">عروض أمازون</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Noon_Logo.svg" class="brand-logo" alt="Noon">
+                <div class="brand-name" style="color: var(--noon-color);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Noon_Logo.svg" class="brand-icon">
+                    <span style="color: #ffffff; background: #000; padding: 0 5px; border-radius: 4px;">noon</span>
+                </div>
                 <a href="#" class="btn-vip">تسوق في نون</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/en/3/3b/Temu_logo.svg" class="brand-logo" alt="Temu">
+                <div class="brand-name" style="color: var(--temu-color);">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/3b/Temu_logo.svg" class="brand-icon">
+                    <span>TEMU</span>
+                </div>
                 <a href="#" class="btn-vip">عروض TEMU</a>
             </div>
         </div>
@@ -151,11 +189,11 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="brand-logo" alt="Adidas">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="brand-logo-img">
                 <a href="#" class="btn-vip">منتجات أديداس</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="brand-logo" alt="Zara">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="brand-logo-img">
                 <a href="#" class="btn-vip">تشكيلة زارا</a>
             </div>
         </div>
