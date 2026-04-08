@@ -12,16 +12,11 @@
             --bg-body: #0a0c10;
             --bg-nav: rgba(0, 0, 0, 0.8);
             --bg-card: #161b22;
-            --text-main: #ffffff;
+            /* اللون الأبيض الغامق (سنة رمادي) للفخامة */
+            --text-main: #e5e7eb; 
             --text-gray: #9ca3af;
             --border-color: #21262d;
             --red-500: #ef4444;
-            /* ألوان المنصات الأصلية */
-            --bein-color: #49007e;
-            --temu-color: #ff6900;
-            --noon-color: #feee00;
-            --anghami-color: #d400ff;
-            --osn-color: #ff0000;
         }
 
         body { 
@@ -56,9 +51,8 @@
             border-color: var(--red-500);
         }
 
-        /* تنسيق اسم المنصة الكبير بالألوان الأصلية */
         .brand-name {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             display: flex;
             align-items: center;
@@ -66,22 +60,16 @@
             margin-bottom: 1rem;
         }
 
-        .brand-icon {
-            width: 35px;
-            height: 35px;
+        /* أيقونة التطبيق الملونة الأصلية (الملصق) */
+        .brand-app-icon {
+            width: 45px;
+            height: 45px;
             object-fit: contain;
+            border-radius: 10px;
         }
 
         .back-link { color: var(--text-main); transition: 0.3s; }
         .back-link:hover { color: var(--red-500); }
-
-        .brand-logo-img {
-            max-width: 140px;
-            height: 55px;
-            object-fit: contain;
-            filter: brightness(0) invert(1);
-            margin-bottom: 1.5rem;
-        }
 
         .section-divider {
             border-right: 4px solid var(--red-500);
@@ -91,7 +79,7 @@
 
         .btn-vip {
             border: 1px solid var(--red-500);
-            color: white;
+            color: #ffffff;
             padding: 10px 20px;
             border-radius: 8px;
             width: 100%;
@@ -104,6 +92,9 @@
             background: var(--red-500);
             box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
         }
+
+        h1, h2 { color: #ffffff !important; }
+        p { color: var(--text-main) !important; }
 
         * { font-style: normal !important; }
     </style>
@@ -124,7 +115,7 @@
 
     <header class="py-16 text-center px-4">
         <h1 class="text-4xl md:text-6xl font-extrabold text-red-600 mb-2">مساحات إعلانية VIP</h1>
-        <p class="text-white text-lg font-bold opacity-90 uppercase tracking-widest">Partners & Authorized Platforms</p>
+        <p class="text-lg font-bold opacity-90 uppercase tracking-widest">Partners & Authorized Platforms</p>
     </header>
 
     <main class="container mx-auto px-6 pb-20">
@@ -134,26 +125,29 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <div class="vip-card shadow-2xl">
-                <div class="brand-name" style="color: var(--anghami-color);">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Anghami_logo.svg" class="brand-icon">
+                <div class="brand-name text-red-600">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Anghami_logo.svg" class="brand-app-icon">
                     <span>Anghami</span>
                 </div>
                 <a href="#" class="btn-vip">عروض أنغامي</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" class="brand-logo-img" style="width: 50px;">
+                <div class="brand-name text-red-600">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" class="brand-app-icon">
+                    <span>Spotify</span>
+                </div>
                 <a href="#" class="btn-vip">اشتراك سبوتيفاي</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <div class="brand-name" style="color: white;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/BeIN_Sports_logo.svg" class="brand-icon">
-                    <span style="color: var(--bein-color);">beIN</span>
+                <div class="brand-name text-red-600">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/BeIN_Sports_logo.svg" class="brand-app-icon">
+                    <span>beIN</span>
                 </div>
                 <a href="#" class="btn-vip">باقات بي إن</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <div class="brand-name" style="color: var(--osn-color);">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/OSN_Logo.svg" class="brand-icon">
+                <div class="brand-name text-red-600">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/OSN_Logo.svg" class="brand-app-icon">
                     <span>OSN+</span>
                 </div>
                 <a href="#" class="btn-vip">اشتراك OSN+</a>
@@ -165,19 +159,22 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="brand-logo-img">
+                <div class="brand-name text-white">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="brand-app-icon" style="filter: none;">
+                    <span>Amazon</span>
+                </div>
                 <a href="#" class="btn-vip">عروض أمازون</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <div class="brand-name" style="color: var(--noon-color);">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Noon_Logo.svg" class="brand-icon">
-                    <span style="color: #ffffff; background: #000; padding: 0 5px; border-radius: 4px;">noon</span>
+                <div class="brand-name">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Noon_Logo.svg" class="brand-app-icon">
+                    <span style="color: #feee00; background: #000; padding: 0 8px; border-radius: 5px;">noon</span>
                 </div>
                 <a href="#" class="btn-vip">تسوق في نون</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <div class="brand-name" style="color: var(--temu-color);">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/3/3b/Temu_logo.svg" class="brand-icon">
+                <div class="brand-name" style="color: #ff6900;">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/3b/Temu_logo.svg" class="brand-app-icon">
                     <span>TEMU</span>
                 </div>
                 <a href="#" class="btn-vip">عروض TEMU</a>
@@ -189,11 +186,17 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="brand-logo-img">
+                <div class="brand-name text-white">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="brand-app-icon" style="filter: brightness(0) invert(1);">
+                    <span>Adidas</span>
+                </div>
                 <a href="#" class="btn-vip">منتجات أديداس</a>
             </div>
             <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="brand-logo-img">
+                <div class="brand-name text-white">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="brand-app-icon" style="filter: brightness(0) invert(1);">
+                    <span>Zara</span>
+                </div>
                 <a href="#" class="btn-vip">تشكيلة زارا</a>
             </div>
         </div>
@@ -201,7 +204,7 @@
     </main>
 
     <footer class="py-10 text-center border-t border-gray-900 mt-10">
-        <p class="text-red-600 text-sm font-bold">DeSina Creative © 2026 | VIP Advertising</p>
+        <p class="text-red-600 text-sm font-bold">جميع حقوق الملكية محفوظة لشركة DeSina © 2026</p>
     </footer>
 
 </body>
