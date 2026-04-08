@@ -3,83 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De Sina | إدارة الحسابات</title>
+    <title>إدارة الحسابات | De Sina</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #000; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .neon-border:hover {
-            box-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
-            border-color: #dc2626;
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+        
+        body { 
+            background-color: #000; 
+            font-family: 'Cairo', sans-serif; 
+            overflow-x: hidden;
         }
-        .social-row:hover { background-color: rgba(255, 255, 255, 0.05); }
+
+        /* تأثير النيون الأحمر للكارت الرئيسي */
+        .neon-card {
+            background: rgba(5, 5, 5, 0.98);
+            border: 1px solid rgba(220, 38, 38, 0.15);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+            transition: all 0.5s ease;
+        }
+
+        .neon-card:hover {
+            box-shadow: 0 0 50px rgba(220, 38, 38, 0.3);
+            border-color: rgba(220, 38, 38, 0.6);
+        }
+
+        /* تأثير الصفوف عند الوقوف عليها */
+        .social-row {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .social-row:hover {
+            background: rgba(220, 38, 38, 0.08);
+            border-color: rgba(220, 38, 38, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* تنسيق الـ QR Code */
+        .qr-frame {
+            background: #fff;
+            padding: 5px;
+            border-radius: 14px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+
+        /* تنسيق لوجو DeSina المربع */
+        .brand-logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px; /* مربع بحواف ناعمة */
+            object-fit: cover;
+            border: 2px solid rgba(220, 38, 38, 0.2);
+            box-shadow: 0 0 15px rgba(220, 38, 38, 0.2);
+        }
     </style>
 </head>
-<body class="text-white min-h-screen p-6 flex flex-col items-center justify-center">
+<body class="text-white min-h-screen flex items-center justify-center p-4 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-red-950/20 via-black to-black">
 
-    <div class="w-full max-w-2xl bg-[#0a0a0a] border border-gray-900 rounded-3xl p-8 neon-border transition-all duration-500 shadow-2xl">
+    <div class="w-full max-w-2xl neon-card rounded-[3rem] p-10 md:p-14 relative overflow-hidden shadow-2xl">
         
-        <div class="text-center mb-10 border-b border-gray-900 pb-6">
-            <h1 class="text-3xl font-extrabold mb-3 bg-gradient-to-l from-red-600 to-white bg-clip-text text-transparent">منصة التواصل | جسر الإبداع بيننا وبينكم</h1>
-            <p class="text-gray-400 text-lg">تواصل مباشرة مع فريق إدارة محتوى De Sina</p>
+        <div class="absolute -top-32 -right-32 w-64 h-64 bg-red-600/10 blur-[120px]"></div>
+
+        <div class="text-center mb-14 relative border-b border-gray-900 pb-10">
+            <h1 class="text-5xl font-black mb-5 tracking-tighter bg-gradient-to-l from-red-600 via-white to-white bg-clip-text text-transparent italic">
+                إدارة الحسابات
+            </h1>
+            <div class="h-1.5 w-32 bg-red-600 mx-auto rounded-full mb-6"></div>
+            <p class="text-gray-400 text-xl font-bold leading-relaxed">منصة التواصل | جسر الإبداع بيننا وبينكم</p>
         </div>
 
-        <div class="space-y-4">
+        <div class="space-y-5 relative">
 
-            <a href="https://www.facebook.com/egy.desina" target="_blank" class="flex items-center justify-between p-4 rounded-2xl social-row transition-all group">
-                <div class="flex items-center gap-5">
-                    <img src="رابط_لوجو_ديسينا_هنا" alt="De Sina" class="w-12 h-12 rounded-xl object-cover border border-gray-800">
-                    <span class="text-xl font-bold group-hover:text-red-600 transition-colors">Facebook</span>
+            <a href="https://www.facebook.com/egy.desina" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
+                <div class="flex items-center gap-7">
+                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
+                    <div>
+                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">Facebook</span>
+                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">تابعوا آخر أخبارنا</span>
+                    </div>
                 </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://www.facebook.com/egy.desina" alt="QR" class="w-16 h-16 bg-white p-1 rounded-lg">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://www.facebook.com/egy.desina" alt="Facebook QR" class="qr-frame w-24 h-24">
             </a>
 
-            <a href="https://www.youtube.com/@De_sina" target="_blank" class="flex items-center justify-between p-4 rounded-2xl social-row transition-all group">
-                <div class="flex items-center gap-5">
-                    <img src="رابط_لوجو_ديسينا_هنا" alt="De Sina" class="w-12 h-12 rounded-xl object-cover border border-gray-800">
-                    <span class="text-xl font-bold group-hover:text-red-600 transition-colors">YouTube</span>
+            <a href="https://www.youtube.com/@De_sina" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
+                <div class="flex items-center gap-7">
+                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
+                    <div>
+                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">YouTube</span>
+                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">شاهدوا محتوانا الإبداعي</span>
+                    </div>
                 </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://www.youtube.com/@De_sina" alt="QR" class="w-16 h-16 bg-white p-1 rounded-lg">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://www.youtube.com/@De_sina" alt="YouTube QR" class="qr-frame w-24 h-24">
             </a>
 
-            <a href="https://www.instagram.com/de__sina/" target="_blank" class="flex items-center justify-between p-4 rounded-2xl social-row transition-all group">
-                <div class="flex items-center gap-5">
-                    <img src="رابط_لوجو_ديسينا_هنا" alt="De Sina" class="w-12 h-12 rounded-xl object-cover border border-gray-800">
-                    <span class="text-xl font-bold group-hover:text-red-600 transition-colors">Instagram</span>
+            <a href="https://www.instagram.com/de__sina/" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
+                <div class="flex items-center gap-7">
+                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
+                    <div>
+                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">Instagram</span>
+                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">قصصنا اليومية</span>
+                    </div>
                 </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://www.instagram.com/de__sina/" alt="QR" class="w-16 h-16 bg-white p-1 rounded-lg">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://www.instagram.com/de__sina/" alt="Instagram QR" class="qr-frame w-24 h-24">
             </a>
 
-            <a href="https://tiktok.com/@de_sina1" target="_blank" class="flex items-center justify-between p-4 rounded-2xl social-row transition-all group">
-                <div class="flex items-center gap-5">
-                    <img src="رابط_لوجو_ديسينا_هنا" alt="De Sina" class="w-12 h-12 rounded-xl object-cover border border-gray-800">
-                    <span class="text-xl font-bold group-hover:text-red-600 transition-colors">TikTok</span>
+            <a href="https://tiktok.com/@de_sina1" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
+                <div class="flex items-center gap-7">
+                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
+                    <div>
+                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">TikTok</span>
+                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">مقاطع قصيرة وسريعة</span>
+                    </div>
                 </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://tiktok.com/@de_sina1" alt="QR" class="w-16 h-16 bg-white p-1 rounded-lg">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://tiktok.com/@de_sina1" alt="TikTok QR" class="qr-frame w-24 h-24">
             </a>
 
-            <a href="https://t.me/desina_com" target="_blank" class="flex items-center justify-between p-4 rounded-2xl social-row transition-all group">
-                <div class="flex items-center gap-5">
-                    <img src="رابط_لوجو_ديسينا_هنا" alt="De Sina" class="w-12 h-12 rounded-xl object-cover border border-gray-800">
-                    <span class="text-xl font-bold group-hover:text-red-600 transition-colors">Telegram</span>
+            <a href="https://t.me/desina_com" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
+                <div class="flex items-center gap-7">
+                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
+                    <div>
+                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">Telegram</span>
+                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">انضموا لقناتنا الرسمية</span>
+                    </div>
                 </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://t.me/desina_com" alt="QR" class="w-16 h-16 bg-white p-1 rounded-lg">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://t.me/desina_com" alt="Telegram QR" class="qr-frame w-24 h-24">
             </a>
 
-            <a href="https://www.snapchat.com/add/desina_com" target="_blank" class="flex items-center justify-between p-4 rounded-2xl social-row transition-all group">
-                <div class="flex items-center gap-5">
-                    <img src="رابط_لوجو_ديسينا_هنا" alt="De Sina" class="w-12 h-12 rounded-xl object-cover border border-gray-800">
-                    <span class="text-xl font-bold group-hover:text-red-600 transition-colors">Snapchat</span>
+            <a href="https://www.snapchat.com/add/desina_com" target="_blank" class="flex items-center justify-between p-6 rounded-2xl social-row group">
+                <div class="flex items-center gap-7">
+                    <img src="path/to/your/hero-logo.png" alt="DeSina Logo" class="brand-logo">
+                    <div>
+                        <span class="block text-2xl font-black group-hover:text-red-500 transition-colors">Snapchat</span>
+                        <span class="text-gray-500 text-sm uppercase tracking-widest mt-1 block">تواصلوا معنا مباشرة</span>
+                    </div>
                 </div>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://www.snapchat.com/add/desina_com" alt="QR" class="w-16 h-16 bg-white p-1 rounded-lg">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://www.snapchat.com/add/desina_com" alt="Snapchat QR" class="qr-frame w-24 h-24">
             </a>
 
         </div>
 
-        <div class="mt-12 text-center border-t border-gray-900 pt-8">
-            <p class="text-red-600 font-bold italic text-lg mb-4">"كن جزءاً من عالم De Sina.. حيث نصنع الواقع من وحي الخيال."</p>
-            <p class="text-gray-500 text-sm italic">جميع الحقوق محفوظة لبراند De Sina © 2026</p>
+        <div class="mt-20 text-center border-t border-gray-900 pt-12">
+            <p class="text-red-600 font-black italic text-2xl mb-5 leading-snug">
+                "كن جزءاً من عالم De Sina..<br>حيث نصنع الواقع من وحي الخيال."
+            </p>
+            <p class="text-gray-600 text-sm tracking-[0.4em] font-bold uppercase">
+                جميع الحقوق محفوظة لبراند De Sina © 2026
+            </p>
         </div>
-
     </div>
 
 </body>
