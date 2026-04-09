@@ -26,7 +26,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* قتل الشريط الأبيض وأرضية سوداء */
         body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh; background-color: #000; transition: background-color 0.4s, color 0.4s; }
         .hero-section { position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #000; margin-top: -1px; }
         .nav-link { color: #374151; font-weight: bold; transition: 0.3s; }
@@ -37,7 +36,6 @@
         .service-card { transition: 0.3s; border-top: 4px solid #ef4444; background-color: white; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
         .service-card:hover { transform: translateY(-10px); }
 
-        /* كلاس مخصص لتنوير الإيميلات والتليفونات باللون الأحمر */
         .footer-interactive-link { color: #d1d5db; transition: color 0.3s; }
         .footer-interactive-link:hover { color: #ef4444 !important; }
 
@@ -74,7 +72,6 @@
             .hero-section a { flex: 0 1 45% !important; padding: 10px 8px !important; font-size: 13px !important; text-align: center; border-radius: 9999px !important; }
             .hero-section a:last-child { flex: 0 1 60% !important; }
 
-            /* الضبطة الميكروسكوبية لرفع الشريط سنة واحدة */
             #mobile-menu { 
                 display: none; flex-direction: column; width: 35% !important; position: fixed; top: 64px; right: 0; 
                 height: 52.5vh !important; background: rgba(15, 15, 15, 0.98); backdrop-filter: blur(12px);
@@ -90,7 +87,6 @@
                 white-space: nowrap; display: block;
             }
             .main-logo { height: 35px !important; margin-right: 8px !important; }
-            
             h2 { white-space: nowrap; font-size: 1.7rem !important; }
         }
         @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
@@ -165,7 +161,7 @@
                     </div>
                 </a>
 
-                <a href="en-content.html" class="p-8 rounded-2xl shadow-lg service-card block hover:shadow-2xl transition-all cursor-pointer">
+                <a href="en-content.html" class="p-8 rounded-2xl shadow-lg service-card block hover:shadow-2xl transition-all cursor-pointer no-underline">
                     <div>
                         <i class="fas fa-pen-nib text-5xl text-red-600 mb-6"></i>
                         <h3 class="text-2xl font-bold mb-4 text-gray-800">Content Creation</h3>
@@ -177,13 +173,22 @@
                     </div>
                 </a>
 
-                <div class="p-8 rounded-2xl shadow-lg service-card">
+                <a href="en-vip.html" class="p-8 rounded-2xl shadow-lg service-card block hover:shadow-2xl transition-all cursor-pointer no-underline">
                     <div>
-                        <i class="fas fa-video text-5xl text-red-600 mb-6"></i>
-                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Video Editing</h3>
-                        <p class="text-gray-600">Transforming your footage into cinematic videos for all platforms.</p>
+                        <div class="flex justify-center mb-6">
+                            <div style="background: #ef4444; color: white; padding: 12px 18px; border-radius: 12px; font-weight: 900; font-size: 24px; line-height: 1;">
+                                Ad
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">VIP Ad Spaces</h3>
+                        <p class="text-gray-600 mb-6">DeSina success partners from trusted global platforms.</p>
                     </div>
-                </div>
+                    <div class="text-red-600 font-bold flex items-center justify-center gap-2">
+                        <span>View Works</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+
             </div>
         </div>
     </section>
@@ -213,7 +218,7 @@
                 </div>
                 <div class="flex flex-col items-center md:items-start gap-1 mt-2">
                     <div class="flex items-center gap-2"><i class="fas fa-envelope text-red-600"></i><a href="mailto:info@desina.net" class="text-gray-300 text-sm footer-interactive-link">info@desina.net</a></div>
-                    <div class="flex items-center gap-2"><i class="fas fa-envelope text-red-600"></i><a href="mailto:desina.com@gmail.com" class="text-gray-300 text-sm footer-interactive-link">desina.com@gmail.com</a></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-envelope text-red-600"></i><a href="mailto:desina.com@gmail.com" class="text-gray-300 text-sm footer-interactive-link">info@desina.net</a></div>
                 </div>
                 <a href="https://maps.app.goo.gl/WBfgP3kfhdrsG4Jv6" target="_blank" class="mt-4 flex items-center gap-2 text-red-500 font-bold hover:text-white transition-all group"><i class="fas fa-location-arrow animate-bounce"></i><span class="border-b border-red-500 group-hover:border-white">Our Location on the Map</span></a>
             </div>
