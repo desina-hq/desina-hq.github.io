@@ -86,8 +86,13 @@
 </head>
 <body class="text-gray-900">
 
-    <a href="https://wa.me/201102919214" class="whatsapp-float" target="_blank" aria-label="تواصل معنا عبر واتساب">
-    <div id="music-toggle" onclick="handleMusicToggle()"><i id="music-icon" class="fas fa-music"></i></div>
+<a href="https://wa.me/201102919214" class="whatsapp-float" target="_blank" aria-label="تواصل معنا عبر واتساب">
+   <i class="fab fa-whatsapp"></i>
+</a>
+
+<div id="music-toggle" onclick="handleMusicToggle()" aria-label="تشغيل الموسيقى" class="fixed bottom-5 left-5 bg-black text-white p-3 rounded-full shadow-lg cursor-pointer z-50">
+   <i id="music-icon" class="fas fa-music"></i>
+</div>
     <audio id="bg-audio" loop preload="auto" playsinline><source src="bg-music.mp3" type="audio/mpeg"></audio>
 
     <nav class="bg-white shadow-md p-3 sticky top-0 z-50">
