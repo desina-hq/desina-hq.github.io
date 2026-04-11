@@ -1,3 +1,4 @@
+# Optimized for DeSina
 User-agent: *
 Disallow:
 
