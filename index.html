@@ -203,7 +203,7 @@
     <div id="desina-ai-widget">
         <div id="desina-chat-box">
             <div style="background: rgba(239, 68, 68, 0.9); color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
-                <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-robot"></i>  DeSina AI الذكي</span>
+                <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-robot"></i> AI DeSina الذكي</span>
                 <i class="fas fa-times" style="cursor:pointer" onclick="toggleDeSina()"></i>
             </div>
             <div id="desina-messages">
@@ -227,21 +227,21 @@
     </footer>
 
     <script>
-        // الجراحة الموضعية: المفتاح والروابط لـ Groq (جريد)
+        // زراعة المفتاح والماتور الجديد لبراند DeSina
         const API_KEY = "Gsk_9Hpn9tLfduK7USEkiZ6AWGdyb3FYvmJl211RUT56ZPdQ3EoGu0BC";
         
         const DESINA_DNA = `You are 'DeSina Official AI' (ديسينا). Your personality is professional and elite.
-        1. MAIN GOAL: Promote DeSina VIP Ad spaces for brands (Amazon, Noon, Adidas, Temu), tourism, and TV channels.
-        2. RETAIL: Guide users to DeSina Store (Arabic/English) and clothing catalogs.
-        3. الموسوعة العربية الشاملة: أنت خبير وموسوعة ذكية في: الدين، الصناعة، التجارة، الزراعة، التعليم، الجغرافيا، وعالم الحيوان، والتاريخ.
-        4. الأهداف التجارية: أنت الواجهة لمتجر ديسينا (DeSina Store) ومساحات VIP Ads الإعلانية؛ توجه العملاء لها بفخامة.
-        5. الهوية واللغة: ترد بلغة عربية راقية، ذكية، وعميقة كعالم متخصص، وتفتخر بكونك DeSina AI العقل المفكر للبراند.
-        6. ENCYCLOPEDIA: You are an expert in Islamics, History, Medicine, Agriculture, Industry, Geography, Animal kingdom, Weather, and all business projects.
-        7. IDENTITY: Always present as 'DeSina'. Regional: 'ديسينا مصر'. Technical URLs: 'desina'.`;
+        1. MAIN GOAL: Promote deSina VIP Ad spaces for brands (Amazon, Noon, Adidas, Temu), tourism, and TV channels.
+        2. RETAIL: Guide users to deSina Store (Arabic/English) and clothing catalogs.
+        3. ENCYCLOPEDIA: You are an expert in Islamics, History, Medicine, Agriculture, Industry, Geography, Animal kingdom, Weather, and all business projects.
+        4. IDENTITY: Always present as 'DeSina'. Regional: 'ديسينا مصر'. Technical URLs: 'desina.
+        5. الموسوعة العربية الشاملة: أنت خبير وموسوعة ذكية في: الدين، الصناعة، التجارة، الزراعة، التعليم، الجغرافيا، وعالم الحيوان، والتاريخ.
+        6. الأهداف التجارية: أنت الواجهة لمتجر ديسينا (DeSina Store) ومساحات VIP Ads الإعلانية؛ توجه العملاء لها بفخامة.
+        7. الهوية واللغة: ترد بلغة عربية راقية، ذكية، وعميقة كعالم متخصص، وتفتخر بكونك DeSina AI العقل المفكر للبراند`;
 
         window.toggleDeSina = () => {
             const box = document.getElementById('desina-chat-box');
-            box.style.display = box.style.display === 'none' || box.style.display === '' ? 'flex' : 'none';
+            box.style.display = box.style.display === 'none' ? 'flex' : 'none';
         };
 
         window.callDeSina = async () => {
@@ -255,7 +255,6 @@
             msgDiv.scrollTop = msgDiv.scrollHeight;
 
             try {
-                // تفعيل رابط جريد (Groq)
                 const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
                     method: "POST",
                     headers: {
@@ -267,18 +266,13 @@
                         messages: [
                             { role: "system", content: DESINA_DNA },
                             { role: "user", content: text }
-                        ],
-                        temperature: 0.6
+                        ]
                     })
                 });
 
                 const data = await response.json();
-                if (data.choices && data.choices[0]) {
-                    const aiResponse = data.choices[0].message.content;
-                    msgDiv.innerHTML += `<div class="msg-ai">${aiResponse}</div>`;
-                } else {
-                    throw new Error("Invalid response");
-                }
+                const aiResponse = data.choices[0].message.content;
+                msgDiv.innerHTML += `<div class="msg-ai">${aiResponse}</div>`;
             } catch (e) {
                 console.error("AI Error:", e);
                 msgDiv.innerHTML += `<div class="msg-ai">ديسينا تعتذر، يبدو أن هناك ضغطاً على السيرفر. جرب مرة أخرى خلال لحظات.</div>`;
