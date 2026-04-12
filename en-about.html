@@ -17,76 +17,99 @@
     src="https://www.facebook.com/tr?id=790032697153678&ev=PageView&noscript=1"
     /></noscript>
     <meta charset="UTF-8">
-    <meta name="google" content="notranslate">
-    <meta http-equiv="Content-Language" content="en">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="About Us | DeSina: A leading Egyptian brand blending fashion elegance with digital innovation. Discover our vision for high-end garment production and professional marketing solutions.">
+    <meta name="description" content="About Us | DeSina: Discover DeSina's vision in supporting entrepreneurship and innovative content creation. We are your strategic partner for a strong digital identity.">
     <title>About Us | DeSina</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg-body: #f9fafb; --bg-nav: #ffffff; --text-main: #1f2937; --text-muted: #4b5563; --border-color: #e5e7eb; }
+        :root { --bg-body: #f3f4f6; --bg-card: #ffffff; --text-main: #1f2937; --text-muted: #4b5563; --bg-inner: #f9fafb; }
         
         @media (prefers-color-scheme: dark) {
-            :root { --bg-body: #0a0c10; --bg-nav: #111111; --text-main: #f3f4f6; --text-muted: #9ca3af; --border-color: #30363d; }
+            :root { --bg-body: #0a0c10; --bg-card: #111827; --text-main: #f3f4f6; --text-muted: #9ca3af; --bg-inner: #1f2937; }
         }
 
-        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); scroll-behavior: smooth; transition: background-color 0.4s, color 0.4s; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); transition: 0.4s; }
+        .about-card { background: var(--bg-card); border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .red-line { height: 6px; background: linear-gradient(to right, #ef4444, #b91c1c); }
+        h1, h2, h3, p { font-style: normal !important; }
         
-        nav { background-color: var(--bg-nav) !important; transition: background-color 0.4s; }
-        .nav-link { color: var(--text-main); font-weight: bold; transition: 0.3s; }
-        .nav-link:hover { color: #ef4444; }
-        
-        .border-sep { border-color: var(--border-color) !important; }
-        .text-gray-600, .text-gray-700 { color: var(--text-muted) !important; }
-
-        @media (prefers-color-scheme: dark) {
-            header.bg-gray-900 { background-color: #000000 !important; }
-            .bg-white { background-color: var(--bg-nav) !important; }
-        }
+        .inner-box { background-color: var(--bg-inner); }
+        .border-sep { border-color: rgba(156, 163, 175, 0.1); }
     </style>
 </head>
-<body>
-    <nav class="shadow-md p-3 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="flex items-center gap-6">
-                <img src="logo.jpg" class="h-10 rounded-lg">
-                <div class="hidden md:flex items-center gap-8 border-l-2 pl-6 border-sep">
-                    <a href="en.html" class="nav-link">Home</a>
-                    <a href="en-catalog.html" class="nav-link">Catalog</a>
+<body class="py-16 px-6">
+    <div class="container mx-auto max-w-5xl">
+        <div class="text-center mb-12">
+            <a href="en.html">
+                <img src="logo.jpg" class="h-20 mx-auto mb-6 rounded-2xl shadow-md border-2 border-white dark:border-gray-800 transition-colors" style="cursor: pointer;">
+            </a>
+            <h1 class="text-4xl font-extrabold mb-2">About <span class="text-red-600">DeSina</span></h1>
+            <div class="w-24 h-1 bg-red-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="about-card transition-colors">
+            <div class="red-line"></div>
+            <div class="p-8 md:p-16">
+                <div class="mb-12 border-b border-sep pb-12">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fas fa-history text-red-600"></i> Our Story
+                    </h2>
+                    <p class="text-muted leading-relaxed text-lg">
+                        The journey of **DeSina** began in **May 2023** as an ambitious Egyptian brand seeking to introduce a new concept of elegance and innovation. It wasn't just a start in the fashion industry, but a clear vision to merge industrial quality with advanced digital solutions to keep pace with the modern era.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 border-b border-sep pb-12">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fas fa-eye text-red-600"></i> Our Vision
+                        </h3>
+                        <p class="text-muted leading-relaxed">We aspire to be the primary partner for our clients on their journey toward excellence, whether through the unique designs we offer or the digital solutions we innovate to enhance their identity.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fas fa-bullseye text-red-600"></i> Our Mission
+                        </h3>
+                        <p class="text-muted leading-relaxed">To provide integrated services including world-class apparel production and professional digital content management, helping our partners achieve sustainable growth and wide reach.</p>
+                    </div>
+                </div>
+
+                <div class="inner-box p-8 rounded-2xl transition-colors">
+                    <h2 class="text-2xl font-bold mb-8 text-center">Our Core Values</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div class="p-4">
+                            <i class="fas fa-award text-4xl text-red-600 mb-4"></i>
+                            <h4 class="font-bold text-lg mb-2">Quality</h4>
+                            <p class="text-sm text-muted">We adhere to the highest standards of precision in every industrial or digital detail.</p>
+                        </div>
+                        <div class="p-4">
+                            <i class="fas fa-lightbulb text-4xl text-red-600 mb-4"></i>
+                            <h4 class="font-bold text-lg mb-2">Innovation</h4>
+                            <p class="text-sm text-muted">We always strive to provide ideas and solutions that are ahead of their time.</p>
+                        </div>
+                        <div class="p-4">
+                            <i class="fas fa-handshake text-4xl text-red-600 mb-4"></i>
+                            <h4 class="font-bold text-lg mb-2">Partnership</h4>
+                            <p class="text-sm text-muted">We believe our true success lies in achieving our clients' goals.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <a href="en.html" class="bg-gray-900 text-white px-6 py-2 rounded-full font-bold hover:bg-red-600 transition text-sm">Back to Home</a>
         </div>
-    </nav>
 
-    <header class="bg-gray-900 py-16 text-center text-white px-4 border-b-4 border-red-600 transition-colors">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-4">About <span class="text-red-600">DeSina</span></h1>
-        <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">We blend fashion elegance with digital innovation to create a unique identity for your brand.</p>
-    </header>
-
-    <section class="container mx-auto px-6 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-3xl font-bold mb-6 border-l-4 border-red-600 pl-4">Our Vision</h2>
-                <p class="text-lg leading-relaxed mb-6">At DeSina, we strive to be the leading partner for brands seeking excellence in both the industrial fashion world and the digital marketing sphere.</p>
-                <h2 class="text-3xl font-bold mb-6 border-l-4 border-red-600 pl-4">What We Do</h2>
-                <ul class="space-y-4">
-                    <li><i class="fas fa-check text-red-600 mr-2"></i> High-end Fashion Design & Production.</li>
-                    <li><i class="fas fa-check text-red-600 mr-2"></i> Professional Social Media Management.</li>
-                    <li><i class="fas fa-check text-red-600 mr-2"></i> Cinematic Video Editing & Content Creation.</li>
-                </ul>
-            </div>
-            <div class="rounded-3xl overflow-hidden shadow-2xl border-2 border-sep transition-colors">
-                <img src="logo.jpg" class="w-full h-full object-cover">
-            </div>
+        <div class="text-center mt-12 flex flex-col md:flex-row justify-center gap-4">
+            <a href="en.html" class="bg-gray-900 text-white px-10 py-4 rounded-full font-bold shadow-xl hover:bg-red-600 transition duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+            <a href="https://wa.me/201102919214" target="_blank" class="bg-green-500 text-white px-10 py-4 rounded-full font-bold shadow-xl hover:bg-green-600 transition duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                <i class="fab fa-whatsapp"></i> Contact Us
+            </a>
         </div>
-    </section>
-
-    <footer class="bg-gray-950 text-white py-12 text-center border-t border-gray-800">
-        <p class="text-gray-500 font-bold">DeSina Company © 2026 | All Rights Reserved</p>
-    </footer>
+        
+        <p class="text-center mt-12 text-gray-500 text-sm font-bold opacity-70 transition-opacity">All Rights Reserved © DeSina Company 2026</p>
+    </div>
 </body>
 </html>
