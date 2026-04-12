@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" id="mainHtml">
 <head>
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '790032697153678');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=790032697153678&ev=PageView&noscript=1"
+    /></noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>DeSina | سياسة الاسترجاع والاستبدال - Refund Policy</title>
@@ -45,7 +60,9 @@
                 <span onclick="setLang('ar')" id="nav-ar" class="nav-link active-lang">العربية</span>
                 <span onclick="setLang('en')" id="nav-en" class="nav-link">English</span>
             </div>
-            <img src="logo.jpg" class="brand-logo">
+            <a href="index.html" id="logoLink">
+                <img src="logo.jpg" class="brand-logo" style="cursor: pointer;">
+            </a>
             <a href="index.html" id="homeLink" class="back-btn">الرئيسية</a>
         </div>
     </nav>
@@ -109,6 +126,7 @@
             const arHeader = document.getElementById('header-ar');
             const enHeader = document.getElementById('header-en');
             const homeLink = document.getElementById('homeLink');
+            const logoLink = document.getElementById('logoLink'); // تعريف رابط اللوجو
             const navAr = document.getElementById('nav-ar');
             const navEn = document.getElementById('nav-en');
 
@@ -118,22 +136,21 @@
                 arHeader.classList.add('hidden-content'); enHeader.classList.remove('hidden-content');
                 navAr.classList.remove('active-lang'); navEn.classList.add('active-lang');
                 homeLink.innerText = 'Home'; homeLink.href = 'en.html';
+                logoLink.href = 'en.html'; // توجيه اللوجو للرئيسية الإنجليزي
             } else {
                 html.dir = 'rtl'; html.lang = 'ar';
                 enContent.classList.add('hidden-content'); arContent.classList.remove('hidden-content');
-                enHeader.classList.add('hidden-content'); arHeader.classList.remove('hidden-content');
+                enHeader.classList.add('hidden-content'); arHeader.classList.add('hidden-content');
                 navEn.classList.remove('active-lang'); navAr.classList.add('active-lang');
                 homeLink.innerText = 'الرئيسية'; homeLink.href = 'index.html';
+                logoLink.href = 'index.html'; // توجيه اللوجو للرئيسية العربي
             }
         }
 
-        // --- المفتاح الذكي اللي "بيشم" ريحة الدخول ---
         window.addEventListener('DOMContentLoaded', (event) => {
-            // لو العميل جاي من صفحة الإنجليزي، اقلب الصفحة أوتوماتيك
             if (document.referrer.includes('en.html')) {
                 setLang('en');
             } else {
-                // لو مش جاي من إنجليزي، افتح العربي كوضع افتراضي
                 setLang('ar');
             }
         });
