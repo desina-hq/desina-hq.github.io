@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Exclusive VIP Advertising Spaces at DeSina: Your premium gateway to Anghami, Spotify, beIN, and global fashion brands like Amazon, Temu, and Zara.">
+    <title>VIP Advertising Spaces | DeSina Group</title>
+    
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -13,141 +18,85 @@
     fbq('init', '790032697153678');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=790032697153678&ev=PageView&noscript=1"
-    /></noscript>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="VIP Advertising Spaces by DeSina: Your premium gateway to authorized digital subscriptions (Anghami, Spotify, beIN) and exclusive global shopping deals (Amazon, Noon, Temu). Scale your brand with our exclusive VIP network.">
-    <meta name="keywords" content="DeSina, VIP Advertising, Anghami Ads, Spotify VIP, Amazon Deals, Noon Shopping, Digital Media DeSina, Global Brand Partnership">
-    <title>VIP Advertising Spaces | DeSina</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <style>
-        :root { --bg-body: #f8fafc; --bg-nav: rgba(255, 255, 255, 0.9); --bg-card: #ffffff; --text-main: #1e293b; --text-gray: #64748b; --border-color: #e2e8f0; --red-500: #ef4444; }
-        @media (prefers-color-scheme: dark) { :root { --bg-body: #0a0c10; --bg-nav: rgba(10, 12, 16, 0.8); --bg-card: #161b22; --text-main: #cbd5e1; --text-gray: #9ca3af; --border-color: #21262d; } }
-        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); min-height: 100vh; font-style: normal !important; transition: background-color 0.3s, color 0.3s; }
-        nav { background-color: var(--bg-nav); border-bottom: 1px solid var(--border-color); }
-        .vip-card { background: var(--bg-card); border-top: 4px solid var(--red-500); transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 2.5rem 1.5rem; border-radius: 1.5rem; min-height: 260px; }
-        .vip-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(239, 68, 68, 0.15); border-color: var(--red-500); }
-        .brand-name { font-size: 1.6rem; font-weight: 800; display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
-        .brand-app-icon { width: 48px; height: 48px; object-fit: contain; border-radius: 10px; }
-        .fashion-logo { max-width: 140px; height: 60px; object-fit: contain; filter: brightness(0); margin-bottom: 1.5rem; }
-        @media (prefers-color-scheme: dark) { .fashion-logo { filter: brightness(0) invert(1); } }
-        .back-link { color: var(--text-main); transition: 0.3s; }
-        .back-link:hover { color: var(--red-500); }
-        .section-divider { border-left: 4px solid var(--red-500); padding-left: 15px; margin: 40px 0 25px; }
-        .btn-vip { border: 1px solid var(--red-500); color: var(--red-500); padding: 10px 20px; border-radius: 8px; width: 100%; text-align: center; transition: 0.3s; font-weight: bold; }
-        @media (prefers-color-scheme: dark) { .btn-vip { color: #ffffff; } }
-        .btn-vip:hover { background: var(--red-500); color: #ffffff !important; box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
-        h2 { color: var(--text-main) !important; }
-        * { font-style: normal !important; }
+        :root { --bg-body: #0a0c10; --bg-card: #161b22; --text-main: #f3f4f6; --red-desina: #ef4444; --border-color: #21262d; }
+        body { font-family: 'Inter', 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); overflow-x: hidden; }
+        
+        nav { background-color: rgba(0, 0, 0, 0.8) !important; backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); width: 100%; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 15px; }
+        
+        .vip-card { background: var(--bg-card); border: 1px solid var(--border-color); border-top: 4px solid var(--red-desina); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 2rem 1.5rem; min-height: 280px; cursor: pointer; }
+        .vip-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(239, 68, 68, 0.2); border-color: var(--red-desina); }
+        .brand-app-icon { width: 60px; height: 60px; object-fit: contain; border-radius: 12px; margin-bottom: 15px; }
+        .fashion-logo { max-width: 140px; height: 60px; filter: brightness(0) invert(1); }
+        .section-divider { border-left: 5px solid var(--red-desina); padding-left: 20px; margin: 50px 0 30px; }
+        .btn-vip { border: 1.5px solid var(--red-desina); color: #fff; padding: 12px 20px; border-radius: 12px; width: 100%; text-align: center; font-weight: bold; background: rgba(239, 68, 68, 0.05); }
+
+        .swal2-popup { background: #161b22 !important; color: #fff !important; border-radius: 25px !important; border: 1px solid #21262d !important; }
+        .swal2-title { color: #ef4444 !important; font-weight: 900 !important; }
+        .swal2-confirm { background-color: #ef4444 !important; border-radius: 10px !important; }
     </style>
 </head>
 <body>
 
-    <nav class="p-4 sticky top-0 z-50 backdrop-blur-md">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="flex items-center gap-2">
-                <a href="en.html">
-                    <img src="logo.jpg" style="height: 35px; border-radius: 5px; cursor: pointer;" alt="DeSina Logo - Back to Home">
-                </a>
-                <span class="text-red-600 font-bold text-xl tracking-tighter">DeSina</span>
-            </div>
-            <a href="en.html" class="back-link font-bold flex items-center gap-2">
-                Back to Home <i class="fas fa-chevron-left text-red-600"></i>
+    <nav class="p-4 sticky top-0 z-50">
+        <div class="nav-container">
+            <a href="index.html" class="text-white hover:text-red-500 font-bold flex items-center gap-2 transition whitespace-nowrap">
+                <i class="fas fa-chevron-left text-red-600"></i> Back to Main
             </a>
+            
+            <div class="flex items-center gap-3">
+                <a href="index.html">
+                    <img src="logo.jpg" class="h-10 rounded-lg border border-white/10 hover:scale-105 transition" alt="DeSina Logo">
+                </a>
+                <span class="text-red-600 font-black text-xl md:text-2xl tracking-tighter hidden sm:inline">DeSina VIP</span>
+            </div>
         </div>
     </nav>
 
     <header class="py-16 text-center px-4">
-        <h1 class="text-4xl md:text-6xl font-extrabold text-red-600 mb-2">VIP Ad Spaces</h1>
-        <p class="text-lg font-bold opacity-90 uppercase tracking-widest" style="color: var(--text-main);">Partners & Authorized Platforms</p>
+        <h1 class="text-4xl md:text-7xl font-black text-white mb-4">VIP Advertising <span class="text-red-600">Spaces</span></h1>
+        <p class="text-gray-400 text-sm md:text-lg font-bold tracking-[0.3em] uppercase">Global Partners & Elite Services</p>
     </header>
 
-    <main class="container mx-auto px-6 pb-20">
+    <main class="container mx-auto px-6 pb-20 text-left">
         
-        <div class="section-divider">
-            <h2 class="text-2xl font-bold">Digital Streaming & Entertainment</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div class="vip-card shadow-2xl">
-                <div class="brand-name text-red-600">
-                    <img src="https://img.icons8.com/color/512/anghami.png" class="brand-app-icon" alt="Anghami Advertising - Official DeSina Partner">
-                    <span>Anghami</span>
-                </div>
-                <a href="#" class="btn-vip">Anghami Offers</a>
+        <div class="section-divider"><h2 class="text-2xl md:text-3xl font-black">Digital Streaming & Entertainment</h2></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="vip-card" onclick="checkAffiliate('Anghami')">
+                <img src="https://img.icons8.com/color/512/anghami.png" class="brand-app-icon" alt="Anghami">
+                <h3 class="text-xl font-bold mb-4">Anghami</h3>
+                <div class="btn-vip">Explore Anghami</div>
             </div>
-            <div class="vip-card shadow-2xl">
-                <div class="brand-name text-red-600">
-                    <img src="https://img.icons8.com/color/512/spotify--v1.png" class="brand-app-icon" alt="Spotify VIP Subscription - DeSina Media">
-                    <span>Spotify</span>
-                </div>
-                <a href="#" class="btn-vip">Spotify Subscription</a>
+            <div class="vip-card" onclick="checkAffiliate('Spotify')">
+                <img src="https://img.icons8.com/color/512/spotify--v1.png" class="brand-app-icon" alt="Spotify">
+                <h3 class="text-xl font-bold mb-4">Spotify</h3>
+                <div class="btn-vip">Get Spotify Premium</div>
             </div>
-            <div class="vip-card shadow-2xl">
-                <div class="brand-name text-red-600">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BeIN_Sports_logo.svg/512px-BeIN_Sports_logo.svg.png" class="brand-app-icon" alt="beIN Sports Packages - DeSina Services">
-                    <span>beIN</span>
-                </div>
-                <a href="#" class="btn-vip">beIN Packages</a>
+            <div class="vip-card" onclick="checkAffiliate('beIN Sports')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/BeIN_Sports_logo.svg/512px-BeIN_Sports_logo.svg.png" class="brand-app-icon" alt="beIN">
+                <h3 class="text-xl font-bold mb-4">beIN Sports</h3>
+                <div class="btn-vip">beIN Packages</div>
             </div>
-            <div class="vip-card shadow-2xl">
-                <div class="brand-name text-red-600">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/OSN_Logo.svg/512px-OSN_Logo.svg.png" class="brand-app-icon" alt="OSN Plus Subscription - DeSina VIP Deals">
-                    <span>OSN+</span>
-                </div>
-                <a href="#" class="btn-vip">OSN+ Subscription</a>
+            <div class="vip-card" onclick="checkAffiliate('OSN+')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/OSN_Logo.svg/512px-OSN_Logo.svg.png" class="brand-app-icon" alt="OSN">
+                <h3 class="text-xl font-bold mb-4">OSN+</h3>
+                <div class="btn-vip">Subscribe to OSN+</div>
             </div>
         </div>
 
-        <div class="section-divider">
-            <h2 class="text-2xl font-bold">Shopping & Electronics</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div class="vip-card shadow-2xl">
-                <div class="brand-name">
-                    <img src="https://img.icons8.com/color/512/amazon.png" class="brand-app-icon" alt="Exclusive Amazon Deals via DeSina">
-                    <span>Amazon</span>
-                </div>
-                <a href="#" class="btn-vip">Amazon Deals</a>
+        <div class="section-divider"><h2 class="text-2xl md:text-3xl font-black">Shopping & Electronics</h2></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="vip-card" onclick="checkAffiliate('Amazon')">
+                <img src="https://img.icons8.com/color/512/amazon.png" class="brand-app-icon" alt="Amazon">
+                <h3 class="text-xl font-bold mb-4">Amazon</h3>
+                <div class="btn-vip">Amazon Offers</div>
             </div>
-            <div class="vip-card shadow-2xl">
-                <div class="brand-name">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Noon_Logo.svg/512px-Noon_Logo.svg.png" class="brand-app-icon" alt="Shop Noon with Best Prices through DeSina">
-                    <span style="color: #feee00; background: #000; padding: 0 8px; border-radius: 5px;">noon</span>
-                </div>
-                <a href="#" class="btn-vip">Shop Noon</a>
-            </div>
-            <div class="vip-card shadow-2xl">
-                <div class="brand-name" style="color: #ff6900;">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Temu_logo.svg/512px-Temu_logo.svg.png" class="brand-app-icon" alt="Premium TEMU Offers from DeSina">
-                    <span>TEMU</span>
-                </div>
-                <a href="#" class="btn-vip">TEMU Deals</a>
-            </div>
-        </div>
-
-        <div class="section-divider">
-            <h2 class="text-2xl font-bold">Fashion & Lifestyle</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" class="fashion-logo" alt="Original Adidas Products - DeSina Partners">
-                <a href="#" class="btn-vip">Adidas Products</a>
-            </div>
-            <div class="vip-card shadow-2xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" class="fashion-logo" alt="Latest Zara Collection - DeSina VIP">
-                <a href="#" class="btn-vip">Zara Collection</a>
-            </div>
-        </div>
-
-    </main>
-
-    <footer class="py-10 text-center border-t border-gray-900 mt-10">
-        <p class="text-red-600 text-sm font-bold">All rights reserved to DeSina © 2026</p>
-    </footer>
-
-</body>
-</html>
+            <div class="vip-card" onclick="checkAffiliate('Noon')">
+                <div class="bg-black p-4 rounded-xl mb-4"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Noon_Logo.svg/512px-Noon_Logo.svg.png" class="h-8" alt="Noon
