@@ -18,23 +18,30 @@
     /></noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="DeSina Creative Content Creation: We provide professional visual production, cinematic video editing, and expert audio engineering. Elevate your digital presence with our innovative content solutions.">
-    <meta name="keywords" content="Content Creation, DeSina, Visual Production, Audio Engineering, Cinematic Video Editing, Digital Media, Professional Content, Creative Agency">
-    <title>Creative Content Creation | DeSina</title>
+    <title>Creative Content Production | DeSina</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg-body: #f8f9fa; --bg-nav: rgba(255, 255, 255, 0.8); --bg-card: #ffffff; --text-main: #0a0c10; --text-gray: #4b5563; --border-color: #e5e7eb; }
-        @media (prefers-color-scheme: dark) { :root { --bg-body: #0a0c10; --bg-nav: rgba(0, 0, 0, 0.8); --bg-card: #161b22; --text-main: #ffffff; --text-gray: #9ca3af; --border-color: #21262d; } }
-        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-body); color: var(--text-main); min-height: 100vh; transition: background 0.3s, color 0.3s; font-style: normal !important; }
+        :root { --bg-body: #f8f9fa; --bg-nav: rgba(255, 255, 255, 0.8); --bg-card: #ffffff; --text-main: #0a0c10; --border-color: #e5e7eb; }
+        @media (prefers-color-scheme: dark) { :root { --bg-body: #0a0c10; --bg-nav: rgba(0, 0, 0, 0.8); --bg-card: #161b22; --text-main: #ffffff; --border-color: #21262d; } }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: var(--text-main); transition: 0.3s; }
         nav { background-color: var(--bg-nav); border-bottom: 1px solid var(--border-color); }
-        .content-card { background: var(--bg-card); border-top: 4px solid #ef4444; transition: 0.3s; height: 100%; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: 24px; }
-        .content-card:hover { transform: translateY(-5px); box-shadow: 0 30px 12px rgba(239, 68, 68, 0.4); }
-        .media-container { width: 100%; border-radius: 15px; overflow: hidden; background: #000; }
-        .media-container iframe { width: 100% !important; border: none; height: 270px !important; }
-        .back-link { color: var(--text-main); }
-        .back-link:hover { color: #ef4444; }
+        
+        /* The Iconic Red Border-Top */
+        .content-card { 
+            background: var(--bg-card); 
+            border-top: 4px solid #ef4444; 
+            border-radius: 30px !important; 
+            transition: 0.3s; 
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .content-card:hover { transform: translateY(-5px); box-shadow: 0 30px 20px rgba(239, 68, 68, 0.2); }
+        
+        .anghami-container { width: 100%; border-radius: 15px; overflow: hidden; background: #000; }
+        .premium-player-fixed { width: 100%; height: 160px; border-radius: 15px; background: #111; border: 2px solid #222; }
         * { font-style: normal !important; }
     </style>
 </head>
@@ -42,56 +49,115 @@
 
     <nav class="p-4 sticky top-0 z-50 backdrop-blur-md">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="en.html" class="back-link font-bold flex items-center gap-2 transition">
-                <i class="fas fa-chevron-left"></i> Back to Home
-            </a>
-            <a href="en.html">
-                <img src="logo.jpg" style="height: 35px; border-radius: 5px; cursor: pointer;" alt="DeSina Logo - Professional Content Creation">
-            </a>
+            <a href="index.html" class="font-bold flex items-center gap-2 hover:text-red-600 transition"><i class="fas fa-chevron-left"></i> Back to Home</a>
+            <a href="index.html"><img src="logo.jpg" style="height: 35px; border-radius: 5px;"></a>
         </div>
     </nav>
 
-    <header class="py-16 text-center px-4">
-        <h1 class="text-4xl md:text-6xl font-extrabold text-red-600 mb-4">Content Creation</h1>
-        <p style="color: var(--text-gray);" class="text-lg md:text-xl max-w-2xl mx-auto">"Limitless creativity, from concept to execution."</p>
+    <header class="py-12 text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-black text-red-600 mb-4 uppercase tracking-tighter">Content Production</h1>
+        <p class="text-lg font-bold opacity-80 italic">"Limitless Creativity with <span class="uppercase">DeSina</span>"</p>
     </header>
 
     <main class="container mx-auto px-6 pb-20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
+
+        <h2 class="text-2xl font-black mb-10 text-red-600 border-l-4 border-red-600 pl-4 italic uppercase tracking-tight"><span class="uppercase">DeSina</span> Audio Library</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+            <div class="p-8 content-card shadow-2xl flex flex-col items-center">
+                <img src="logo.jpg" class="h-10 mb-6 rounded shadow-md">
+                <h2 class="text-xl font-bold mb-6 italic text-center">Arabic Classical</h2>
+                <audio controls class="premium-player-fixed"><source src="URL_HERE"></audio>
+            </div>
+            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center">
+                <img src="logo.jpg" class="h-10 mb-6 rounded shadow-md">
+                <h2 class="text-xl font-bold mb-6 uppercase italic">Global Hits</h2>
+                <audio controls class="premium-player-fixed"><source src="URL_HERE"></audio>
+            </div>
+            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center">
+                <img src="logo.jpg" class="h-10 mb-6 rounded shadow-md">
+                <h2 class="text-xl font-bold mb-6 italic">Folk Rhythms</h2>
+                <audio controls class="premium-player-fixed"><source src="URL_HERE"></audio>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-black mb-8 text-red-600 border-l-4 border-red-600 pl-4 italic uppercase tracking-tight">Live Streaming</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
             <div class="p-8 content-card shadow-2xl">
-                <div class="flex items-center gap-4 mb-8">
-                    <i class="fas fa-headphones-alt text-4xl text-red-600"></i>
-                    <div>
-                        <h2 class="text-2xl font-bold">Audio Production</h2>
-                        <p style="color: var(--text-gray);" class="text-sm">Professional audio engineering by DeSina</p>
-                    </div>
-                </div>
-
-                <div class="media-container">
-                    <iframe src="https://widget.anghami.com/playlist/252198952/?theme=fulldark&layout=list&lang=en" scrolling="no" frameborder="0" title="DeSina Audio Works on Anghami"></iframe>
+                <div class="flex items-center gap-4 mb-8"><i class="fas fa-headphones-alt text-4xl text-red-600"></i><div><h2 class="text-2xl font-bold italic">Audio Engineering</h2><p class="text-gray-500 text-sm italic uppercase tracking-widest">DeSina Audio Lab</p></div></div>
+                <div class="anghami-container">
+                    <iframe src="https://widget.anghami.com/playlist/252198952/?theme=fulldark&layout=list&lang=en" scrolling="no" frameborder="0" style="height: 270px !important; width: 100% !important;"></iframe>
                 </div>
             </div>
-
             <div class="p-8 content-card shadow-2xl flex flex-col justify-between">
-                <div class="flex items-center gap-4 mb-8">
-                    <i class="fas fa-film text-4xl text-red-600"></i>
-                    <div>
-                        <h2 class="text-2xl font-bold">Visual Production</h2>
-                        <p style="color: var(--text-gray);" class="text-sm">Cinematic editing and directing at DeSina</p>
-                    </div>
-                </div>
-                <div class="media-container">
-                   <iframe src="https://www.youtube.com/embed/Wh6l79aSbaY?autoplay=1&mute=1&loop=1&playlist=Wh6l79aSbaY&controls=1" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Visual Production Samples - DeSina Creative"></iframe>
+                <div class="flex items-center gap-4 mb-8"><i class="fas fa-film text-4xl text-red-600"></i><div><h2 class="text-2xl font-bold italic">Visual Arts</h2><p class="text-gray-500 text-sm italic uppercase tracking-widest">DeSina Visuals</p></div></div>
+                <div class="anghami-container">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/Wh6l79aSbaY?autoplay=1&mute=1&loop=1&playlist=Wh6l79aSbaY&controls=1" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen style="height: 270px !important;"></iframe>
                 </div>
             </div>
+        </div>
 
+        <h2 class="text-2xl font-black mb-10 text-red-600 border-l-4 border-red-600 pl-4 italic uppercase tracking-tight"><span class="uppercase">DeSina</span> Cinema</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center">
+                <img src="logo.jpg" class="h-10 mb-6 rounded shadow-md">
+                <h2 class="text-xl font-bold mb-6 italic">Arabic Cinema</h2>
+                <video controls class="premium-player-fixed"><source src="URL_HERE"></video>
+            </div>
+            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center">
+                <img src="logo.jpg" class="h-10 mb-6 rounded shadow-md">
+                <h2 class="text-xl font-bold mb-6 uppercase italic">International</h2>
+                <video controls class="premium-player-fixed"><source src="URL_HERE"></video>
+            </div>
+            <div class="p-8 content-card shadow-2xl flex flex-col items-center text-center">
+                <img src="logo.jpg" class="h-10 mb-6 rounded shadow-md">
+                <h2 class="text-xl font-bold mb-6 italic">Original Productions</h2>
+                <video controls class="premium-player-fixed"><source src="URL_HERE"></video>
+            </div>
         </div>
     </main>
 
-    <footer class="py-10 text-center border-t border-zinc-200 dark:border-zinc-900 mt-10">
-        <p class="text-red-600 text-sm font-bold">DeSina Creative © 2026 - All Rights Reserved</p>
+    <div id="vipMasterModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-1000">
+        <div class="bg-[#0a0c10] border-2 border-red-600 p-10 rounded-[40px] max-w-lg text-center shadow-[0_0_80px_rgba(239,68,68,0.6)] mx-4 relative overflow-hidden">
+            <i class="fas fa-crown text-6xl text-red-600 mb-6 animate-pulse"></i>
+            <h3 class="text-3xl font-black text-white mb-4 italic uppercase tracking-tighter">The Era of Listening is Over. <br> The Era of Privilege Begins.</h3>
+            <p class="text-gray-300 mb-10 text-lg leading-relaxed italic">
+                The world of <span class="text-red-600 font-bold uppercase">DeSina</span> has a face seen by all, and a soul opened only for the Elite. The VIP Library doesn't just offer exclusive content—it grants you access to details crafted specifically for the elite (Your exclusive gateway to high-tier ad content for global marketing and media platforms).
+            </p>
+            <div class="flex flex-col gap-4">
+                <a href="vip.html" class="bg-red-600 text-white py-5 rounded-2xl font-black text-xl hover:bg-white hover:text-red-600 transition-all duration-500 uppercase shadow-lg tracking-widest">Unlock VIP Secrets</a>
+                <button onclick="closeVipMasterModal()" class="text-gray-500 text-xs font-bold uppercase tracking-widest hover:text-red-500 transition-colors underline decoration-dotted">Continue Standard Experience</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-10 text-center border-t border-gray-900/10 mt-20 italic font-bold">
+        <p class="text-red-600 text-sm uppercase tracking-widest">DeSina Creative © 2026 - All Rights Reserved</p>
     </footer>
 
+    <script>
+        let trackCounter = 0; let videoTimer = null;
+        const TRACK_LIMIT = 2; const VIDEO_TIME_LIMIT = 12 * 60 * 1000; 
+
+        function showVipModal() {
+            const modal = document.getElementById('vipMasterModal');
+            if (modal) { modal.classList.remove('opacity-0', 'pointer-events-none'); modal.classList.add('opacity-100'); }
+        }
+
+        function closeVipMasterModal() {
+            const modal = document.getElementById('vipMasterModal');
+            modal.classList.add('opacity-0', 'pointer-events-none'); modal.classList.remove('opacity-100');
+            trackCounter = 0; clearTimeout(videoTimer);
+        }
+
+        document.querySelectorAll('audio, video').forEach(media => {
+            if (media.tagName === 'AUDIO') {
+                media.onended = () => { trackCounter++; if (trackCounter >= TRACK_LIMIT) showVipModal(); };
+            }
+            if (media.tagName === 'VIDEO') {
+                media.onplay = () => { videoTimer = setTimeout(showVipModal, VIDEO_TIME_LIMIT); };
+                media.onpause = () => clearTimeout(videoTimer);
+            }
+        });
+    </script>
 </body>
 </html>
