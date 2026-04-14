@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
 <head>
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://www.facebook.com; connect-src 'self' https://www.facebook.com;">
-
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -23,7 +22,9 @@
     <meta name="description" content="DeSina Global Catalog: Discover our premier fashion collections, innovative digital marketing solutions, and professional industrial garment services. Quality meets innovation.">
     <meta name="keywords" content="DeSina Catalog, Fashion Portfolio, Digital Services, Industrial Garments, DeSina Models, COD Models, Global Fashion Design">
     <title>DeSina | Official Global Catalog - Innovation & Style</title>
-    
+    <link rel="alternate" hreflang="ar" href="https://desinacom-web.github.io/desina/catalog.html">
+    <link rel="alternate" hreflang="en" href="https://desinacom-web.github.io/desina/en-catalog.html">
+    <link rel="alternate" hreflang="x-default" href="https://desinacom-web.github.io/desina/catalog.html">
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
@@ -48,7 +49,6 @@
     </style>
 </head>
 <body>
-
     <nav class="p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4">
             <div class="flex items-center gap-4">
@@ -63,77 +63,62 @@
             </div>
         </div>
     </nav>
-
     <header class="bg-gray-900 py-16 text-center text-white px-4">
         <h1 class="text-4xl md:text-5xl font-extrabold mb-4">DeSina <span class="text-red-600">Catalog</span></h1>
         <p class="text-gray-400">Discover our latest premium fashion collections and professional global services.</p>
     </header>
-
     <div class="flex flex-wrap justify-center gap-4 py-10 shadow-sm transition-colors" style="background-color: var(--bg-card);">
         <button onclick="filterSelection('all', this)" class="filter-btn" id="btn-all">All</button>
         <button onclick="filterSelection('fashion', this)" class="filter-btn" id="btn-fashion">Fashion</button>
         <button onclick="filterSelection('digital', this)" class="filter-btn">Digital Services</button>
         <button onclick="filterSelection('industrial', this)" class="filter-btn">Industrial Services</button>
     </div>
-
     <main class="container mx-auto px-6 py-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
             <article class="filter-item fashion catalog-card p-4">
                 <img src="cod1.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-01">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-01</h3>
             </article>
-
             <article class="filter-item fashion catalog-card p-4">
                 <img src="cod2.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-02">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-02</h3>
             </article>
-
             <article class="filter-item fashion catalog-card p-4">
                 <img src="cod3.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-03">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-03</h3>
             </article>
-
             <article class="filter-item fashion catalog-card p-4">
                 <img src="cod4.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-04">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-04</h3>
             </article>
-
             <article class="filter-item fashion catalog-card p-4">
                 <img src="cod5.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-05">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-05</h3>
             </article>
-
             <article class="filter-item fashion catalog-card p-4">
                 <img src="cod6.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-06">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-06</h3>
             </article>
-
             <article class="filter-item fashion catalog-card p-4">
                 <img src="cod7.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-07">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-07</h3>
             </article>
-
             <article class="filter-item fashion catalog-card p-4">
                 <img src="cod8.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-08">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-08</h3>
             </article>
-
             <article class="filter-item fashion catalog-card p-4">
                 <img src="cod9.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-09">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-09</h3>
             </article>
-
             <article class="filter-item fashion catalog-card p-4">
                 <img src="cod10.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-10">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-10</h3>
             </article>
-
             <article class="filter-item fashion catalog-card p-4">
                 <img src="cod11.jpeg" class="w-full h-80 object-cover rounded-xl mb-4" alt="DeSina Model COD-11">
                 <h3 class="text-center font-bold text-xl">Youth Model COD-11</h3>
             </article>
-
             <div class="filter-item digital bg-white p-8 rounded-2xl shadow-lg border-t-4 border-blue-600 text-center catalog-card">
                 <h3 class="text-xl font-bold">Digital Services</h3>
                 <p class="opacity-70 mt-2">Coming Soon to DeSina Group...</p>
@@ -142,10 +127,8 @@
                 <h3 class="text-xl font-bold">Industrial Services</h3>
                 <p class="opacity-70 mt-2">Coming Soon to DeSina Group...</p>
             </div>
-
         </div>
     </main>
-
     <footer class="bg-gray-950 text-white py-16 px-6 text-center border-t border-gray-800">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
@@ -163,7 +146,6 @@
             </div>
         </div>
     </footer>
-
     <script>
         function filterSelection(c, btn) {
           var x, i, btns;
