@@ -45,6 +45,25 @@
         .service-card:hover { transform: translateY(-10px); }
         .footer-interactive-link { color: #d1d5db; transition: color 0.3s; }
         .footer-interactive-link:hover { color: #ef4444 !important; }
+
+        /* Slim Language Button Style */
+        .lang-switch-btn {
+            background: linear-gradient(45deg, #ef4444, #000);
+            color: white !important;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-decoration: none !important;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+        .lang-switch-btn:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
+
         @media (prefers-color-scheme: dark) {
             body { background-color: #0a0c10; color: #f3f4f6; }
             nav { background-color: #111111 !important; border-bottom: none !important; }
@@ -62,11 +81,15 @@
             .text-gray-600 { color: #9ca3af !important; }
         }
         .cart-icon { color: #ef4444; font-size: 22px; position: relative; transition: 0.3s; display: flex; align-items: center; }
+        
         @media (min-width: 769px) {
             #mobile-menu { display: flex !important; position: static; background: none; box-shadow: none; width: auto; padding: 0; flex-direction: row; }
             .burger-icon { display: none !important; }
         }
         @media (max-width: 768px) {
+            /* إخفاء الزرار من الناف بار في الموبايل لعدم التزاحم */
+            .nav-lang-desktop { display: none !important; }
+            
             .hero-section { height: 75vh !important; min-height: 420px !important; padding-top: 15px !important; }
             .hero-logo { height: 80px !important; margin-bottom: 5px !important; margin-top: -30px !important; }
             .hero-section h1 { font-size: 1.6rem !important; margin-bottom: 5px !important; line-height: 1.1 !important; }
@@ -100,6 +123,8 @@
             <div class="flex items-center gap-6">
                 <a href="index.html" aria-label="العودة للصفحة الرئيسية لديسينا"><img src="logo.jpg" class="main-logo" alt="لوجو براند ديسينا - DeSina Logo"></a>
                 <div id="mobile-menu" class="hidden md:flex items-center gap-8 border-r-0 md:border-r-2 md:pr-6 border-gray-200">
+                    <a href="en.html" class="md:hidden lang-switch-btn mx-2 my-2"><i class="fas fa-globe"></i> English</a>
+                    
                     <a href="store.html" aria-label="زيارة متجر ديسينا" class="product-link menu-item"><i class="fas fa-shopping-cart"></i> المتجر</a>
                     <a href="catalog.html" class="nav-link menu-item">الكتالوج</a>
                     <a href="#digital-services" class="nav-link menu-item">الرقمية</a>
@@ -108,12 +133,16 @@
                     <a href="privacy-policy.html" class="nav-link menu-item" style="font-size: 12px;">سياسة الخصوصية</a>
                     <a href="about.html" class="nav-link menu-item">حول</a>
                     <a href="#contact" class="nav-link menu-item">اتصل بنا</a>
-                    <a href="en.html" class="text-blue-600 font-bold md:hidden menu-item">English</a>
                 </div>
             </div>
             <div class="flex items-center gap-4">
+                <div class="nav-lang-desktop hidden md:block border-l-2 pl-4 border-gray-200">
+                    <a href="en.html" class="lang-switch-btn">
+                        <i class="fas fa-globe"></i> <span>English</span>
+                    </a>
+                </div>
+
                 <a href="store.html" class="hidden md:block cart-icon mr-2" aria-label="عربة التسوق"><i class="fas fa-shopping-cart"></i></a>
-                <a href="en.html" class="hidden md:block text-blue-600 font-bold border-l-2 pl-4 border-gray-200 hover:underline">English</a>
                 <a href="store.html" class="md:hidden cart-icon" aria-label="عربة التسوق"><i class="fas fa-shopping-cart"></i></a>
                 <div class="burger-icon md:hidden cursor-pointer" id="burger-btn" aria-label="فتح القائمة الرئيسية"><i class="fas fa-bars text-2xl text-gray-700"></i></div>
                 <div class="hidden md:block">
