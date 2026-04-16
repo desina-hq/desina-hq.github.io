@@ -49,14 +49,34 @@
             .bg-white { background-color: var(--nav-bg) !important; }
         }
         * { font-style: normal !important; }
+
+        /* Balanced Language Switcher */
+        .lang-switch {
+            background: linear-gradient(45deg, #ef4444, #000);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+            line-height: 1;
+        }
+        .lang-switch:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
     </style>
 </head>
 <body>
     <nav class="shadow-md p-3 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="flex items-center gap-6">
+            <div class="flex items-center gap-4">
                 <a href="en.html" aria-label="Back to Home">
                     <img src="logo.jpg" class="h-10 rounded-lg" style="cursor: pointer;" alt="DeSina Logo">
+                </a>
+                <a href="privacy-policy.html" class="lang-switch">
+                    <i class="fas fa-globe"></i> <span>العربية</span>
                 </a>
                 <div class="hidden md:flex items-center gap-8 border-l-2 pl-6 border-gray-200">
                     <a href="en.html" class="nav-link">Home</a>
