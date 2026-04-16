@@ -61,6 +61,24 @@
         .swal2-popup { background: #161b22 !important; color: #fff !important; border-radius: 25px !important; border: 1px solid #21262d !important; }
         .swal2-title { color: #ef4444 !important; font-weight: 900 !important; }
         .swal2-confirm { background-color: #ef4444 !important; border-radius: 30px !important; font-weight: 700 !important; padding: 12px 30px !important; }
+
+        /* Balanced Language Switcher */
+        .lang-switch {
+            background: linear-gradient(45deg, #ef4444, #000);
+            color: white !important;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+            line-height: 1;
+            text-decoration: none !important;
+        }
+        .lang-switch:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
     </style>
 </head>
 <body>
@@ -69,6 +87,11 @@
             <a href="en.html" class="text-white hover:text-red-500 font-bold flex items-center gap-2 transition whitespace-nowrap">
                 <i class="fas fa-chevron-left text-red-600"></i> Back to Home
             </a>
+
+            <a href="vip-ads.html" class="lang-switch">
+                <i class="fas fa-globe"></i> <span>العربية</span>
+            </a>
+
             <div class="flex items-center gap-3">
                 <span class="text-red-600 font-black text-xl md:text-2xl tracking-tighter hidden sm:inline">DeSina</span>
                 <a href="en.html"><img src="logo.jpg" class="h-10 rounded-lg border border-white/10" alt="DeSina Logo"></a>
