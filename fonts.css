@@ -1,4 +1,3 @@
-/* Cairo Family - 8 Weights */
 @font-face {
     font-family: 'Cairo';
     src: url('fonts/cairo-extralight.ttf') format('truetype');
@@ -40,7 +39,6 @@
     font-weight: 900;
 }
 
-/* Icons - (Merged for Performance) */
 @font-face {
     font-family: 'Font Awesome 5 Free';
     src: url('fonts/fa-solid-900.woff2') format('woff2'),
@@ -57,4 +55,13 @@
 
 body {
     font-family: 'Cairo', sans-serif !important;
+}
+
+.fab {
+    font-family: 'Font Awesome 5 Brands' !important;
+}
+
+.fas, .fa {
+    font-family: 'Font Awesome 5 Free' !important;
+    font-weight: 900 !important;
 }
