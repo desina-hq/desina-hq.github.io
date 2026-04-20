@@ -1,76 +1,60 @@
-/* Cairo Full Family - DeSina Kingdom */
+/* Cairo Family - 8 Weights */
 @font-face {
     font-family: 'Cairo';
     src: url('fonts/cairo-extralight.ttf') format('truetype');
     font-weight: 200;
-    font-display: swap;
 }
-
 @font-face {
     font-family: 'Cairo';
     src: url('fonts/cairo-light.ttf') format('truetype');
     font-weight: 300;
-    font-display: swap;
 }
-
 @font-face {
     font-family: 'Cairo';
     src: url('fonts/cairo-regular.ttf') format('truetype');
     font-weight: 400;
-    font-display: swap;
 }
-
 @font-face {
     font-family: 'Cairo';
     src: url('fonts/cairo-medium.ttf') format('truetype');
     font-weight: 500;
-    font-display: swap;
 }
-
 @font-face {
     font-family: 'Cairo';
     src: url('fonts/cairo-semibold.ttf') format('truetype');
     font-weight: 600;
-    font-display: swap;
 }
-
 @font-face {
     font-family: 'Cairo';
     src: url('fonts/cairo-bold.ttf') format('truetype');
     font-weight: 700;
-    font-display: swap;
 }
-
 @font-face {
     font-family: 'Cairo';
     src: url('fonts/cairo-extrabold.ttf') format('truetype');
     font-weight: 800;
-    font-display: swap;
 }
-
 @font-face {
     font-family: 'Cairo';
     src: url('fonts/cairo-black.ttf') format('truetype');
     font-weight: 900;
-    font-display: swap;
 }
 
-/* Icons - Font Awesome */
+/* Icons - (Merged for Performance) */
 @font-face {
     font-family: 'Font Awesome 5 Free';
-    src: url('fonts/fa-solid-900.woff2') format('woff2');
+    src: url('fonts/fa-solid-900.woff2') format('woff2'),
+         url('fonts/fa-solid-900.ttf') format('truetype');
     font-weight: 900;
-    font-display: swap;
 }
 
 @font-face {
     font-family: 'Font Awesome 5 Brands';
-    src: url('fonts/fa-brands-400.woff2') format('woff2');
+    src: url('fonts/fa-brands-400.woff2') format('woff2'),
+         url('fonts/fa-brands-400.ttf') format('truetype');
     font-weight: 400;
-    font-display: swap;
 }
 
-/* Default Apply */
 body {
     font-family: 'Cairo', sans-serif !important;
 }
