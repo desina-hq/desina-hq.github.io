@@ -841,39 +841,39 @@
       };
   }
   window.Element.prototype._x_toggleAndCascadeWithTransitions = function(el, value, show, hide) {
-    const nextTick2 = document.visibilityState === &quot;visible&quot; ? requestAnimationFrame : setTimeout;
-    let clickAwayCompatibleShow = () =&gt; nextTick2(show);
+    const nextTick2 = document.visibilityState === "visible" ? requestAnimationFrame : setTimeout;
+    let clickAwayCompatibleShow = () => nextTick2(show);
     if (value) {
-      if (el._x_transition &amp;&amp; (el._x_transition.enter || el._x_transition.leave)) {
-        el._x_transition.enter &amp;&amp; (Object.entries(el._x_transition.enter.during).length || Object.entries(el._x_transition.enter.start).length || Object.entries(el._x_transition.enter.end).length) ? el._x_transition.in(show) : clickAwayCompatibleShow();
+      if (el._x_transition && (el._x_transition.enter || el._x_transition.leave)) {
+        el._x_transition.enter && (Object.entries(el._x_transition.enter.during).length || Object.entries(el._x_transition.enter.start).length || Object.entries(el._x_transition.enter.end).length) ? el._x_transition.in(show) : clickAwayCompatibleShow();
       } else {
         el._x_transition ? el._x_transition.in(show) : clickAwayCompatibleShow();
       }
       return;
     }
-    el._x_hidePromise = el._x_transition ? new Promise((resolve, reject) =&gt; {
-      el._x_transition.out(() =&gt; {
-      }, () =&gt; resolve(hide));
-      el._x_transitioning &amp;&amp; el._x_transitioning.beforeCancel(() =&gt; reject({ isFromCancelledTransition: true }));
+    el._x_hidePromise = el._x_transition ? new Promise((resolve, reject) => {
+      el._x_transition.out(() => {
+      }, () => resolve(hide));
+      el._x_transitioning && el._x_transitioning.beforeCancel(() => reject({ isFromCancelledTransition: true }));
     }) : Promise.resolve(hide);
-    queueMicrotask(() =&gt; {
+    queueMicrotask(() => {
       let closest = closestHide(el);
       if (closest) {
         if (!closest._x_hideChildren)
           closest._x_hideChildren = [];
         closest._x_hideChildren.push(el);
       } else {
-        nextTick2(() =&gt; {
-          let hideAfterChildren = (el2) =&gt; {
+        nextTick2(() => {
+          let hideAfterChildren = (el2) => {
             let carry = Promise.all([
               el2._x_hidePromise,
               ...(el2._x_hideChildren || []).map(hideAfterChildren)
-            ]).then(([i]) =&gt; i?.());
+            ]).then(([i]) => i?.());
             delete el2._x_hidePromise;
             delete el2._x_hideChildren;
             return carry;
           };
-          hideAfterChildren(el).catch((e) =&gt; {
+          hideAfterChildren(el).catch((e) => {
             if (!e.isFromCancelledTransition)
               throw e;
           });
@@ -887,12 +887,12 @@
       return;
     return parent._x_hidePromise ? parent : closestHide(parent);
   }
-  function transition(el, setFunction, { during, start: start2, end } = {}, before = () =&gt; {
-  }, after = () =&gt; {
+  function transition(el, setFunction, { during, start: start2, end } = {}, before = () => {
+  }, after = () => {
   }) {
     if (el._x_transitioning)
       el._x_transitioning.cancel();
-    if (Object.keys(during).length === 0 &amp;&amp; Object.keys(start2).length === 0 &amp;&amp; Object.keys(end).length === 0) {
+    if (Object.keys(during).length === 0 && Object.keys(start2).length === 0 && Object.keys(end).length === 0) {
       before();
       after();
       return;
@@ -919,8 +919,8 @@
   }
   function performTransition(el, stages) {
     let interrupted, reachedBefore, reachedEnd;
-    let finish = once(() =&gt; {
-      mutateDom(() =&gt; {
+    let finish = once(() => {
+      mutateDom(() => {
         interrupted = true;
         if (!reachedBefore)
           stages.before();
@@ -948,26 +948,26 @@
       }),
       finish
     };
-    mutateDom(() =&gt; {
+    mutateDom(() => {
       stages.start();
       stages.during();
     });
     holdNextTicks();
-    requestAnimationFrame(() =&gt; {
+    requestAnimationFrame(() => {
       if (interrupted)
         return;
-      let duration = Number(getComputedStyle(el).transitionDuration.replace(/,.*/, &quot;&quot;).replace(&quot;s&quot;, &quot;&quot;)) * 1e3;
-      let delay = Number(getComputedStyle(el).transitionDelay.replace(/,.*/, &quot;&quot;).replace(&quot;s&quot;, &quot;&quot;)) * 1e3;
+      let duration = Number(getComputedStyle(el).transitionDuration.replace(/,.*/, "").replace("s", "")) * 1e3;
+      let delay = Number(getComputedStyle(el).transitionDelay.replace(/,.*/, "").replace("s", "")) * 1e3;
       if (duration === 0)
-        duration = Number(getComputedStyle(el).animationDuration.replace(&quot;s&quot;, &quot;&quot;)) * 1e3;
-      mutateDom(() =&gt; {
+        duration = Number(getComputedStyle(el).animationDuration.replace("s", "")) * 1e3;
+      mutateDom(() => {
         stages.before();
       });
       reachedBefore = true;
-      requestAnimationFrame(() =&gt; {
+      requestAnimationFrame(() => {
         if (interrupted)
           return;
-        mutateDom(() =&gt; {
+        mutateDom(() => {
           stages.end();
         });
         releaseNextTicks();
@@ -982,18 +982,18 @@
     const rawValue = modifiers[modifiers.indexOf(key) + 1];
     if (!rawValue)
       return fallback;
-    if (key === &quot;scale&quot;) {
+    if (key === "scale") {
       if (isNaN(rawValue))
         return fallback;
     }
-    if (key === &quot;duration&quot; || key === &quot;delay&quot;) {
+    if (key === "duration" || key === "delay") {
       let match = rawValue.match(/([0-9]+)ms/);
       if (match)
         return match[1];
     }
-    if (key === &quot;origin&quot;) {
-      if ([&quot;top&quot;, &quot;right&quot;, &quot;left&quot;, &quot;center&quot;, &quot;bottom&quot;].includes(modifiers[modifiers.indexOf(key) + 2])) {
-        return [rawValue, modifiers[modifiers.indexOf(key) + 2]].join(&quot; &quot;);
+    if (key === "origin") {
+      if (["top", "right", "left", "center", "bottom"].includes(modifiers[modifiers.indexOf(key) + 2])) {
+        return [rawValue, modifiers[modifiers.indexOf(key) + 2]].join(" ");
       }
     }
     return rawValue;
@@ -1001,23 +1001,23 @@
 
   // packages/alpinejs/src/clone.js
   var isCloning = false;
-  function skipDuringClone(callback, fallback = () =&gt; {
+  function skipDuringClone(callback, fallback = () => {
   }) {
-    return (...args) =&gt; isCloning ? fallback(...args) : callback(...args);
+    return (...args) => isCloning ? fallback(...args) : callback(...args);
   }
   function onlyDuringClone(callback) {
-    return (...args) =&gt; isCloning &amp;&amp; callback(...args);
+    return (...args) => isCloning && callback(...args);
   }
   var interceptors = [];
   function interceptClone(callback) {
     interceptors.push(callback);
   }
   function cloneNode(from, to) {
-    interceptors.forEach((i) =&gt; i(from, to));
+    interceptors.forEach((i) => i(from, to));
     isCloning = true;
-    dontRegisterReactiveSideEffects(() =&gt; {
-      initTree(to, (el, callback) =&gt; {
-        callback(el, () =&gt; {
+    dontRegisterReactiveSideEffects(() => {
+      initTree(to, (el, callback) => {
+        callback(el, () => {
         });
       });
     });
@@ -1029,7 +1029,7 @@
       newEl._x_dataStack = oldEl._x_dataStack;
     isCloning = true;
     isCloningLegacy = true;
-    dontRegisterReactiveSideEffects(() =&gt; {
+    dontRegisterReactiveSideEffects(() => {
       cloneTree(newEl);
     });
     isCloning = false;
@@ -1037,9 +1037,9 @@
   }
   function cloneTree(el) {
     let hasRunThroughFirstEl = false;
-    let shallowWalker = (el2, callback) =&gt; {
-      walk(el2, (el3, skip) =&gt; {
-        if (hasRunThroughFirstEl &amp;&amp; isRoot(el3))
+    let shallowWalker = (el2, callback) => {
+      walk(el2, (el3, skip) => {
+        if (hasRunThroughFirstEl && isRoot(el3))
           return skip();
         hasRunThroughFirstEl = true;
         callback(el3, skip);
