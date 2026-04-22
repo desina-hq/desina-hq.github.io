@@ -938,16 +938,16 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function setStylesFromString(el, value) {
     let cache = el.getAttribute("style", value);
     el.setAttribute("style", value);
-    return () =< {
-      el.setAttribute(&quot;style&quot;, cache || &quot;&quot;);
+    return () => {
+      el.setAttribute("style", cache || "");
     };
   }
   function kebabCase(subject) {
-    return subject.replace(/([a-z])([A-Z])/g, &quot;$1-$2&quot;).toLowerCase();
+    return subject.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
   }
 
   // packages/alpinejs/src/utils/once.js
-  function once(callback, fallback = () =< {
+  function once(callback, fallback = () => {
   }) {
     let called = false;
     return function() {
@@ -961,36 +961,36 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
 
   // packages/alpinejs/src/directives/x-transition.js
-  directive(&quot;transition&quot;, (el, { value, modifiers, expression }, { evaluate: evaluate2 }) =< {
-    if (typeof expression === &quot;function&quot;)
+  directive("transition", (el, { value, modifiers, expression }, { evaluate: evaluate2 }) => {
+    if (typeof expression === "function")
       expression = evaluate2(expression);
     if (expression === false)
       return;
-    if (!expression || typeof expression === &quot;boolean&quot;) {
+    if (!expression || typeof expression === "boolean") {
       registerTransitionsFromHelper(el, modifiers, value);
     } else {
       registerTransitionsFromClassString(el, expression, value);
     }
   });
   function registerTransitionsFromClassString(el, classString, stage) {
-    registerTransitionObject(el, setClasses, &quot;&quot;);
+    registerTransitionObject(el, setClasses, "");
     let directiveStorageMap = {
-      &quot;enter&quot;: (classes) =< {
+      "enter": (classes) => {
         el._x_transition.enter.during = classes;
       },
-      &quot;enter-start&quot;: (classes) =< {
+      "enter-start": (classes) => {
         el._x_transition.enter.start = classes;
       },
-      &quot;enter-end&quot;: (classes) =< {
+      "enter-end": (classes) => {
         el._x_transition.enter.end = classes;
       },
-      &quot;leave&quot;: (classes) =< {
+      "leave": (classes) => {
         el._x_transition.leave.during = classes;
       },
-      &quot;leave-start&quot;: (classes) =< {
+      "leave-start": (classes) => {
         el._x_transition.leave.start = classes;
       },
-      &quot;leave-end&quot;: (classes) =< {
+      "leave-end": (classes) => {
         el._x_transition.leave.end = classes;
       }
     };
@@ -998,25 +998,25 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function registerTransitionsFromHelper(el, modifiers, stage) {
     registerTransitionObject(el, setStyles);
-    let doesntSpecify = !modifiers.includes(&quot;in&quot;) && !modifiers.includes(&quot;out&quot;) && !stage;
-    let transitioningIn = doesntSpecify || modifiers.includes(&quot;in&quot;) || [&quot;enter&quot;].includes(stage);
-    let transitioningOut = doesntSpecify || modifiers.includes(&quot;out&quot;) || [&quot;leave&quot;].includes(stage);
-    if (modifiers.includes(&quot;in&quot;) && !doesntSpecify) {
-      modifiers = modifiers.filter((i, index) =< index < modifiers.indexOf(&quot;out&quot;));
+    let doesntSpecify = !modifiers.includes("in") && !modifiers.includes("out") && !stage;
+    let transitioningIn = doesntSpecify || modifiers.includes("in") || ["enter"].includes(stage);
+    let transitioningOut = doesntSpecify || modifiers.includes("out") || ["leave"].includes(stage);
+    if (modifiers.includes("in") && !doesntSpecify) {
+      modifiers = modifiers.filter((i, index) => index < modifiers.indexOf("out"));
     }
-    if (modifiers.includes(&quot;out&quot;) && !doesntSpecify) {
-      modifiers = modifiers.filter((i, index) =< index < modifiers.indexOf(&quot;out&quot;));
+    if (modifiers.includes("out") && !doesntSpecify) {
+      modifiers = modifiers.filter((i, index) => index < modifiers.indexOf("out"));
     }
-    let wantsAll = !modifiers.includes(&quot;opacity&quot;) && !modifiers.includes(&quot;scale&quot;);
-    let wantsOpacity = wantsAll || modifiers.includes(&quot;opacity&quot;);
-    let wantsScale = wantsAll || modifiers.includes(&quot;scale&quot;);
+    let wantsAll = !modifiers.includes("opacity") && !modifiers.includes("scale");
+    let wantsOpacity = wantsAll || modifiers.includes("opacity");
+    let wantsScale = wantsAll || modifiers.includes("scale");
     let opacityValue = wantsOpacity ? 0 : 1;
-    let scaleValue = wantsScale ? modifierValue(modifiers, &quot;scale&quot;, 95) / 100 : 1;
-    let delay = modifierValue(modifiers, &quot;delay&quot;, 0) / 1e3;
-    let origin = modifierValue(modifiers, &quot;origin&quot;, &quot;center&quot;);
-    let property = &quot;opacity, transform&quot;;
-    let durationIn = modifierValue(modifiers, &quot;duration&quot;, 150) / 1e3;
-    let durationOut = modifierValue(modifiers, &quot;duration&quot;, 75) / 1e3;
+    let scaleValue = wantsScale ? modifierValue(modifiers, "scale", 95) / 100 : 1;
+    let delay = modifierValue(modifiers, "delay", 0) / 1e3;
+    let origin = modifierValue(modifiers, "origin", "center");
+    let property = "opacity, transform";
+    let durationIn = modifierValue(modifiers, "duration", 150) / 1e3;
+    let durationOut = modifierValue(modifiers, "duration", 75) / 1e3;
     let easing = `cubic-bezier(0.4, 0.0, 0.2, 1)`;
     if (transitioningIn) {
       el._x_transition.enter.during = {
