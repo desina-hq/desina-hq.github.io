@@ -349,7 +349,7 @@ function elementBoundEffect(el) {
           if (isObject2(value) && value !== obj && !(value instanceof Element)) {
             recurse(value, path);
        }
-      });
+      };
     };
     return recurse(data2);
   }
