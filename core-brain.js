@@ -17,11 +17,11 @@ gtag('config', 'UA-140352188-1');
   }
   function dequeueJob(job) {
     let index = queue.indexOf(job);
-    if (index !== -1 &amp;&amp; index &gt; lastFlushedIndex)
+    if (index !== -1 && index &gt; lastFlushedIndex)
       queue.splice(index, 1);
   }
   function queueFlush() {
-    if (!flushing &amp;&amp; !flushPending) {
+    if (!flushing && !flushPending) {
       flushPending = true;
       queueMicrotask(flushJobs);
     }
@@ -29,7 +29,7 @@ gtag('config', 'UA-140352188-1');
   function flushJobs() {
     flushPending = false;
     flushing = true;
-    for (let i = 0; i &lt; queue.length; i++) {
+    for (let i = 0; i < queue.length; i++) {
       queue[i]();
       lastFlushedIndex = i;
     }
@@ -163,7 +163,7 @@ gtag('config', 'UA-140352188-1');
   var queuedMutations = [];
   function flushObserver() {
     let records = observer.takeRecords();
-    queuedMutations.push(() =&gt; records.length &gt; 0 &amp;&amp; onMutate(records));
+    queuedMutations.push(() =&gt; records.length &gt; 0 && onMutate(records));
     let queueLengthWhenTriggered = queuedMutations.length;
     queueMicrotask(() =&gt; {
       if (queuedMutations.length === queueLengthWhenTriggered) {
@@ -199,12 +199,12 @@ gtag('config', 'UA-140352188-1');
     let removedNodes = /* @__PURE__ */ new Set();
     let addedAttributes = /* @__PURE__ */ new Map();
     let removedAttributes = /* @__PURE__ */ new Map();
-    for (let i = 0; i &lt; mutations.length; i++) {
+    for (let i = 0; i < mutations.length; i++) {
       if (mutations[i].target._x_ignoreMutationObserver)
         continue;
       if (mutations[i].type === &quot;childList&quot;) {
-        mutations[i].addedNodes.forEach((node) =&gt; node.nodeType === 1 &amp;&amp; addedNodes.add(node));
-        mutations[i].removedNodes.forEach((node) =&gt; node.nodeType === 1 &amp;&amp; removedNodes.add(node));
+        mutations[i].addedNodes.forEach((node) =&gt; node.nodeType === 1 && addedNodes.add(node));
+        mutations[i].removedNodes.forEach((node) =&gt; node.nodeType === 1 && removedNodes.add(node));
       }
       if (mutations[i].type === &quot;attributes&quot;) {
         let el = mutations[i].target;
@@ -220,7 +220,7 @@ gtag('config', 'UA-140352188-1');
             removedAttributes.set(el, []);
           removedAttributes.get(el).push(name);
         };
-        if (el.hasAttribute(name) &amp;&amp; oldValue === null) {
+        if (el.hasAttribute(name) && oldValue === null) {
           add2();
         } else if (el.hasAttribute(name)) {
           remove();
@@ -279,7 +279,7 @@ gtag('config', 'UA-140352188-1');
   function closestDataStack(node) {
     if (node._x_dataStack)
       return node._x_dataStack;
-    if (typeof ShadowRoot === &quot;function&quot; &amp;&amp; node instanceof ShadowRoot) {
+    if (typeof ShadowRoot === &quot;function&quot; && node instanceof ShadowRoot) {
       return closestDataStack(node.host);
     }
     if (!node.parentNode) {
@@ -319,7 +319,7 @@ gtag('config', 'UA-140352188-1');
         (obj) =&gt; Object.prototype.hasOwnProperty.call(obj, name)
       ) || objects[objects.length - 1];
       const descriptor = Object.getOwnPropertyDescriptor(target, name);
-      if (descriptor?.set &amp;&amp; descriptor?.get)
+      if (descriptor?.set && descriptor?.get)
         return descriptor.set.call(thisProxy, value) || true;
       return Reflect.set(target, name, value);
     }
@@ -334,18 +334,18 @@ gtag('config', 'UA-140352188-1');
 
   // packages/alpinejs/src/interceptor.js
   function initInterceptors(data2) {
-    let isObject2 = (val) =&gt; typeof val === &quot;object&quot; &amp;&amp; !Array.isArray(val) &amp;&amp; val !== null;
+    let isObject2 = (val) =&gt; typeof val === &quot;object&quot; && !Array.isArray(val) && val !== null;
     let recurse = (obj, basePath = &quot;&quot;) =&gt; {
       Object.entries(Object.getOwnPropertyDescriptors(obj)).forEach(([key, { value, enumerable }]) =&gt; {
         if (enumerable === false || value === void 0)
           return;
-        if (typeof value === &quot;object&quot; &amp;&amp; value !== null &amp;&amp; value.__v_skip)
+        if (typeof value === &quot;object&quot; && value !== null && value.__v_skip)
           return;
         let path = basePath === &quot;&quot; ? key : `${basePath}.${key}`;
-        if (typeof value === &quot;object&quot; &amp;&amp; value !== null &amp;&amp; value._x_interceptor) {
+        if (typeof value === &quot;object&quot; && value !== null && value._x_interceptor) {
           obj[key] = value.initialize(data2, path, key);
         } else {
-          if (isObject2(value) &amp;&amp; value !== obj &amp;&amp; !(value instanceof Element)) {
+          if (isObject2(value) && value !== obj && !(value instanceof Element)) {
             recurse(value, path);
           }
         }
@@ -364,7 +364,7 @@ gtag('config', 'UA-140352188-1');
     };
     mutateObj(obj);
     return (initialValue) =&gt; {
-      if (typeof initialValue === &quot;object&quot; &amp;&amp; initialValue !== null &amp;&amp; initialValue._x_interceptor) {
+      if (typeof initialValue === &quot;object&quot; && initialValue !== null && initialValue._x_interceptor) {
         let initialize = obj.initialize.bind(obj);
         obj.initialize = (data2, path, key) =&gt; {
           let innerValue = initialValue.initialize(data2, path, key);
@@ -525,14 +525,14 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     };
   }
   function runIfTypeOfFunction(receiver, value, scope2, params, el) {
-    if (shouldAutoEvaluateFunctions &amp;&amp; typeof value === &quot;function&quot;) {
+    if (shouldAutoEvaluateFunctions && typeof value === &quot;function&quot;) {
       let result = value.apply(scope2, params);
       if (result instanceof Promise) {
         result.then((i) =&gt; runIfTypeOfFunction(receiver, i, scope2, params)).catch((error2) =&gt; handleError(error2, el, value));
       } else {
         receiver(result);
       }
-    } else if (typeof value === &quot;object&quot; &amp;&amp; value instanceof Promise) {
+    } else if (typeof value === &quot;object&quot; && value instanceof Promise) {
       value.then((i) =&gt; receiver(i));
     } else {
       receiver(value);
@@ -633,7 +633,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     let fullHandler = () =&gt; {
       if (el._x_ignore || el._x_ignoreSelf)
         return;
-      handler4.inline &amp;&amp; handler4.inline(el, directive2, utilities);
+      handler4.inline && handler4.inline(el, directive2, utilities);
       handler4 = handler4.bind(handler4, el, directive2, utilities);
       isDeferringHandlers ? directiveHandlerStacks.get(currentHandlerStackKey).push(handler4) : handler4();
     };
@@ -719,7 +719,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
 
   // packages/alpinejs/src/utils/walk.js
   function walk(el, callback) {
-    if (typeof ShadowRoot === &quot;function&quot; &amp;&amp; el instanceof ShadowRoot) {
+    if (typeof ShadowRoot === &quot;function&quot; && el instanceof ShadowRoot) {
       Array.from(el.children).forEach((el2) =&gt; walk(el2, callback));
       return;
     }
@@ -746,7 +746,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
       warn(&quot;Alpine has already been initialized on this page. Calling Alpine.start() more than once can cause problems.&quot;);
     started = true;
     if (!document.body)
-      warn(&quot;Unable to initialize. Trying to load Alpine before `&lt;body&gt;` is available. Did you forget to add `defer` in Alpine&apos;s `&lt;script&gt;` tag?&quot;);
+      warn(&quot;Unable to initialize. Trying to load Alpine before `<body&gt;` is available. Did you forget to add `defer` in Alpine&apos;s `<script&gt;` tag?&quot;);
     dispatch(document, &quot;alpine:init&quot;);
     dispatch(document, &quot;alpine:initializing&quot;);
     startObservingMutations();
@@ -810,7 +810,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
         intercept(el2, skip);
         initInterceptors2.forEach((i) =&gt; i(el2, skip));
         directives(el2, el2.attributes).forEach((handle) =&gt; handle());
-        el2._x_ignore &amp;&amp; skip();
+        el2._x_ignore && skip();
       });
     });
   }
@@ -868,7 +868,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
   function setClasses(el, value) {
     if (Array.isArray(value)) {
       return setClassesFromString(el, value.join(&quot; &quot;));
-    } else if (typeof value === &quot;object&quot; &amp;&amp; value !== null) {
+    } else if (typeof value === &quot;object&quot; && value !== null) {
       return setClassesFromObject(el, value);
     } else if (typeof value === &quot;function&quot;) {
       return setClasses(el, value());
@@ -913,7 +913,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
 
   // packages/alpinejs/src/utils/styles.js
   function setStyles(el, value) {
-    if (typeof value === &quot;object&quot; &amp;&amp; value !== null) {
+    if (typeof value === &quot;object&quot; && value !== null) {
       return setStylesFromObject(el, value);
     }
     return setStylesFromString(el, value);
@@ -999,16 +999,16 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
   }
   function registerTransitionsFromHelper(el, modifiers, stage) {
     registerTransitionObject(el, setStyles);
-    let doesntSpecify = !modifiers.includes(&quot;in&quot;) &amp;&amp; !modifiers.includes(&quot;out&quot;) &amp;&amp; !stage;
+    let doesntSpecify = !modifiers.includes(&quot;in&quot;) && !modifiers.includes(&quot;out&quot;) && !stage;
     let transitioningIn = doesntSpecify || modifiers.includes(&quot;in&quot;) || [&quot;enter&quot;].includes(stage);
     let transitioningOut = doesntSpecify || modifiers.includes(&quot;out&quot;) || [&quot;leave&quot;].includes(stage);
-    if (modifiers.includes(&quot;in&quot;) &amp;&amp; !doesntSpecify) {
-      modifiers = modifiers.filter((i, index) =&gt; index &lt; modifiers.indexOf(&quot;out&quot;));
+    if (modifiers.includes(&quot;in&quot;) && !doesntSpecify) {
+      modifiers = modifiers.filter((i, index) =&gt; index < modifiers.indexOf(&quot;out&quot;));
     }
-    if (modifiers.includes(&quot;out&quot;) &amp;&amp; !doesntSpecify) {
+    if (modifiers.includes(&quot;out&quot;) && !doesntSpecify) {
       modifiers = modifiers.filter((i, index) =&gt; index &gt; modifiers.indexOf(&quot;out&quot;));
     }
-    let wantsAll = !modifiers.includes(&quot;opacity&quot;) &amp;&amp; !modifiers.includes(&quot;scale&quot;);
+    let wantsAll = !modifiers.includes(&quot;opacity&quot;) && !modifiers.includes(&quot;scale&quot;);
     let wantsOpacity = wantsAll || modifiers.includes(&quot;opacity&quot;);
     let wantsScale = wantsAll || modifiers.includes(&quot;scale&quot;);
     let opacityValue = wantsOpacity ? 0 : 1;
@@ -1083,8 +1083,8 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     const nextTick2 = document.visibilityState === &quot;visible&quot; ? requestAnimationFrame : setTimeout;
     let clickAwayCompatibleShow = () =&gt; nextTick2(show);
     if (value) {
-      if (el._x_transition &amp;&amp; (el._x_transition.enter || el._x_transition.leave)) {
-        el._x_transition.enter &amp;&amp; (Object.entries(el._x_transition.enter.during).length || Object.entries(el._x_transition.enter.start).length || Object.entries(el._x_transition.enter.end).length) ? el._x_transition.in(show) : clickAwayCompatibleShow();
+      if (el._x_transition && (el._x_transition.enter || el._x_transition.leave)) {
+        el._x_transition.enter && (Object.entries(el._x_transition.enter.during).length || Object.entries(el._x_transition.enter.start).length || Object.entries(el._x_transition.enter.end).length) ? el._x_transition.in(show) : clickAwayCompatibleShow();
       } else {
         el._x_transition ? el._x_transition.in(show) : clickAwayCompatibleShow();
       }
@@ -1093,7 +1093,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     el._x_hidePromise = el._x_transition ? new Promise((resolve, reject) =&gt; {
       el._x_transition.out(() =&gt; {
       }, () =&gt; resolve(hide));
-      el._x_transitioning &amp;&amp; el._x_transitioning.beforeCancel(() =&gt; reject({ isFromCancelledTransition: true }));
+      el._x_transitioning && el._x_transitioning.beforeCancel(() =&gt; reject({ isFromCancelledTransition: true }));
     }) : Promise.resolve(hide);
     queueMicrotask(() =&gt; {
       let closest = closestHide(el);
@@ -1131,7 +1131,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
   }) {
     if (el._x_transitioning)
       el._x_transitioning.cancel();
-    if (Object.keys(during).length === 0 &amp;&amp; Object.keys(start2).length === 0 &amp;&amp; Object.keys(end).length === 0) {
+    if (Object.keys(during).length === 0 && Object.keys(start2).length === 0 && Object.keys(end).length === 0) {
       before();
       after();
       return;
@@ -1245,7 +1245,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     return (...args) =&gt; isCloning ? fallback(...args) : callback(...args);
   }
   function onlyDuringClone(callback) {
-    return (...args) =&gt; isCloning &amp;&amp; callback(...args);
+    return (...args) =&gt; isCloning && callback(...args);
   }
   var interceptors = [];
   function interceptClone(callback) {
@@ -1278,7 +1278,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     let hasRunThroughFirstEl = false;
     let shallowWalker = (el2, callback) =&gt; {
       walk(el2, (el3, skip) =&gt; {
-        if (hasRunThroughFirstEl &amp;&amp; isRoot(el3))
+        if (hasRunThroughFirstEl && isRoot(el3))
           return skip();
         hasRunThroughFirstEl = true;
         callback(el3, skip);
@@ -1338,7 +1338,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     } else if (isCheckbox(el)) {
       if (Number.isInteger(value)) {
         el.value = value;
-      } else if (!Array.isArray(value) &amp;&amp; typeof value !== &quot;boolean&quot; &amp;&amp; ![null, void 0].includes(value)) {
+      } else if (!Array.isArray(value) && typeof value !== &quot;boolean&quot; && ![null, void 0].includes(value)) {
         el.value = String(value);
       } else {
         if (Array.isArray(value)) {
@@ -1370,7 +1370,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     setPropertyIfChanged(el, name, value);
   }
   function bindAttribute(el, name, value) {
-    if ([null, void 0, false].includes(value) &amp;&amp; attributeShouldntBePreservedIfFalsy(name)) {
+    if ([null, void 0, false].includes(value) && attributeShouldntBePreservedIfFalsy(name)) {
       el.removeAttribute(name);
     } else {
       if (isBooleanAttr(name))
@@ -1447,14 +1447,14 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     return ![&quot;aria-pressed&quot;, &quot;aria-checked&quot;, &quot;aria-expanded&quot;, &quot;aria-selected&quot;].includes(name);
   }
   function getBinding(el, name, fallback) {
-    if (el._x_bindings &amp;&amp; el._x_bindings[name] !== void 0)
+    if (el._x_bindings && el._x_bindings[name] !== void 0)
       return el._x_bindings[name];
     return getAttributeBinding(el, name, fallback);
   }
   function extractProp(el, name, fallback, extract = true) {
-    if (el._x_bindings &amp;&amp; el._x_bindings[name] !== void 0)
+    if (el._x_bindings && el._x_bindings[name] !== void 0)
       return el._x_bindings[name];
-    if (el._x_inlineBindings &amp;&amp; el._x_inlineBindings[name] !== void 0) {
+    if (el._x_inlineBindings && el._x_inlineBindings[name] !== void 0) {
       let binding = el._x_inlineBindings[name];
       binding.extract = extract;
       return dontAutoEvaluateFunctions(() =&gt; {
@@ -1559,7 +1559,7 @@ ${expression ? &apos;Expression: &quot;&apos; + expression + &apos;&quot;\n\n&ap
     }
     stores[name] = value;
     initInterceptors(stores[name]);
-    if (typeof value === &quot;object&quot; &amp;&amp; value !== null &amp;&amp; value.hasOwnProperty(&quot;init&quot;) &amp;&amp; typeof value.init === &quot;function&quot;) {
+    if (typeof value === &quot;object&quot; && value !== null && value.hasOwnProperty(&quot;init&quot;) && typeof value.init === &quot;function&quot;) {
       stores[name].init();
     }
   }
