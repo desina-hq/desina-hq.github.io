@@ -1047,7 +1047,7 @@
     };
     initTree(el, shallowWalker);
   }
-  function dontRegisterReactiveSideEffects(callback) {
+ function dontRegisterReactiveSideEffects(callback) {
     let cache = effect;
     overrideEffect((callback2, el) => {
       let storedEffect = cache(callback2);
@@ -1351,3 +1351,21 @@
       });
     });
   }
+
+  // القفلة النهائية للمحرك (Alpine Default)
+  var alpine_default = {
+    start,
+    store,
+    magic,
+    directive,
+    plugin,
+    nextTick,
+    prefix,
+    evaluate,
+    setReactivityEngine,
+    mutateDom
+  };
+
+  window.Alpine = alpine_default;
+  alpine_default.start();
+})(); 
