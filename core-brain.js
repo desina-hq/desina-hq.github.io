@@ -52,7 +52,7 @@ gtag('config', 'UA-140352188-1');
   function setReactivityEngine(engine) {
     reactive = engine.reactive;
     release = engine.release;
-    effect = (callback) =< engine.effect(callback, { scheduler: (task) =< {
+    effect = (callback) = engine.effect(callback, { scheduler: (task) = {
       if (shouldSchedule) {
         scheduler(task);
       } else {
