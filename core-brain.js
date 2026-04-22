@@ -558,8 +558,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         }
         const pos = directiveOrder.indexOf(directive2);
         directiveOrder.splice(pos <= 0 ? pos : directiveOrder.indexOf("DEFAULT"), 0, name); 
-      }
-    };
+      };
   }
   function directiveExists(name) {
     return Object.keys(directiveHandlers).includes(name);
@@ -567,13 +566,13 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function directives(el, attributes, originalAttributeOverride) {
     attributes = Array.from(attributes);
     if (el._x_virtualDirectives) {
-      let vAttributes = Object.entries(el._x_virtualDirectives).map(([name, value]) =< ({ name, value }));
+      let vAttributes = Object.entries(el._x_virtualDirectives).map(([name, value]) => ({ name, value }));
       let staticAttributes = attributesOnly(vAttributes);
-      vAttributes = vAttributes.map((attribute) =< {
-        if (staticAttributes.find((attr) =< attr.name === attribute.name)) {
+      vAttributes = vAttributes.map((attribute) => {
+        if (staticAttributes.find((attr) => attr.name === attribute.name)) {
           return {
             name: `x-bind:${attribute.name}`,
-            value: `&quot;${attribute.value}&quot;`
+            value: `"${attribute.value}"`
           };
         }
         return attribute;
@@ -581,13 +580,13 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       attributes = attributes.concat(vAttributes);
     }
     let transformedAttributeMap = {};
-    let directives2 = attributes.map(toTransformedAttributes((newName, oldName) =< transformedAttributeMap[newName] = oldName)).filter(outNonAlpineAttributes).map(toParsedDirectives(transformedAttributeMap, originalAttributeOverride)).sort(byPriority);
-    return directives2.map((directive2) =< {
+    let directives2 = attributes.map(toTransformedAttributes((newName, oldName) => transformedAttributeMap[newName] = oldName)).filter(outNonAlpineAttributes).map(toParsedDirectives(transformedAttributeMap, originalAttributeOverride)).sort(byPriority);
+    return directives2.map((directive2) => {
       return getDirectiveHandler(el, directive2);
     });
   }
   function attributesOnly(attributes) {
-    return Array.from(attributes).map(toTransformedAttributes()).filter((attr) =< !outNonAlpineAttributes(attr));
+    return Array.from(attributes).map(toTransformedAttributes()).filter((attr) => !outNonAlpineAttributes(attr));
   }
   var isDeferringHandlers = false;
   var directiveHandlerStacks = /* @__PURE__ */ new Map();
@@ -597,12 +596,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     let key = Symbol();
     currentHandlerStackKey = key;
     directiveHandlerStacks.set(key, []);
-    let flushHandlers = () =< {
+    let flushHandlers = () => {
       while (directiveHandlerStacks.get(key).length)
         directiveHandlerStacks.get(key).shift()();
       directiveHandlerStacks.delete(key);
     };
-    let stopDeferring = () =< {
+    let stopDeferring = () => {
       isDeferringHandlers = false;
       flushHandlers();
     };
@@ -611,7 +610,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function getElementBoundUtilities(el) {
     let cleanups = [];
-    let cleanup2 = (callback) =< cleanups.push(callback);
+    let cleanup2 = (callback) => cleanups.push(callback);
     let [effect3, cleanupEffect] = elementBoundEffect(el);
     cleanups.push(cleanupEffect);
     let utilities = {
@@ -621,11 +620,11 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       evaluateLater: evaluateLater.bind(evaluateLater, el),
       evaluate: evaluate.bind(evaluate, el)
     };
-    let doCleanup = () =< cleanups.forEach((i) =< i());
+    let doCleanup = () => cleanups.forEach((i) => i());
     return [utilities, doCleanup];
   }
   function getDirectiveHandler(el, directive2) {
-    let noop = () =< {
+    let noop = () => {
     };
     let handler4 = directiveHandlers[directive2.type] || noop;
     let [utilities, cleanup2] = getElementBoundUtilities(el);
