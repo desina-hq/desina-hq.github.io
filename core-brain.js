@@ -1002,20 +1002,20 @@
     return booleanAttributes.has(attrName);
   }
   function attributeShouldntBePreservedIfFalsy(name) {
-    return ![&quot;aria-pressed&quot;, &quot;aria-checked&quot;, &quot;aria-expanded&quot;, &quot;aria-selected&quot;].includes(name);
+    return !["aria-pressed", "aria-checked", "aria-expanded", "aria-selected"].includes(name);
   }
   function getBinding(el, name, fallback) {
-    if (el._x_bindings &amp;&amp; el._x_bindings[name] !== void 0)
+    if (el._x_bindings && el._x_bindings[name] !== void 0)
       return el._x_bindings[name];
     return getAttributeBinding(el, name, fallback);
   }
   function extractProp(el, name, fallback, extract = true) {
-    if (el._x_bindings &amp;&amp; el._x_bindings[name] !== void 0)
+    if (el._x_bindings && el._x_bindings[name] !== void 0)
       return el._x_bindings[name];
-    if (el._x_inlineBindings &amp;&amp; el._x_inlineBindings[name] !== void 0) {
+    if (el._x_inlineBindings && el._x_inlineBindings[name] !== void 0) {
       let binding = el._x_inlineBindings[name];
       binding.extract = extract;
-      return dontAutoEvaluateFunctions(() =&gt; {
+      return dontAutoEvaluateFunctions(() => {
         return evaluate(el, binding.expression);
       });
     }
@@ -1024,19 +1024,19 @@
   function getAttributeBinding(el, name, fallback) {
     let attr = el.getAttribute(name);
     if (attr === null)
-      return typeof fallback === &quot;function&quot; ? fallback() : fallback;
-    if (attr === &quot;&quot;)
+      return typeof fallback === "function" ? fallback() : fallback;
+    if (attr === "")
       return true;
     if (isBooleanAttr(name)) {
-      return !![name, &quot;true&quot;].includes(attr);
+      return !![name, "true"].includes(attr);
     }
     return attr;
   }
   function isCheckbox(el) {
-    return el.type === &quot;checkbox&quot; || el.localName === &quot;ui-checkbox&quot; || el.localName === &quot;ui-switch&quot;;
+    return el.type === "checkbox" || el.localName === "ui-checkbox" || el.localName === "ui-switch";
   }
   function isRadio(el) {
-    return el.type === &quot;radio&quot; || el.localName === &quot;ui-radio&quot;;
+    return el.type === "radio" || el.localName === "ui-radio";
   }
 
   // packages/alpinejs/src/utils/debounce.js
@@ -1061,7 +1061,7 @@
       if (!inThrottle) {
         func.apply(context, args);
         inThrottle = true;
-        setTimeout(() =&gt; inThrottle = false, limit);
+        setTimeout(() => inThrottle = false, limit);
       }
     };
   }
@@ -1071,7 +1071,7 @@
     let firstRun = true;
     let outerHash;
     let innerHash;
-    let reference = effect(() =&gt; {
+    let reference = effect(() => {
       let outer = outerGet();
       let inner = innerGet();
       if (firstRun) {
@@ -1084,24 +1084,23 @@
           innerSet(cloneIfObject(outer));
         } else if (outerHashLatest !== innerHashLatest) {
           outerSet(cloneIfObject(inner));
-        } else {
         }
       }
       outerHash = JSON.stringify(outerGet());
       innerHash = JSON.stringify(innerGet());
     });
-    return () =&gt; {
+    return () => {
       release(reference);
     };
   }
   function cloneIfObject(value) {
-    return typeof value === &quot;object&quot; ? JSON.parse(JSON.stringify(value)) : value;
+    return typeof value === "object" ? JSON.parse(JSON.stringify(value)) : value;
   }
 
   // packages/alpinejs/src/plugin.js
   function plugin(callback) {
     let callbacks = Array.isArray(callback) ? callback : [callback];
-    callbacks.forEach((i) =&gt; i(alpine_default));
+    callbacks.forEach((i) => i(alpine_default));
   }
 
   // packages/alpinejs/src/store.js
@@ -1117,7 +1116,7 @@
     }
     stores[name] = value;
     initInterceptors(stores[name]);
-    if (typeof value === &quot;object&quot; &amp;&amp; value !== null &amp;&amp; value.hasOwnProperty(&quot;init&quot;) &amp;&amp; typeof value.init === &quot;function&quot;) {
+    if (typeof value === "object" && value !== null && value.hasOwnProperty("init") && typeof value.init === "function") {
       stores[name].init();
     }
   }
@@ -1128,21 +1127,37 @@
   // packages/alpinejs/src/binds.js
   var binds = {};
   function bind2(name, bindings) {
-    let getBindings = typeof bindings !== &quot;function&quot; ? () =&gt; bindings : bindings;
+    let getBindings = typeof bindings !== "function" ? () => bindings : bindings;
     if (name instanceof Element) {
       return applyBindingsObject(name, getBindings());
     } else {
       binds[name] = getBindings;
     }
-    return () =&gt; {
-    };
+    return () => {};
   }
   function injectBindingProviders(obj) {
-    Object.entries(binds).forEach(([name, callback]) =&gt; {
+    Object.entries(binds).forEach(([name, callback]) => {
       Object.defineProperty(obj, name, {
         get() {
-          return (...args) =&gt; {
+          return (...args) => {
             return callback(...args);
           };
         }
-</div></div></div></main></body></html>
+      });
+    });
+  }
+
+  // Final Export and Close
+  var alpine_default = {
+    start,
+    store,
+    plugin,
+    magic,
+    directive,
+    evaluate,
+    nextTick
+  };
+
+  window.Alpine = alpine_default;
+  alpine_default.start();
+})();
