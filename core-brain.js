@@ -1152,6 +1152,16 @@
     magics[name] = callback;
   }
 
+  // packages/alpinejs/src/utils/evaluate.js
+  function evaluate(el, expression, extras = {}) {
+    let result;
+    if (typeof expression === 'function') {
+      result = expression();
+      return result;
+    }
+    return result;
+  }
+
   // Final Export and Close
   var alpine_default = {
     start,
@@ -1160,7 +1170,7 @@
     magic,
     directive,
     evaluate,
-    nextTick
+    nextTick: (callback) => setTimeout(callback, 0)
   };
 
   window.Alpine = alpine_default;
