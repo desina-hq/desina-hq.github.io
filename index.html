@@ -21,19 +21,16 @@
     <link rel="alternate" hreflang="x-default" href="https://desina-hq.github.io/index.html">
     <link rel="icon" type="image/webp" href="logo.webp">
     <script>
-(function() {
+    // 1. جلب لغة الجهاز
     var userLang = navigator.language || navigator.userLanguage;
+    // 2. التحقق من القرار المخزن
     var userSelection = sessionStorage.getItem('languageSelection');
 
-    if (!userSelection) {
-        if (userLang.startsWith('ar')) {
-            sessionStorage.setItem('languageSelection', 'arabic');
-            location.href = "https://desina-hq.github.io/index-ar.html";
-        } else {
-            sessionStorage.setItem('languageSelection', 'english');
-        }
+    // 3. التنفيذ الفوري
+    if (!userSelection && userLang.startsWith('ar')) {
+        sessionStorage.setItem('languageSelection', 'arabic');
+        window.location.replace("https://desina-hq.github.io/index-ar.html");
     }
-})();
 </script>
     <script>
   window.addEventListener('load', function() {
