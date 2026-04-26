@@ -23,14 +23,22 @@
     <script>
 (function() {
     var userLang = navigator.language || navigator.userLanguage;
-    var comingFromAr = document.referrer.includes('index-ar.html');
+    
+    // التعديل هنا: بنشوف هل اليوزر "عبر" من النسخة العربي للإنجليزي قبل كدة؟
+    var hasSwitchToEn = sessionStorage.getItem('switchedToEn');
 
     if (userLang.startsWith('ar')) {
-        // 1. لو داخل جديد.. شحطه على العربي
-        if (!comingFromAr) {
-            location.href = "https://desina-hq.github.io/index-ar.html";
+        // 1. لو داخل جديد ومحولش إنجليزي بإيده.. شحطه على العربي
+        if (!hasSwitchToEn) {
+            // قبل ما نشحطه، نتأكد إنه مش جاي أصلاً من صفحة عربي (عشان اللوب)
+            if (!document.referrer.includes('index-ar.html')) {
+                location.href = "https://desina-hq.github.io/index-ar.html";
+            } else {
+                // لو هو جاي من صفحة عربي، علم علامة "الحصانة" إنه عايز إنجليزي
+                sessionStorage.setItem('switchedToEn', 'true');
+            }
         } 
-        // 2. لو هو في الإنجليزي دلوقتي (جاي من الزرار).. اخرس يا جوجل وما تترجمش
+        // 2. لو هو واخد حصانة (جاي من الزرار).. اخرس يا جوجل وما تترجمش
         else {
             var meta = document.createElement('meta');
             meta.name = 'google';
