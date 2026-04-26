@@ -22,6 +22,29 @@
     <link rel="alternate" hreflang="x-default" href="https://desina-hq.github.io/index.html">
     <link rel="icon" type="image/webp" href="logo.webp">
     <script>
+(function() {
+    // 1. جلب لغة الجهاز (عربي، ياباني، أي حاجة)
+    var userLang = navigator.language || navigator.userLanguage;
+    
+    // 2. التحقق هل اليوزر "غير اللغة يدوي" قبل كدة في الجلسة دي؟
+    var userSelection = sessionStore.getItem('languageSelection');
+
+    // 3. لو اليوزر لسه ملمسش زرار اللغة (أول مرة يدخل)
+    if (!userSelection) {
+        if (userLang.startsWith('ar')) {
+            // لو هو عربي.. وديه للنسخة العربي "مرة واحدة بس"
+            sessionStore.setItem('languageSelection', 'arabic'); // علمنا علامة إنه دخل خلاص
+            location.href = "https://desina-hq.github.io/index-ar.html";
+        } else {
+            // لو أي لغة تانية في الكوكب (ياباني، إنجليزي).. سيبه في الإنجليزي وعلم علامة
+            sessionStore.setItem('languageSelection', 'english');
+        }
+    }
+    // 4. لو اليوزر "عامل اختيار يدوي" (يعني حول إنجليزي بإيده).. الكود هنا "بيخرس" تماماً 
+    // ومش بيعمل أي Redirect مهما حصل عشان يحترم حرية المستخدم.
+})();
+</script>
+    <script>
   window.addEventListener('load', function() {
     setTimeout(function() {
       !function(f,b,e,v,n,t,s)
