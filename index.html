@@ -142,7 +142,7 @@
 </head>
 <body class="text-gray-900">
     <a href="https://wa.me/201102919214" class="whatsapp-float" target="_blank" aria-label="Contact us on WhatsApp for DeSina services"><i class="fab fa-whatsapp"></i></a>
-    <div id="music-toggle" onclick="handleMusicToggle()" aria-label="Play background music" class="fixed bottom-5 left-5 bg-black text-white p-3 rounded-full shadow-lg cursor-pointer z-50">
+    <div id="music-toggle" role="button" onclick="handleMusicToggle()" aria-label="Play background music" class="fixed bottom-5 left-5 bg-black text-white p-3 rounded-full shadow-lg cursor-pointer z-50">
    <i id="music-icon" class="fas fa-music"></i>
 </div>
     <audio id="bg-audio" loop preload="auto" playsinline><source src="bg-music.mp3" type="audio/mpeg"></audio>
@@ -172,7 +172,9 @@
                     <a href="index-ar.html" class="lang-btn-slim">AR</a>
                 </div>
                 <a href="en-store.html" class="md:hidden cart-icon" aria-label="Shopping Cart"><i class="fas fa-shopping-cart"></i></a>
-                <div class="burger-icon md:hidden cursor-pointer" id="burger-btn" aria-label="Open Menu"><i class="fas fa-bars text-2xl text-gray-700"></i></div>
+                <div class="burger-icon md:hidden cursor-pointer" id="burger-btn" role="button" aria-label="Open Menu">
+    <i class="fas fa-bars text-2xl text-gray-700"></i>
+</div>
                 <div class="hidden md:block">
                     <a href="https://wa.me/201102919214" target="_blank" class="bg-green-500 text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-green-600 transition shadow-sm">Contact Us <i class="fab fa-whatsapp"></i></a>
                 </div>
