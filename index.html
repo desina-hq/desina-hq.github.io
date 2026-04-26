@@ -22,16 +22,20 @@
     <link rel="icon" type="image/webp" href="logo.webp">
     <script>
 (function() {
-    // 1. شوف لغة الجهاز
     var userLang = navigator.language || navigator.userLanguage;
-    
-    // 2. شوف هل إحنا "حولناه" قبل كدة في الزيارة دي؟
-    // لو ملقاش العلامة دي، يبقى ده عميل لسه فاتح الموقع حالا
-    if (!sessionStorage.getItem('redirected')) {
-        if (userLang.startsWith('ar')) {
-            // علم علامة إننا حولناه خلاص عشان ميرجعش في لوب
-            sessionStorage.setItem('redirected', 'true');
-            window.location.replace("index-ar.html");
+    var comingFromAr = document.referrer.includes('index-ar.html');
+
+    if (userLang.startsWith('ar')) {
+        // 1. لو داخل جديد.. شحطه على العربي
+        if (!comingFromAr) {
+            location.href = "https://desina-hq.github.io/index-ar.html";
+        } 
+        // 2. لو هو في الإنجليزي دلوقتي (جاي من الزرار).. اخرس يا جوجل وما تترجمش
+        else {
+            var meta = document.createElement('meta');
+            meta.name = 'google';
+            meta.content = 'notranslate';
+            document.getElementsByTagName('head')[0].appendChild(meta);
         }
     }
 })();
