@@ -8,9 +8,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg-body: #0a0c10; --bg-nav: rgba(0, 0, 0, 0.8); --bg-card: #161b22; --text-main: #ffffff; --border-color: #21262d; }
+        /* إعدادات الألوان الذكية - أوتو مود */
+        :root { 
+            color-scheme: light dark;
+            --bg-body: #ffffff; 
+            --bg-nav: rgba(255, 255, 255, 0.8); 
+            --bg-card: #f8f9fa; 
+            --text-main: #1a1a1a; 
+            --border-color: #e5e7eb; 
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root { 
+                --bg-body: #0a0c10; 
+                --bg-nav: rgba(0, 0, 0, 0.8); 
+                --bg-card: #161b22; 
+                --text-main: #ffffff; 
+                --border-color: #21262d; 
+            }
+        }
+
         * { font-style: normal !important; font-family: 'Cairo', sans-serif; }
-        :root { color-scheme: dark light; }
         body { background-color: var(--bg-body); color: var(--text-main); transition: 0.3s; }
         nav { background-color: var(--bg-nav); border-bottom: 1px solid var(--border-color); }
         
@@ -23,9 +41,11 @@
             display: flex; flex-direction: column; align-items: center; text-align: center;
             padding-bottom: 40px;
         }
-        .content-card:hover { transform: translateY(-5px); box-shadow: 0 30px 20px rgba(239, 68, 68, 0.8); }
+        /* تعديل ظل الكارت ليتناسب مع المود الفاتح والغامق */
+        .content-card:hover { transform: translateY(-5px); box-shadow: 0 20px 20px rgba(239, 68, 68, 0.3); }
 
-        select { width: 100%; padding: 10px; border-radius: 12px; background: #000; color: #fff; border: 1px solid #ef4444; margin-top: 15px; cursor: pointer; }
+        /* جعل خلفية القوائم متناسقة مع المود */
+        select { width: 100%; padding: 10px; border-radius: 12px; background: var(--bg-card); color: var(--text-main); border: 1px solid #ef4444; margin-top: 15px; cursor: pointer; }
         #surahList { margin-top: 20px; }
 
         audio { outline: none; border: none; }
@@ -203,7 +223,6 @@
         surahSelect.onchange = function() {
             if(this.value) {
                 audioPlayer.src = this.value;
-                // تفعيل التحميل المستمر بأقصى طاقة (Turbo Buffer)
                 audioPlayer.load(); 
                 audioPlayer.play();
                 updateMediaSession();
