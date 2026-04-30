@@ -231,7 +231,7 @@
             this.classList.toggle('active');
         };
 
-        function updateMediaSession() {
+       function updateMediaSession() {
             if ('mediaSession' in navigator) {
                 navigator.mediaSession.metadata = new MediaMetadata({
                     title: surahSelect.options[surahSelect.selectedIndex].textContent,
@@ -239,8 +239,22 @@
                     album: 'DeSina Spiritual',
                     artwork: [{ src: 'logo.webp', sizes: '512x512', type: 'image/webp' }]
                 });
+
+                // تفعيل أزرار التحكم الخارجية (الموبايل واللاب توب)
+                navigator.mediaSession.setActionHandler('nexttrack', () => {
+                    document.getElementById('nextBtn').click();
+                });
+                navigator.mediaSession.setActionHandler('previoustrack', () => {
+                    document.getElementById('prevBtn').click();
+                });
+                navigator.mediaSession.setActionHandler('play', () => {
+                    audioPlayer.play();
+                });
+                navigator.mediaSession.setActionHandler('pause', () => {
+                    audioPlayer.pause();
+                });
             }
         }
     </script>
 </body>
-</html>
+</html> 
