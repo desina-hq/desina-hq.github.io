@@ -34,17 +34,16 @@
         
         .content-card { 
             background: var(--bg-card); 
-            border-top: 4px solid #ef4444; 
+            /* الشريط الأحمر ثابت هنا وممنوع يتمسح */
+            border-top: 4px solid #ef4444 !important; 
             border-radius: 30px !important; 
             transition: 0.3s; 
             border: 1px solid var(--border-color);
             display: flex; flex-direction: column; align-items: center; text-align: center;
             padding-bottom: 40px;
         }
-        /* تعديل ظل الكارت ليتناسب مع المود الفاتح والغامق */
         .content-card:hover { transform: translateY(-5px); box-shadow: 0 20px 20px rgba(239, 68, 68, 0.3); }
 
-        /* جعل خلفية القوائم متناسقة مع المود */
         select { width: 100%; padding: 10px; border-radius: 12px; background: var(--bg-card); color: var(--text-main); border: 1px solid #ef4444; margin-top: 15px; cursor: pointer; }
         #surahList { margin-top: 20px; }
 
