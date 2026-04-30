@@ -1,19 +1,22 @@
 {
-  "name": "DeSina",
+  "name": "DeSina HQ",
   "short_name": "DeSina",
-  "description": "DeSina Digital Business and Content Creation",
-  "lang": "ar",
-  "dir": "auto",
-  "start_url": "/index.html",
+  "start_url": ".",
   "display": "standalone",
-  "background_color": "#121212",
-  "theme_color": "#121212",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "icons": [
     {
-      "src": "logo-512.png",
+      "src": "icon-maskable.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
+    },
+    {
+      "src": "splash-rounded.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
